@@ -84,3 +84,5 @@ end
 
 gem "omniauth"
 gem "omniauth-github"
+
+require 'faker'
