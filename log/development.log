@@ -1596,3 +1596,389 @@ FOREIGN KEY ("product_id")
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   ↳ db/seeds.rb:44
   [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8263949505629717655)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddOauthParamToUsers (20190501233259)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (43.1ms)[0m  [1m[35mALTER TABLE "merchants" ADD "name" character varying[0m
+  ↳ db/migrate/20190501233259_add_oauth_param_to_users.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "merchants" ADD "uid" integer[0m
+  ↳ db/migrate/20190501233259_add_oauth_param_to_users.rb:4
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "merchants" ADD "provider" character varying[0m
+  ↳ db/migrate/20190501233259_add_oauth_param_to_users.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190501233259"]]
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to RenameCategoryproductTable (20190502212855)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "categories_products_joins" RENAME TO "categories_products"[0m
+  ↳ db/migrate/20190502212855_rename_categoryproduct_table.rb:3
+  [1m[35m (0.8ms)[0m  [1m[35mALTER INDEX "categories_products_joins_pkey" RENAME TO "categories_products_pkey"[0m
+  ↳ db/migrate/20190502212855_rename_categoryproduct_table.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "public"."categories_products_joins_id_seq" RENAME TO "categories_products_id_seq"[0m
+  ↳ db/migrate/20190502212855_rename_categoryproduct_table.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mALTER INDEX "index_categories_products_joins_on_category_id" RENAME TO "index_categories_products_on_category_id"[0m
+  ↳ db/migrate/20190502212855_rename_categoryproduct_table.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mALTER INDEX "index_categories_products_joins_on_product_id" RENAME TO "index_categories_products_on_product_id"[0m
+  ↳ db/migrate/20190502212855_rename_categoryproduct_table.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190502212855"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8263949505629717655)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "lucia"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "guy.leannon@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Create (0.6ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "lucia"], ["email", "guy.leannon@gmail.com"], ["created_at", "2019-05-02 22:01:48.955465"], ["updated_at", "2019-05-02 22:01:48.955465"], ["name", "Margarite Boyle"], ["uid", 78622643], ["provider", "github"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (40.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "stephan_swaniawski"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "galen@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Create (0.3ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "stephan_swaniawski"], ["email", "galen@gmail.com"], ["created_at", "2019-05-02 22:01:49.001194"], ["updated_at", "2019-05-02 22:01:49.001194"], ["name", "Dr. Marcellus Anderson"], ["uid", 30555925], ["provider", "github"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "francesco_sauer"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "tracey@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Create (0.3ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "francesco_sauer"], ["email", "tracey@gmail.com"], ["created_at", "2019-05-02 22:01:49.006660"], ["updated_at", "2019-05-02 22:01:49.006660"], ["name", "Berneice Hahn"], ["uid", 86454989], ["provider", "github"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "milton"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "vernon@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Create (0.3ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "milton"], ["email", "vernon@gmail.com"], ["created_at", "2019-05-02 22:01:49.011887"], ["updated_at", "2019-05-02 22:01:49.011887"], ["name", "Mrs. Yessenia Crooks"], ["uid", 77945222], ["provider", "github"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "stephan_steuber"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "deloise@hotmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Create (0.3ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "stephan_steuber"], ["email", "deloise@hotmail.com"], ["created_at", "2019-05-02 22:01:49.016903"], ["updated_at", "2019-05-02 22:01:49.016903"], ["name", "Neal Bechtelar"], ["uid", 87971976], ["provider", "github"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Exists (34.9ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Curry Mild"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Create (3.9ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Curry Mild"], ["price", 21991], ["description", "Aliquam qui repudiandae nostrum."], ["photo", "https://www.flickr.com/photos/67345249@N06/7519730426/in/photolist-csuzSA-UJQNe3-8o4tSN-32Fzza-qB8JZQ-qpwm9Z-qBfPrR-22TEdyt-Tx2D8K-Twnhx2-jHy3Ax-nVL4jX-5LiZeu-dEMrKG-8FpVZn-49f7Mi-7Cviom-2ckP8hh-jWaRL-5DKnq-dEMzvE-4J8ugU-5EQn-dbfsvz-ACeqh-qsFxU5-MBUg1-G895ky-4AWqMz-4m7o1q-UM3Rsx-5DA1QE-bxmYSY-2fx5cin-bxtBA3-4eps6x-dVtGXq-f8ptcA-9pGYXV-QisuaB-7HPiTH-ehBgDS-9qTUkT-4NptMG-pHenm-fJ2YYH-8GEcYH-6Rsv8H-2fx4hHH-opWRNd"], ["inventory", 10], ["created_at", "2019-05-02 22:01:49.095415"], ["updated_at", "2019-05-02 22:01:49.095415"], ["merchant_id", 1]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Thai Red Curry Mix"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Thai Red Curry Mix"], ["price", 25824], ["description", "Sit quia quae est."], ["photo", "https://www.flickr.com/photos/67345249@N06/7519730426/in/photolist-csuzSA-UJQNe3-8o4tSN-32Fzza-qB8JZQ-qpwm9Z-qBfPrR-22TEdyt-Tx2D8K-Twnhx2-jHy3Ax-nVL4jX-5LiZeu-dEMrKG-8FpVZn-49f7Mi-7Cviom-2ckP8hh-jWaRL-5DKnq-dEMzvE-4J8ugU-5EQn-dbfsvz-ACeqh-qsFxU5-MBUg1-G895ky-4AWqMz-4m7o1q-UM3Rsx-5DA1QE-bxmYSY-2fx5cin-bxtBA3-4eps6x-dVtGXq-f8ptcA-9pGYXV-QisuaB-7HPiTH-ehBgDS-9qTUkT-4NptMG-pHenm-fJ2YYH-8GEcYH-6Rsv8H-2fx4hHH-opWRNd"], ["inventory", 18], ["created_at", "2019-05-02 22:01:49.109193"], ["updated_at", "2019-05-02 22:01:49.109193"], ["merchant_id", 3]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Juniper Berries"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Juniper Berries"], ["price", 48447], ["description", "Commodi et vel nihil."], ["photo", "https://www.flickr.com/photos/67345249@N06/7519730426/in/photolist-csuzSA-UJQNe3-8o4tSN-32Fzza-qB8JZQ-qpwm9Z-qBfPrR-22TEdyt-Tx2D8K-Twnhx2-jHy3Ax-nVL4jX-5LiZeu-dEMrKG-8FpVZn-49f7Mi-7Cviom-2ckP8hh-jWaRL-5DKnq-dEMzvE-4J8ugU-5EQn-dbfsvz-ACeqh-qsFxU5-MBUg1-G895ky-4AWqMz-4m7o1q-UM3Rsx-5DA1QE-bxmYSY-2fx5cin-bxtBA3-4eps6x-dVtGXq-f8ptcA-9pGYXV-QisuaB-7HPiTH-ehBgDS-9qTUkT-4NptMG-pHenm-fJ2YYH-8GEcYH-6Rsv8H-2fx4hHH-opWRNd"], ["inventory", 16], ["created_at", "2019-05-02 22:01:49.114504"], ["updated_at", "2019-05-02 22:01:49.114504"], ["merchant_id", 6]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Orange Zest"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Orange Zest"], ["price", 19781], ["description", "Nesciunt rerum optio dolores."], ["photo", "https://www.flickr.com/photos/67345249@N06/7519730426/in/photolist-csuzSA-UJQNe3-8o4tSN-32Fzza-qB8JZQ-qpwm9Z-qBfPrR-22TEdyt-Tx2D8K-Twnhx2-jHy3Ax-nVL4jX-5LiZeu-dEMrKG-8FpVZn-49f7Mi-7Cviom-2ckP8hh-jWaRL-5DKnq-dEMzvE-4J8ugU-5EQn-dbfsvz-ACeqh-qsFxU5-MBUg1-G895ky-4AWqMz-4m7o1q-UM3Rsx-5DA1QE-bxmYSY-2fx5cin-bxtBA3-4eps6x-dVtGXq-f8ptcA-9pGYXV-QisuaB-7HPiTH-ehBgDS-9qTUkT-4NptMG-pHenm-fJ2YYH-8GEcYH-6Rsv8H-2fx4hHH-opWRNd"], ["inventory", 20], ["created_at", "2019-05-02 22:01:49.119330"], ["updated_at", "2019-05-02 22:01:49.119330"], ["merchant_id", 3]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Bay Leaves"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Bay Leaves"], ["price", 84949], ["description", "Vel nesciunt sed architecto."], ["photo", "https://www.flickr.com/photos/67345249@N06/7519730426/in/photolist-csuzSA-UJQNe3-8o4tSN-32Fzza-qB8JZQ-qpwm9Z-qBfPrR-22TEdyt-Tx2D8K-Twnhx2-jHy3Ax-nVL4jX-5LiZeu-dEMrKG-8FpVZn-49f7Mi-7Cviom-2ckP8hh-jWaRL-5DKnq-dEMzvE-4J8ugU-5EQn-dbfsvz-ACeqh-qsFxU5-MBUg1-G895ky-4AWqMz-4m7o1q-UM3Rsx-5DA1QE-bxmYSY-2fx5cin-bxtBA3-4eps6x-dVtGXq-f8ptcA-9pGYXV-QisuaB-7HPiTH-ehBgDS-9qTUkT-4NptMG-pHenm-fJ2YYH-8GEcYH-6Rsv8H-2fx4hHH-opWRNd"], ["inventory", 21], ["created_at", "2019-05-02 22:01:49.123993"], ["updated_at", "2019-05-02 22:01:49.123993"], ["merchant_id", 4]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (29.1ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "jewelry"], ["created_at", "2019-05-02 22:01:49.137002"], ["updated_at", "2019-05-02 22:01:49.137002"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "spice"], ["created_at", "2019-05-02 22:01:49.168363"], ["updated_at", "2019-05-02 22:01:49.168363"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "oneofakind"], ["created_at", "2019-05-02 22:01:49.170584"], ["updated_at", "2019-05-02 22:01:49.170584"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mProduct::HABTM_Categories Create (43.6ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 2], ["product_id", 1]]
+  ↳ db/seeds.rb:25
+  [1m[36mProduct::HABTM_Categories Create (0.3ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 3], ["product_id", 1]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mProduct::HABTM_Categories Create (0.4ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 1], ["product_id", 2]]
+  ↳ db/seeds.rb:25
+  [1m[36mProduct::HABTM_Categories Create (0.3ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 2], ["product_id", 2]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mProduct::HABTM_Categories Create (0.3ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 1], ["product_id", 3]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "tommye_collins"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "dagny@yahoo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Create (0.4ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "tommye_collins"], ["email", "dagny@yahoo.com"], ["created_at", "2019-05-02 22:04:53.390944"], ["updated_at", "2019-05-02 22:04:53.390944"], ["name", "Leo Lindgren"], ["uid", 52647308], ["provider", "github"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (40.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "jose"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "sona.torphy@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Create (0.3ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "jose"], ["email", "sona.torphy@gmail.com"], ["created_at", "2019-05-02 22:04:53.437822"], ["updated_at", "2019-05-02 22:04:53.437822"], ["name", "Guadalupe Stroman"], ["uid", 42989440], ["provider", "github"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "ralph.stamm"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "dominique_reynolds@yahoo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Create (0.3ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "ralph.stamm"], ["email", "dominique_reynolds@yahoo.com"], ["created_at", "2019-05-02 22:04:53.442717"], ["updated_at", "2019-05-02 22:04:53.442717"], ["name", "Miss Kiyoko Cassin"], ["uid", 81137456], ["provider", "github"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "elenor"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "jee@hotmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Create (0.3ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "elenor"], ["email", "jee@hotmail.com"], ["created_at", "2019-05-02 22:04:53.447336"], ["updated_at", "2019-05-02 22:04:53.447336"], ["name", "Colin Oberbrunner"], ["uid", 98719852], ["provider", "github"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "trinidad.nolan"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "erasmo@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Create (0.3ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "trinidad.nolan"], ["email", "erasmo@gmail.com"], ["created_at", "2019-05-02 22:04:53.451598"], ["updated_at", "2019-05-02 22:04:53.451598"], ["name", "Quincy Lowe"], ["uid", 10872690], ["provider", "github"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mProduct Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Mustard Seed Yellow"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Mustard Seed Yellow"], ["price", 47469], ["description", "Est expedita inventore quae."], ["photo", "https://www.flickr.com/photos/67345249@N06/7519730426/in/photolist-csuzSA-UJQNe3-8o4tSN-32Fzza-qB8JZQ-qpwm9Z-qBfPrR-22TEdyt-Tx2D8K-Twnhx2-jHy3Ax-nVL4jX-5LiZeu-dEMrKG-8FpVZn-49f7Mi-7Cviom-2ckP8hh-jWaRL-5DKnq-dEMzvE-4J8ugU-5EQn-dbfsvz-ACeqh-qsFxU5-MBUg1-G895ky-4AWqMz-4m7o1q-UM3Rsx-5DA1QE-bxmYSY-2fx5cin-bxtBA3-4eps6x-dVtGXq-f8ptcA-9pGYXV-QisuaB-7HPiTH-ehBgDS-9qTUkT-4NptMG-pHenm-fJ2YYH-8GEcYH-6Rsv8H-2fx4hHH-opWRNd"], ["inventory", 15], ["created_at", "2019-05-02 22:04:53.491447"], ["updated_at", "2019-05-02 22:04:53.491447"], ["merchant_id", 9]]
+  ↳ db/seeds.rb:8
+  [1m[35m (48.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Celery Leaf"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Celery Leaf"], ["price", 43387], ["description", "Sequi repellendus eos nisi."], ["photo", "https://www.flickr.com/photos/67345249@N06/7519730426/in/photolist-csuzSA-UJQNe3-8o4tSN-32Fzza-qB8JZQ-qpwm9Z-qBfPrR-22TEdyt-Tx2D8K-Twnhx2-jHy3Ax-nVL4jX-5LiZeu-dEMrKG-8FpVZn-49f7Mi-7Cviom-2ckP8hh-jWaRL-5DKnq-dEMzvE-4J8ugU-5EQn-dbfsvz-ACeqh-qsFxU5-MBUg1-G895ky-4AWqMz-4m7o1q-UM3Rsx-5DA1QE-bxmYSY-2fx5cin-bxtBA3-4eps6x-dVtGXq-f8ptcA-9pGYXV-QisuaB-7HPiTH-ehBgDS-9qTUkT-4NptMG-pHenm-fJ2YYH-8GEcYH-6Rsv8H-2fx4hHH-opWRNd"], ["inventory", 20], ["created_at", "2019-05-02 22:04:53.545278"], ["updated_at", "2019-05-02 22:04:53.545278"], ["merchant_id", 8]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Cajun Seasoning"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Cajun Seasoning"], ["price", 4092], ["description", "Quisquam error molestiae vitae."], ["photo", "https://www.flickr.com/photos/67345249@N06/7519730426/in/photolist-csuzSA-UJQNe3-8o4tSN-32Fzza-qB8JZQ-qpwm9Z-qBfPrR-22TEdyt-Tx2D8K-Twnhx2-jHy3Ax-nVL4jX-5LiZeu-dEMrKG-8FpVZn-49f7Mi-7Cviom-2ckP8hh-jWaRL-5DKnq-dEMzvE-4J8ugU-5EQn-dbfsvz-ACeqh-qsFxU5-MBUg1-G895ky-4AWqMz-4m7o1q-UM3Rsx-5DA1QE-bxmYSY-2fx5cin-bxtBA3-4eps6x-dVtGXq-f8ptcA-9pGYXV-QisuaB-7HPiTH-ehBgDS-9qTUkT-4NptMG-pHenm-fJ2YYH-8GEcYH-6Rsv8H-2fx4hHH-opWRNd"], ["inventory", 11], ["created_at", "2019-05-02 22:04:53.550256"], ["updated_at", "2019-05-02 22:04:53.550256"], ["merchant_id", 6]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Cinnamon Powder"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Cinnamon Powder"], ["price", 96472], ["description", "Et modi atque ut."], ["photo", "https://www.flickr.com/photos/67345249@N06/7519730426/in/photolist-csuzSA-UJQNe3-8o4tSN-32Fzza-qB8JZQ-qpwm9Z-qBfPrR-22TEdyt-Tx2D8K-Twnhx2-jHy3Ax-nVL4jX-5LiZeu-dEMrKG-8FpVZn-49f7Mi-7Cviom-2ckP8hh-jWaRL-5DKnq-dEMzvE-4J8ugU-5EQn-dbfsvz-ACeqh-qsFxU5-MBUg1-G895ky-4AWqMz-4m7o1q-UM3Rsx-5DA1QE-bxmYSY-2fx5cin-bxtBA3-4eps6x-dVtGXq-f8ptcA-9pGYXV-QisuaB-7HPiTH-ehBgDS-9qTUkT-4NptMG-pHenm-fJ2YYH-8GEcYH-6Rsv8H-2fx4hHH-opWRNd"], ["inventory", 10], ["created_at", "2019-05-02 22:04:53.555870"], ["updated_at", "2019-05-02 22:04:53.555870"], ["merchant_id", 11]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Celery Seed"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Celery Seed"], ["price", 19043], ["description", "Sapiente voluptas libero dolore."], ["photo", "https://www.flickr.com/photos/67345249@N06/7519730426/in/photolist-csuzSA-UJQNe3-8o4tSN-32Fzza-qB8JZQ-qpwm9Z-qBfPrR-22TEdyt-Tx2D8K-Twnhx2-jHy3Ax-nVL4jX-5LiZeu-dEMrKG-8FpVZn-49f7Mi-7Cviom-2ckP8hh-jWaRL-5DKnq-dEMzvE-4J8ugU-5EQn-dbfsvz-ACeqh-qsFxU5-MBUg1-G895ky-4AWqMz-4m7o1q-UM3Rsx-5DA1QE-bxmYSY-2fx5cin-bxtBA3-4eps6x-dVtGXq-f8ptcA-9pGYXV-QisuaB-7HPiTH-ehBgDS-9qTUkT-4NptMG-pHenm-fJ2YYH-8GEcYH-6Rsv8H-2fx4hHH-opWRNd"], ["inventory", 21], ["created_at", "2019-05-02 22:04:53.561325"], ["updated_at", "2019-05-02 22:04:53.561325"], ["merchant_id", 4]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:20
+  [1m[36mCategory Create (0.7ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "jewelry"], ["created_at", "2019-05-02 22:04:53.575007"], ["updated_at", "2019-05-02 22:04:53.575007"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (13.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:20
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "spice"], ["created_at", "2019-05-02 22:04:53.590924"], ["updated_at", "2019-05-02 22:04:53.590924"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:20
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "oneofakind"], ["created_at", "2019-05-02 22:04:53.593258"], ["updated_at", "2019-05-02 22:04:53.593258"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:20
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mProduct::HABTM_Categories Create (0.6ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 5], ["product_id", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mProduct::HABTM_Categories Create (0.3ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 4], ["product_id", 1]]
+  ↳ db/seeds.rb:24
+  [1m[35m (40.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mProduct::HABTM_Categories Create (0.5ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 4], ["product_id", 2]]
+  ↳ db/seeds.rb:24
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mProduct::HABTM_Categories Create (0.3ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 6], ["product_id", 3]]
+  ↳ db/seeds.rb:24
+  [1m[36mProduct::HABTM_Categories Create (0.2ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 5], ["product_id", 3]]
+  ↳ db/seeds.rb:24
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mProduct::HABTM_Categories Create (0.3ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 6], ["product_id", 4]]
+  ↳ db/seeds.rb:24
+  [1m[36mProduct::HABTM_Categories Create (0.3ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 5], ["product_id", 4]]
+  ↳ db/seeds.rb:24
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mProduct::HABTM_Categories Create (0.3ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 4], ["product_id", 6]]
+  ↳ db/seeds.rb:24
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mProduct::HABTM_Categories Create (0.3ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 6], ["product_id", 7]]
+  ↳ db/seeds.rb:24
+  [1m[36mProduct::HABTM_Categories Create (0.2ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 5], ["product_id", 7]]
+  ↳ db/seeds.rb:24
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
