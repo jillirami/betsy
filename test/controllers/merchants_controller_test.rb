@@ -11,10 +11,11 @@ describe MerchantsController do
 
   it "can log in an existing merchant" do
     merchant_count = Merchant.count
+    merchant = merchants(:jewelry)
 
-    merchant = perform_login(merchants(:jewelry))
-
-    expect(merchant_count).must_equal Merchant.count
+    perform_login(merchant)
+    must_redirect_to root_path
+    expect { Merchant.count }.must_equal merchant_count
     # flash notices-- > :success
 
     expect(session[:merchant_id]).must_equal merchant.id
@@ -23,7 +24,7 @@ describe MerchantsController do
   it "can log in a new merchant" do
     skip
     merchant = Merchant.new(provider: "github", uid: 909090, username: "merchant_test", email: "merchant@test.com", name: "merchant_test_name")
-    # merchant.save
+
     expect {
       perform_login(merchant)
     }.must_change "Merchant.count", 1
@@ -48,14 +49,8 @@ describe MerchantsController do
 
   describe "current" do
     it "responds with success if a merchant is logged in" do
-
-      # Arrange: We have to log in as a user by NOT manipulating session... we will do a login action!
       logged_in_merchant = perform_login
-
-      # Act: We need to still make a request to get to the users controller current action
       get current_merchant_path
-
-      # Assert: Check that it responds with success
       must_respond_with :success
     end
 
@@ -64,9 +59,9 @@ describe MerchantsController do
       must_respond_with :redirect
     end
   end
-    get merchants_url
-    value(response).must_be :successful?
-  end
+  #   get merchants_url
+  #   value(response).must_be :successful?
+  # end
 
   describe "show" do
     it "should get show" do
@@ -85,5 +80,5 @@ describe MerchantsController do
       must_respond_with :redirect
       expect(flash[:error]).must_equal "Unknown merchant"
     end
-  end 
+  end
 end
