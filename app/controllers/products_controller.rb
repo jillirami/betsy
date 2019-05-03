@@ -17,13 +17,15 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
 
-    # if params[:merchant_id]
-    #   @product.merchant = Merchant.find_by(id: params[:merchant_id])
-    # end
+    if params[:merchant_id]
+      @product.merchant = Merchant.find_by(id: params[:merchant_id])
+    end
   end
 
   def create
     product = Product.new(product_params)
+    #currently hardcoding merchant to merchant first (delete this once the merchant login is working)
+    product.merchant = Merchant.first
 
     is_successful = product.save
 
@@ -46,6 +48,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    return params.require(:product).permit(:name, :price, :description, :photo, :inventory, :category_id[])
+    return params.require(:product).permit(:name, :price, :description, :photo, :inventory, :merchant_id)
   end
 end
