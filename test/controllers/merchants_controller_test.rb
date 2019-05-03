@@ -2,8 +2,8 @@ require "test_helper"
 
 describe MerchantsController do
   it "should get index" do
-    get merchants_index_url
-    value(response).must_be :success?
+    get merchants_path
+    value(response).must_be :successful?
   end
 
   it "display a list of all merchants in show" do
@@ -12,7 +12,7 @@ describe MerchantsController do
   it "can log in an existing merchant" do
     merchant_count = Merchant.count
 
-    merchant = perform_login # checkout test helper
+    merchant = perform_login(merchants(:jewelry))
 
     expect(merchant_count).must_equal Merchant.count
     # flash notices-- > :success
@@ -21,21 +21,23 @@ describe MerchantsController do
   end
 
   it "can log in a new merchant" do
-    merchant = Merchant.new(provider: "github", username: "merchant_test", uid: 1122, email: "merchant@test.com")
-
+    skip
+    merchant = Merchant.new(provider: "github", uid: 909090, username: "merchant_test", email: "merchant@test.com", name: "merchant_test_name")
+    # merchant.save
     expect {
       perform_login(merchant)
     }.must_change "Merchant.count", 1
 
     merchant = Merchant.find_by(uid: merchant.uid, provider: merchant.provider)
 
-    #flash success
+    # expect(flash[:success]).must_equal
+    # #flash success
 
     expect(session[:merchant_id]).must_equal merchant.id
   end
 
   it "will redirect back to root with a flash message if not comming from github" do
-    merchant = "Not a logged in merchant"
+    merchant = Merchant.new(provider: "github", uid: 1122, username: "merchant_test", email: "", name: "merchant_test_name")
 
     expect {
       perform_login(merchant)
@@ -46,7 +48,6 @@ describe MerchantsController do
 
   describe "current" do
     it "responds with success if a merchant is logged in" do
-      skip # will update when we do OAuth testing
 
       # Arrange: We have to log in as a user by NOT manipulating session... we will do a login action!
       logged_in_merchant = perform_login
