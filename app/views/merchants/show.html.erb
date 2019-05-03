@@ -1,0 +1,10 @@
+<h2><%= @merchant.name %></h2>
+<h2><%= @merchant.email %></h2>
+
+<% @merchant.products.each do |product| %>
+  <p><%= product.name %></p>
+  <p><%= product.price / 10.0 %></p>
+  <p><%= product.description %></p>
+  <p><%= product.photo %></p>
+  <p><img src="#{product.inventory}" alt="Image of #{product.name}"></p>
+<% end %>
