@@ -4,17 +4,14 @@
 
 <h2>All Products</h2>
 
-<ul>
-<% @products.each do |product|%>
-<li>
-<% if product.retired == false %>
-<%= link_to product.name, product_path(product.id) %>
-
-<%= button_to "Retire Product", retired_product_path(product.id), method: :patch %>
-
-
-<%end%>
-</li>
-<%end %>
-</ul>
+    <ul>
+    <% @products.each do |product|%>
+    <% if product.retired == false %>
+        <li>
+        <%= link_to product.name, product_path(product.id) %>
+        <%= button_to "Retire Product", retired_product_path(product.id), method: :patch %>
+        <%end%>
+        </li>
+    <%end %>
+    </ul>
 

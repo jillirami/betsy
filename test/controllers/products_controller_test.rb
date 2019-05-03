@@ -25,4 +25,17 @@ describe ProductsController do
       must_redirect_to products_path
     end
   end
+
+  describe "retired" do
+    it "can mark a product as retired, but changing the retired field from false to true" do
+      product = products(:one)
+
+      expect(product.retired).must_equal false
+
+      patch retired_product_path(product.id)
+      product.reload
+
+      expect(product.retired).must_equal true
+    end
+  end
 end

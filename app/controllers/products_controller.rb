@@ -14,10 +14,10 @@ class ProductsController < ApplicationController
   end
 
   def retired
-    @product = Product.find_by(id: params[:id])
+    product = Product.find_by(id: params[:id])
 
-    @product.toggle(:retired)
-    @product.save
+    product.toggle(:retired)
+    product.save
 
     redirect_to products_path
   end
