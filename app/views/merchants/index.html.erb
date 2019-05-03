@@ -1,2 +1,8 @@
-<h1>Merchants#index</h1>
-<p>Find me in app/views/merchants/index.html.erb</p>
+<h3>All Merchants</h3>
+
+<% @merchants.each do |merchant| %>
+<ul>
+  <li><%= link_to merchant.name, merchant_path(merchant.id) %>
+  <%= merchant.email %></li>
+</ul>
+<% end %>

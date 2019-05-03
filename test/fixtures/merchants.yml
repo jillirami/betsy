@@ -1,15 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  username: MyString1
-  email: MyString1@gmail.com
-  name: one
+jewelry:
+  username: jewelry
+  email: jewelrymerchant@email.com
+  name: jewelry
   uid: 123
   provider: github
 
-two:
-  username: MyString2
-  email: MyString2@gmail.com
-  name: two
-  uid: 234
+
+spices:
+  username: spices
+  email: merchant@email.com
+  name: spices
+  uid: 123
   provider: github
+
+
+
+
+
+

@@ -1,2 +1,16 @@
 <h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+
+
+
+<h2>All Products</h2>
+
+<ul>
+  <% @products.each do |product|%>
+    <% if product.retired == false %>
+    <li>
+      <%= link_to product.name, product_path(product.id) %>
+    </li>
+    <%end%>
+  <%end %>
+</ul>
+

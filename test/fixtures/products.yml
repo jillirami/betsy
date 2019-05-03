@@ -1,15 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: MyString1
   price: 1
   description: MyString
-  photo: MyString
+  photo:
   inventory: 1
+  merchant: jewelry
+  retired: false
 
 two:
-  name: MyString
+  name: MyString2
   price: 1
   description: MyString
-  photo: MyString
+  photo:
   inventory: 1
+  merchant: jewelry
+  retired: false
