@@ -6726,3 +6726,4 @@ Completed 200 OK in 57ms (Views: 51.3ms | ActiveRecord: 2.0ms)
   [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
 >>>>>>> e14e6c5c73c0692115324ed748718225a4b308cd
 >>>>>>> 6008b0812965ad5e80efbd7653b23ae00b606023
+  [1m[36mMerchant Load (3.7ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m

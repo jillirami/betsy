@@ -22,18 +22,20 @@ describe MerchantsController do
   end
 
   it "can log in a new merchant" do
-    skip
+    # skip
+    start_count = Merchant.count # IE
     merchant = Merchant.new(provider: "github", uid: 909090, username: "merchant_test", email: "merchant@test.com", name: "merchant_test_name")
+    OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(mock_auth_hash(merchant))
 
-    expect {
-      perform_login(merchant)
-    }.must_change "Merchant.count", 1
+    puts merchant.save
+    get auth_callback_path(:github) #IE
+    must_redirect_to root_path
 
-    merchant = Merchant.find_by(uid: merchant.uid, provider: merchant.provider)
-    # OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(mock_auth_hash(user))
+    Merchant.count.must_equal start_count + 1
+
     # expect(flash[:success]).must_equal
     # #flash success
-
+    puts session.class
     expect(session[:merchant_id]).must_equal merchant.id
   end
 
