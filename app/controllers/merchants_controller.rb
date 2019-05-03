@@ -12,13 +12,14 @@ class MerchantsController < ApplicationController
     end
   end
 
-  def create
+  def create ##
     auth_hash = request.env["omniauth.auth"]
 
     merchant = Merchant.find_by(uid: auth_hash[:uid], provider: "github")
 
     if merchant
       flash[:success] = "Logged in as a returning merchant #{merchant.username}"
+      # raise
     else
       merchant = Merchant.build_from_github(auth_hash)
 

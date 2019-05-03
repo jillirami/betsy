@@ -10,6 +10,24 @@
   </head>
 
   <body>
+    <nav class="app-header__nav">
+      <ul class="nav app-header__site-nav-container" >
+        <li class="nav-item app-header__nav_item" >
+          <%= link_to "View all products", products_path, class: "nav-link"%>
+        </li>
+      </ul>
+      <ul class="nav app-header__user-nav-container">
+        <% if session[:merchant_id] %>
+          <li>
+            <%= link_to "Log out", logout_path, method: "delete", class: "btn btn-primary" %>
+          </li>
+        <% else %>
+          <li class="nav-item app-header__nav_item">
+            <%= link_to "Login with GitHub", github_login_path, class: "btn btn-primary" %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
     <%= yield %>
   </body>
 </html>

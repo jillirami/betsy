@@ -11,28 +11,31 @@ describe MerchantsController do
 
   it "can log in an existing merchant" do
     merchant_count = Merchant.count
+    merchant = merchants(:jewelry)
 
-    merchant = perform_login(merchants(:jewelry))
-
-    expect(merchant_count).must_equal Merchant.count
+    perform_login(merchant)
+    must_redirect_to root_path
+    expect(Merchant.count).must_equal merchant_count
     # flash notices-- > :success
 
     expect(session[:merchant_id]).must_equal merchant.id
   end
 
   it "can log in a new merchant" do
-    skip
+    # skip
+    start_count = Merchant.count # IE
     merchant = Merchant.new(provider: "github", uid: 909090, username: "merchant_test", email: "merchant@test.com", name: "merchant_test_name")
-    # merchant.save
-    expect {
-      perform_login(merchant)
-    }.must_change "Merchant.count", 1
+    OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(mock_auth_hash(merchant))
 
-    merchant = Merchant.find_by(uid: merchant.uid, provider: merchant.provider)
+    puts merchant.save
+    get auth_callback_path(:github) #IE
+    must_redirect_to root_path
+
+    Merchant.count.must_equal start_count + 1
 
     # expect(flash[:success]).must_equal
     # #flash success
-
+    puts session.class
     expect(session[:merchant_id]).must_equal merchant.id
   end
 
@@ -48,14 +51,8 @@ describe MerchantsController do
 
   describe "current" do
     it "responds with success if a merchant is logged in" do
-
-      # Arrange: We have to log in as a user by NOT manipulating session... we will do a login action!
       logged_in_merchant = perform_login
-
-      # Act: We need to still make a request to get to the users controller current action
       get current_merchant_path
-
-      # Assert: Check that it responds with success
       must_respond_with :success
     end
 
@@ -64,26 +61,26 @@ describe MerchantsController do
       must_respond_with :redirect
     end
   end
-    get merchants_url
-    value(response).must_be :successful?
-  end
+  #   get merchants_url
+  #   value(response).must_be :successful?
+  # end
 
   describe "show" do
     it "should get show" do
-      valid_merchant_id = merchants(:one_m).id
+      valid_merchant_id = merchants(:spices).id
 
       get merchants_url(valid_merchant_id)
       value(response).must_be :successful?
     end
 
     it "should give a flash notice instead if invalid user" do
-      invalid_id = merchants(:one_m).id
-      merchants(:one_m).destroy
+      invalid_id = merchants(:spices).id
+      merchants(:spices).destroy
 
       get merchant_path(invalid_id)
 
       must_respond_with :redirect
       expect(flash[:error]).must_equal "Unknown merchant"
     end
-  end 
+  end
 end
