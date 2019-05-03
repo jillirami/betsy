@@ -4,11 +4,10 @@ class MerchantsController < ApplicationController
   end
 
   def show
-    @merchant = Merchant.find_by(id: session[:merchant_id])
+    @merchant = Merchant.find_by(id: params[:id])
 
     if @merchant.nil?
       flash[:error] = "Unknown merchant"
-
       redirect_to merchants_path
     end
   end
@@ -20,6 +19,7 @@ class MerchantsController < ApplicationController
 
     if merchant
       flash[:success] = "Logged in as a returning merchant #{merchant.username}"
+      # raise
     else
       merchant = Merchant.build_from_github(auth_hash)
 

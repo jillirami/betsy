@@ -6727,3 +6727,2220 @@ Completed 200 OK in 57ms (Views: 51.3ms | ActiveRecord: 2.0ms)
 >>>>>>> e14e6c5c73c0692115324ed748718225a4b308cd
 >>>>>>> 6008b0812965ad5e80efbd7653b23ae00b606023
   [1m[36mMerchant Load (3.7ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+Started GET "/" for ::1 at 2019-05-03 11:08:26 -0700
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/myriamwalden-duarte/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+
+ActiveRecord::PendingMigrationError - Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+:
+
+Started POST "/__better_errors/bd7c33e5a3f2b4a6/variables" for ::1 at 2019-05-03 11:08:26 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8263949505629717655)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RenameCategoryproductTable (20190502212855)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.2ms)[0m  [1m[35mALTER TABLE "categories_products_joins" RENAME TO "categories_products"[0m
+  ↳ db/migrate/20190502212855_rename_categoryproduct_table.rb:3
+  [1m[35m (1.7ms)[0m  [1m[35mALTER INDEX "categories_products_joins_pkey" RENAME TO "categories_products_pkey"[0m
+  ↳ db/migrate/20190502212855_rename_categoryproduct_table.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "public"."categories_products_joins_id_seq" RENAME TO "categories_products_id_seq"[0m
+  ↳ db/migrate/20190502212855_rename_categoryproduct_table.rb:3
+  [1m[35m (1.7ms)[0m  [1m[35mALTER INDEX "index_categories_products_joins_on_category_id" RENAME TO "index_categories_products_on_category_id"[0m
+  ↳ db/migrate/20190502212855_rename_categoryproduct_table.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mALTER INDEX "index_categories_products_joins_on_product_id" RENAME TO "index_categories_products_on_product_id"[0m
+  ↳ db/migrate/20190502212855_rename_categoryproduct_table.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190502212855"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8263949505629717655)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "craig.block"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "matthew.baumbach@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Create (1.9ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "craig.block"], ["email", "matthew.baumbach@gmail.com"], ["created_at", "2019-05-03 18:09:44.755155"], ["updated_at", "2019-05-03 18:09:44.755155"], ["name", "Pat Torp"], ["uid", 55522676], ["provider", "github"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "maude"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "gaylord.spinka@yahoo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Create (0.2ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "maude"], ["email", "gaylord.spinka@yahoo.com"], ["created_at", "2019-05-03 18:09:44.760819"], ["updated_at", "2019-05-03 18:09:44.760819"], ["name", "Joi Abshire"], ["uid", 89187534], ["provider", "github"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "britt"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "alverta@hotmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Create (0.2ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "britt"], ["email", "alverta@hotmail.com"], ["created_at", "2019-05-03 18:09:44.763878"], ["updated_at", "2019-05-03 18:09:44.763878"], ["name", "Adriene Metz"], ["uid", 17709533], ["provider", "github"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "shon.okon"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "darnell.corwin@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Create (0.2ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "shon.okon"], ["email", "darnell.corwin@gmail.com"], ["created_at", "2019-05-03 18:09:44.766731"], ["updated_at", "2019-05-03 18:09:44.766731"], ["name", "Seymour Abshire"], ["uid", 44656370], ["provider", "github"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "carmine.doyle"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "dong@hotmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Create (0.2ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "carmine.doyle"], ["email", "dong@hotmail.com"], ["created_at", "2019-05-03 18:09:44.769615"], ["updated_at", "2019-05-03 18:09:44.769615"], ["name", "Jerrod Thompson"], ["uid", 33405885], ["provider", "github"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Exists (3.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Chilli Ground"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Create (1.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Chilli Ground"], ["price", 51290], ["description", "Est quaerat rerum minus."], ["photo", "https://picsum.photos/200/300"], ["inventory", 20], ["created_at", "2019-05-03 18:09:44.797184"], ["updated_at", "2019-05-03 18:09:44.797184"], ["merchant_id", 4]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Fenugreek Ground"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Fenugreek Ground"], ["price", 48769], ["description", "Aperiam consectetur et aut."], ["photo", "https://picsum.photos/200/300"], ["inventory", 16], ["created_at", "2019-05-03 18:09:44.801753"], ["updated_at", "2019-05-03 18:09:44.801753"], ["merchant_id", 2]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mMerchant Load (0.1ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "China Star"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "China Star"], ["price", 66094], ["description", "Consequatur quo beatae officiis."], ["photo", "https://picsum.photos/200/300"], ["inventory", 15], ["created_at", "2019-05-03 18:09:44.804565"], ["updated_at", "2019-05-03 18:09:44.804565"], ["merchant_id", 1]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mMerchant Load (0.1ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Nutmeg Ground"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Nutmeg Ground"], ["price", 93358], ["description", "Sint dolor aliquid est."], ["photo", "https://picsum.photos/200/300"], ["inventory", 22], ["created_at", "2019-05-03 18:09:44.807333"], ["updated_at", "2019-05-03 18:09:44.807333"], ["merchant_id", 2]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mMerchant Load (0.1ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Tikka Masala"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Tikka Masala"], ["price", 34513], ["description", "Tenetur non qui consequatur."], ["photo", "https://picsum.photos/200/300"], ["inventory", 14], ["created_at", "2019-05-03 18:09:44.810022"], ["updated_at", "2019-05-03 18:09:44.810022"], ["merchant_id", 4]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.6ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "jewelry"], ["created_at", "2019-05-03 18:09:44.818637"], ["updated_at", "2019-05-03 18:09:44.818637"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "spice"], ["created_at", "2019-05-03 18:09:44.821938"], ["updated_at", "2019-05-03 18:09:44.821938"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "oneofakind"], ["created_at", "2019-05-03 18:09:44.823506"], ["updated_at", "2019-05-03 18:09:44.823506"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mProduct::HABTM_Categories Create (1.4ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 2], ["product_id", 2]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mProduct::HABTM_Categories Create (0.2ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 3], ["product_id", 3]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mProduct::HABTM_Categories Create (0.2ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 1], ["product_id", 4]]
+  ↳ db/seeds.rb:25
+  [1m[36mProduct::HABTM_Categories Create (0.1ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 2], ["product_id", 4]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mProduct::HABTM_Categories Create (0.2ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 3], ["product_id", 5]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+Started GET "/" for ::1 at 2019-05-03 11:10:37 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/myriamwalden-duarte/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (12.2ms)
+Started GET "/" for ::1 at 2019-05-03 11:10:39 -0700
+Completed 200 OK in 2606ms (Views: 2589.7ms | ActiveRecord: 4.3ms)
+
+
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 53ms (Views: 44.9ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:10:42 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.9ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 45ms (Views: 41.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:12:57 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 43ms (Views: 40.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:13:41 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 42ms (Views: 39.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:13:42 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 53ms (Views: 50.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:13:50 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 47ms (Views: 44.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:13:52 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:13:52 -0700
+Started GET "/auth/github/callback?code=289d0cb7669d2c314cf1&state=e28f9f98df96b046d207e5be1fb365c52f38dbf4956f61ab" for ::1 at 2019-05-03 11:13:52 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"289d0cb7669d2c314cf1", "state"=>"e28f9f98df96b046d207e5be1fb365c52f38dbf4956f61ab", "provider"=>"github"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 44131483], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/merchants_controller.rb:26
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "MyriamWD"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:26
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "myriam.waldend@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:26
+  [1m[36mMerchant Create (0.4ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "MyriamWD"], ["email", "myriam.waldend@gmail.com"], ["created_at", "2019-05-03 18:13:53.135877"], ["updated_at", "2019-05-03 18:13:53.135877"], ["uid", 44131483], ["provider", "github"]]
+  ↳ app/controllers/merchants_controller.rb:26
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/merchants_controller.rb:26
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:13:53 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 43ms (Views: 40.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:14:43 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:14:43 -0700
+Started GET "/auth/github/callback?code=0c2af534bfe5425c85b8&state=4c4e77e69d04588306959dadd1e4cb6bec4fb07b95d0fd90" for ::1 at 2019-05-03 11:14:43 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"0c2af534bfe5425c85b8", "state"=>"4c4e77e69d04588306959dadd1e4cb6bec4fb07b95d0fd90", "provider"=>"github"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 44131483], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:19
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:14:44 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 44ms (Views: 41.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:14:48 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:14:48 -0700
+Started GET "/auth/github/callback?code=8af7dab2af3a2ab29507&state=6692efd58aa389a9e4cdc6d8c0970159b6e5d6f1d7c6d49b" for ::1 at 2019-05-03 11:14:49 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"8af7dab2af3a2ab29507", "state"=>"6692efd58aa389a9e4cdc6d8c0970159b6e5d6f1d7c6d49b", "provider"=>"github"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 44131483], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:19
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:14:49 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 44ms (Views: 41.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:15:02 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 48ms (Views: 45.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/merchants" for ::1 at 2019-05-03 11:15:07 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 58ms (Views: 54.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/passengers" for ::1 at 2019-05-03 11:15:11 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/passengers"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/products" for ::1 at 2019-05-03 11:15:14 -0700
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:8
+  Rendered products/index.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 72ms (Views: 55.0ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/products/1" for ::1 at 2019-05-03 11:15:17 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:7
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 49ms (Views: 44.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:15:19 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:15:19 -0700
+Started GET "/auth/github/callback?code=7d950026bd7d13d9baae&state=2a4d61f1e418111405900c4c30d69ac99dec91ec43f9cc2f" for ::1 at 2019-05-03 11:15:19 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"7d950026bd7d13d9baae", "state"=>"2a4d61f1e418111405900c4c30d69ac99dec91ec43f9cc2f", "provider"=>"github"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 44131483], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:19
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:15:19 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 47ms (Views: 44.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:16:09 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 47ms (Views: 44.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:16:10 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:16:11 -0700
+Started GET "/auth/github/callback?code=ee6a85cc06aaa4f0fba9&state=72927f92a25a38230cf637565ca9322f6ee7fe5dfa3770b0" for ::1 at 2019-05-03 11:16:11 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"ee6a85cc06aaa4f0fba9", "state"=>"72927f92a25a38230cf637565ca9322f6ee7fe5dfa3770b0", "provider"=>"github"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 44131483], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:19
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:16:11 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 46ms (Views: 43.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:16:13 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:16:13 -0700
+Started GET "/auth/github/callback?code=d074da0382357fa7750a&state=d18888a986958c8904234efbdcc7f6bd2f3acc4266744dee" for ::1 at 2019-05-03 11:16:13 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"d074da0382357fa7750a", "state"=>"d18888a986958c8904234efbdcc7f6bd2f3acc4266744dee", "provider"=>"github"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 44131483], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:19
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:16:14 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 52ms (Views: 49.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:16:16 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 47ms (Views: 44.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:16:17 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:16:17 -0700
+Started GET "/auth/github/callback?code=406ae2f71fb0a977fef5&state=32da4c458b04fee258df6addaa15086960f466c2280b8089" for ::1 at 2019-05-03 11:16:17 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"406ae2f71fb0a977fef5", "state"=>"32da4c458b04fee258df6addaa15086960f466c2280b8089", "provider"=>"github"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 44131483], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:19
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:16:18 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 44ms (Views: 41.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:16:47 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:16:47 -0700
+Started GET "/auth/github/callback?code=f78f17317d787dd7e24a&state=dbe70d2030d82bac97ab338f8e4eb0767b0af183ca79be8f" for ::1 at 2019-05-03 11:16:47 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"f78f17317d787dd7e24a", "state"=>"dbe70d2030d82bac97ab338f8e4eb0767b0af183ca79be8f", "provider"=>"github"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 44131483], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:19
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:16:47 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 42ms (Views: 40.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:22:19 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 56ms (Views: 48.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:22:20 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:22:21 -0700
+Started GET "/auth/github/callback?code=f3504a2fefe2641b66fe&state=4ef938b823d9a1f11de29d68a9ae3faf2f6280a5fe311f7d" for ::1 at 2019-05-03 11:22:21 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"f3504a2fefe2641b66fe", "state"=>"4ef938b823d9a1f11de29d68a9ae3faf2f6280a5fe311f7d", "provider"=>"github"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+
+RuntimeError - :
+  app/controllers/merchants_controller.rb:17:in `create'
+
+Started POST "/__better_errors/7337a617ee2fa0de/variables" for ::1 at 2019-05-03 11:22:22 -0700
+Started POST "/__better_errors/7337a617ee2fa0de/eval" for ::1 at 2019-05-03 11:22:29 -0700
+Started GET "/auth/github/callback?code=f3504a2fefe2641b66fe&state=4ef938b823d9a1f11de29d68a9ae3faf2f6280a5fe311f7d" for ::1 at 2019-05-03 11:25:26 -0700
+
+OAuth2::Error - bad_verification_code: The code passed is incorrect or expired.
+error=bad_verification_code&error_description=The+code+passed+is+incorrect+or+expired.&error_uri=https%3A%2F%2Fdeveloper.github.com%2Fapps%2Fmanaging-oauth-apps%2Ftroubleshooting-oauth-app-access-token-request-errors%2F%23bad-verification-code:
+
+Started POST "/__better_errors/32a221450d278d41/variables" for ::1 at 2019-05-03 11:25:26 -0700
+Started POST "/__better_errors/32a221450d278d41/variables" for ::1 at 2019-05-03 11:25:59 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:26:05 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:26:05 -0700
+Started GET "/" for ::1 at 2019-05-03 11:26:17 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 61ms (Views: 52.2ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:26:19 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:26:19 -0700
+Started GET "/auth/github/callback?code=373978e2debb8f5f9142&state=743ed506e0e76cb27725a60482f528c9559f49dd5db5be88" for ::1 at 2019-05-03 11:26:23 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"373978e2debb8f5f9142", "state"=>"743ed506e0e76cb27725a60482f528c9559f49dd5db5be88", "provider"=>"github"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 44131483], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["username", "MyriamWD"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["email", "myriam.waldend@gmail.com"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/merchants_controller.rb:20
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:26:24 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 49ms (Views: 46.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:26:33 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:26:33 -0700
+Started GET "/auth/github/callback?code=c82a47656466c2b003aa&state=b50881ffa8e5515952a6dab74fa4e3cbd67e85f3f2315958" for ::1 at 2019-05-03 11:26:33 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"c82a47656466c2b003aa", "state"=>"b50881ffa8e5515952a6dab74fa4e3cbd67e85f3f2315958", "provider"=>"github"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 44131483], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["username", "MyriamWD"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["email", "myriam.waldend@gmail.com"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/merchants_controller.rb:20
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:26:34 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 50ms (Views: 47.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:26:35 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:26:35 -0700
+Started GET "/auth/github/callback?code=74b393666b7e26d4f4b6&state=d649bf8bd0ad1a8bf2c6b2fd6dba5b7e79b008156cb8d3e1" for ::1 at 2019-05-03 11:26:35 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"74b393666b7e26d4f4b6", "state"=>"d649bf8bd0ad1a8bf2c6b2fd6dba5b7e79b008156cb8d3e1", "provider"=>"github"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 44131483], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["username", "MyriamWD"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["email", "myriam.waldend@gmail.com"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/merchants_controller.rb:20
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:26:36 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 57ms (Views: 55.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:26:52 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 56ms (Views: 53.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:26:54 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:26:54 -0700
+Started GET "/auth/github/callback?code=9980f1f3ba317ae02434&state=8c8acfe7de451872ab8e8e64ba6d239d953e32354399caa4" for ::1 at 2019-05-03 11:27:11 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"9980f1f3ba317ae02434", "state"=>"8c8acfe7de451872ab8e8e64ba6d239d953e32354399caa4", "provider"=>"github"}
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 44131483], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["username", "MyriamWD"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["email", "myriam.waldend@gmail.com"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/merchants_controller.rb:20
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:27:12 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 45ms (Views: 42.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:29:48 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 46ms (Views: 43.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:30:51 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 53ms (Views: 50.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:30:52 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 55ms (Views: 51.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:31:10 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 46ms (Views: 43.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:32:39 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 1499ms (Views: 1496.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:32:44 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 75ms (Views: 72.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:32:56 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 1563ms (Views: 1559.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:33:08 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 73ms (Views: 70.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:33:35 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 51ms (Views: 48.3ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/logout" for ::1 at 2019-05-03 11:33:37 -0700
+
+NameError - uninitialized constant UsersController:
+
+Started POST "/__better_errors/a9cf87f1690c6ce6/variables" for ::1 at 2019-05-03 11:33:37 -0700
+Started GET "/" for ::1 at 2019-05-03 11:34:55 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 75ms (Views: 60.6ms | ActiveRecord: 5.9ms)
+
+
+Started DELETE "/logout" for ::1 at 2019-05-03 11:34:57 -0700
+
+NameError - uninitialized constant MerchantController:
+
+Started POST "/__better_errors/38b8025009feeab6/variables" for ::1 at 2019-05-03 11:34:57 -0700
+Started GET "/" for ::1 at 2019-05-03 11:35:05 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 55ms (Views: 52.6ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/logout" for ::1 at 2019-05-03 11:35:08 -0700
+
+NameError - uninitialized constant MerchantController:
+
+Started POST "/__better_errors/033c4645bb8e29bb/variables" for ::1 at 2019-05-03 11:35:08 -0700
+Started GET "/" for ::1 at 2019-05-03 11:35:21 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 77ms (Views: 67.1ms | ActiveRecord: 3.5ms)
+
+
+Started DELETE "/logout" for ::1 at 2019-05-03 11:35:23 -0700
+Processing by MerchantsController#logout as HTML
+  Parameters: {"authenticity_token"=>"r+qcX47UMvgzdMa6+ErhsWsl9xSmMTT0i2gf3VXdJd/jW3QzUwebUXw6Ot13qKr9GQyy5oPxBRDpkdVmmuSHEA=="}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:46
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:35:23 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 55ms (Views: 52.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:35:26 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:35:26 -0700
+Started GET "/auth/github/callback?code=f285668b0a7ecf649b24&state=cb0a288b04eda5cd3b3e3e93faf978d87fea0ee249337d0a" for ::1 at 2019-05-03 11:35:27 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"f285668b0a7ecf649b24", "state"=>"cb0a288b04eda5cd3b3e3e93faf978d87fea0ee249337d0a", "provider"=>"github"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 44131483], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["username", "MyriamWD"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["email", "myriam.waldend@gmail.com"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/merchants_controller.rb:20
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:35:28 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 45ms (Views: 43.1ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/logout" for ::1 at 2019-05-03 11:35:31 -0700
+Processing by MerchantsController#logout as HTML
+  Parameters: {"authenticity_token"=>"tHtmHQDr+erI4CH8IBjZlDASGj12yQoZi6M/MvfmkPv4yo5x3ThQQ4eu3Zuv+pLYQjtfz1MJO/3pWvWJON8yNA=="}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:46
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:35:31 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 51ms (Views: 48.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:35:39 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:35:39 -0700
+Started GET "/auth/github/callback?code=c84e93c0f40fabd6c78f&state=8893858704a1a807d151b40976af1358f760d07af1c14b3a" for ::1 at 2019-05-03 11:35:39 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"c84e93c0f40fabd6c78f", "state"=>"8893858704a1a807d151b40976af1358f760d07af1c14b3a", "provider"=>"github"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 44131483], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["username", "MyriamWD"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["email", "myriam.waldend@gmail.com"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/merchants_controller.rb:20
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:35:40 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 46ms (Views: 43.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:35:51 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 60ms (Views: 57.3ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/logout" for ::1 at 2019-05-03 11:35:53 -0700
+Processing by MerchantsController#logout as HTML
+  Parameters: {"authenticity_token"=>"jE+MkPwRtVv2uj5HE5IXG87SCjOuhDwve1Y27ySaz8TA/mT8IcIc8rn0wiCccFxXvPtPwYtEDcsZr/xU66NtCw=="}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:46
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:35:53 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 46ms (Views: 44.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:35:56 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:35:56 -0700
+Started GET "/auth/github/callback?code=62b7240d53381ebedcc4&state=5537dd8c616e4781bddfca2ce611cba6bf5b126c1db7a3c9" for ::1 at 2019-05-03 11:35:56 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"62b7240d53381ebedcc4", "state"=>"5537dd8c616e4781bddfca2ce611cba6bf5b126c1db7a3c9", "provider"=>"github"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 44131483], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["username", "MyriamWD"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["email", "myriam.waldend@gmail.com"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/merchants_controller.rb:20
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:35:58 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 50ms (Views: 47.7ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/logout" for ::1 at 2019-05-03 11:36:13 -0700
+Processing by MerchantsController#logout as HTML
+  Parameters: {"authenticity_token"=>"/VndjotArBJo2u5ij9bcogJV08Vn6UrHqWkEQnwiTrmx6DXiVpMFuyeUEgUANJfucHyWN0IpeyPLkM75sxvsdg=="}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:46
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:36:13 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 50ms (Views: 47.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:36:17 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:36:17 -0700
+Started GET "/auth/github/callback?code=86b187db35718a59aa1e&state=cf24306952e68820af2f75a28684e43b4b3e7f994736a14a" for ::1 at 2019-05-03 11:36:17 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"86b187db35718a59aa1e", "state"=>"cf24306952e68820af2f75a28684e43b4b3e7f994736a14a", "provider"=>"github"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 44131483], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["username", "MyriamWD"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["email", "myriam.waldend@gmail.com"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/merchants_controller.rb:20
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:36:18 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 46ms (Views: 43.8ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/logout" for ::1 at 2019-05-03 11:36:28 -0700
+Processing by MerchantsController#logout as HTML
+  Parameters: {"authenticity_token"=>"Snpaj9S0cNEIC7sqlC7HeA0kQb1Qd+h9kmsXf7z+kAgGy7LjCWfZeEdFR00bzIw0fw0ET3W32Znwkt3Ec8cyxw=="}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:46
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:36:28 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 50ms (Views: 47.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:36:32 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:36:32 -0700
+Started GET "/auth/github/callback?code=14beb5d939b645f69e25&state=88eda27864f9886f88ed139ec0c0d4995f522f2bb5e805b5" for ::1 at 2019-05-03 11:36:32 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"14beb5d939b645f69e25", "state"=>"88eda27864f9886f88ed139ec0c0d4995f522f2bb5e805b5", "provider"=>"github"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 44131483], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["username", "MyriamWD"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["email", "myriam.waldend@gmail.com"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/merchants_controller.rb:20
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:36:34 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 46ms (Views: 43.7ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/logout" for ::1 at 2019-05-03 11:36:46 -0700
+Processing by MerchantsController#logout as HTML
+  Parameters: {"authenticity_token"=>"H93oCTBoEb5IZZD6HVmZpwZ4Mu9gMUd/nHsObo07FKZTbABl7bu4FwcrbJ2Su9LrdFF3HUXxdpv+gsTVQgK2aQ=="}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:46
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:36:46 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 48ms (Views: 46.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:36:57 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:36:57 -0700
+Started GET "/auth/github/callback?code=569bd1eff3e7e3c3cfbd&state=2b09655464182d0272f5bf4e48acb674f06dec8032cb0da6" for ::1 at 2019-05-03 11:36:57 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"569bd1eff3e7e3c3cfbd", "state"=>"2b09655464182d0272f5bf4e48acb674f06dec8032cb0da6", "provider"=>"github"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 44131483], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["username", "MyriamWD"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["email", "myriam.waldend@gmail.com"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/merchants_controller.rb:20
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:36:58 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 50ms (Views: 47.7ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/logout" for ::1 at 2019-05-03 11:37:24 -0700
+Processing by MerchantsController#logout as HTML
+  Parameters: {"authenticity_token"=>"aaF3fy0j/tpSZv9qjc4Ve5nnzHMq+RREVYV4Ve+2ZXElEJ8T8PBXcx0oAw0CLF43686JgQ85JaA3fLLuII/Hvg=="}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:46
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:37:24 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 46ms (Views: 43.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:37:26 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:37:27 -0700
+Started DELETE "/logout" for ::1 at 2019-05-03 11:37:47 -0700
+Processing by MerchantsController#logout as HTML
+  Parameters: {"authenticity_token"=>"rGw69Pj9K1iN0h/aM1dcM0Q3cvd09GgcEkEyGPKsUXng3dKYJS6C8cKc4728tRd/Nh43BVE0WfhwuPijPZXztg=="}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:46
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/controllers/merchants_controller.rb:48:in `logout'
+
+Started POST "/__better_errors/20be4c91504fe1c7/variables" for ::1 at 2019-05-03 11:37:47 -0700
+Started GET "/" for ::1 at 2019-05-03 11:37:54 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 52ms (Views: 49.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:37:56 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:37:56 -0700
+Started GET "/auth/github/callback?code=dee4f16eef03610b51fc&state=2e7dea032f0b60fd4e6c7e1b76d089540d26bcb01e95e4ef" for ::1 at 2019-05-03 11:38:00 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"dee4f16eef03610b51fc", "state"=>"2e7dea032f0b60fd4e6c7e1b76d089540d26bcb01e95e4ef", "provider"=>"github"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 44131483], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["username", "MyriamWD"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["email", "myriam.waldend@gmail.com"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/merchants_controller.rb:20
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:38:00 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 46ms (Views: 43.9ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/logout" for ::1 at 2019-05-03 11:38:03 -0700
+Processing by MerchantsController#logout as HTML
+  Parameters: {"authenticity_token"=>"vhNYtgYXPzHVo6rfnyzNhpgPDkEFk2a9LoX0HNFS997yorDa28SWmJrtVrgQzobK6iZLsyBTV1lMfD6nHmtVEQ=="}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:46
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:38:03 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 44ms (Views: 41.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:38:07 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:38:07 -0700
+Started GET "/auth/github/callback?code=20e307f414ffb1b019b3&state=7a6083e6a38e8fd0df1227be60530e21077a9c077a4a5cad" for ::1 at 2019-05-03 11:38:08 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"20e307f414ffb1b019b3", "state"=>"7a6083e6a38e8fd0df1227be60530e21077a9c077a4a5cad", "provider"=>"github"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 44131483], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["username", "MyriamWD"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["email", "myriam.waldend@gmail.com"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/merchants_controller.rb:20
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:38:09 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 39ms (Views: 37.2ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/logout" for ::1 at 2019-05-03 11:38:12 -0700
+Processing by MerchantsController#logout as HTML
+  Parameters: {"authenticity_token"=>"/+cQJZxCLplZ59njyo09xQLwoAkG5dMdycZPvl3H9ByzVvhJQZGHMBapJYRFb3aJcNnl+yMl4vmrP4UFkv5W0w=="}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:46
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:38:12 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 42ms (Views: 39.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:38:17 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 52ms (Views: 49.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:38:19 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:38:19 -0700
+Started GET "/auth/github/callback?code=1d4286855cdbac42fe17&state=9d7d37c9c2ff827acb3c1f33039ceb21b43b3de64c271963" for ::1 at 2019-05-03 11:38:19 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"1d4286855cdbac42fe17", "state"=>"9d7d37c9c2ff827acb3c1f33039ceb21b43b3de64c271963", "provider"=>"github"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 44131483], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["username", "MyriamWD"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["email", "myriam.waldend@gmail.com"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/merchants_controller.rb:20
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:38:21 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 45ms (Views: 42.9ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/logout" for ::1 at 2019-05-03 11:38:34 -0700
+Processing by MerchantsController#logout as HTML
+  Parameters: {"authenticity_token"=>"gpiJ44IUj6jy+ekzJK+AJbQyDZxSRyQexdKOJvAFFEbOKWGPX8cmAb23FVSrTctpxhtIbneHFfqnK0SdPzy2iQ=="}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:46
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:38:34 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 50ms (Views: 46.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:39:17 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:39:18 -0700
+Started GET "/auth/github/callback?code=750550847f5269753659&state=1360be844ad4868b84db07a560d09bc4a93c5b712a25b0b2" for ::1 at 2019-05-03 11:39:18 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"750550847f5269753659", "state"=>"1360be844ad4868b84db07a560d09bc4a93c5b712a25b0b2", "provider"=>"github"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 44131483], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["username", "MyriamWD"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 AND "merchants"."id" != $2 LIMIT $3[0m  [["email", "myriam.waldend@gmail.com"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/merchants_controller.rb:20
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:39:18 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 45ms (Views: 42.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:39:33 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 56ms (Views: 53.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:39:36 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:39:37 -0700
+Started GET "/auth/github/callback?code=6c515d19837e8c73e4e1&state=6cf5e78128f0ced5fca1a9e170bd8e3db4d47194f5df3f02" for ::1 at 2019-05-03 11:40:01 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"6c515d19837e8c73e4e1", "state"=>"6cf5e78128f0ced5fca1a9e170bd8e3db4d47194f5df3f02", "provider"=>"github"}
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 36245782], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.8ms)
+
+
+
+NoMethodError - undefined method `save' for nil:NilClass:
+  app/controllers/merchants_controller.rb:20:in `create'
+
+Started POST "/__better_errors/8f5d6f8fa6104f74/variables" for ::1 at 2019-05-03 11:40:01 -0700
+Started GET "/" for ::1 at 2019-05-03 11:40:53 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 65ms (Views: 52.4ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:40:55 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:40:55 -0700
+Started GET "/auth/github/callback?code=cc063257ace359989ff8&state=7791bf63c904298b238c9355d3c74cf227663f1a2d4062f5" for ::1 at 2019-05-03 11:40:55 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"cc063257ace359989ff8", "state"=>"7791bf63c904298b238c9355d3c74cf227663f1a2d4062f5", "provider"=>"github"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 36245782], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/merchants_controller.rb:25
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "jillirami"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:25
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "jillianne.ramirez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:25
+  [1m[36mMerchant Create (0.4ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "jillirami"], ["email", "jillianne.ramirez@gmail.com"], ["created_at", "2019-05-03 18:40:56.150357"], ["updated_at", "2019-05-03 18:40:56.150357"], ["name", "Jillianne Ramirez"], ["uid", 36245782], ["provider", "github"]]
+  ↳ app/controllers/merchants_controller.rb:25
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/merchants_controller.rb:25
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:40:56 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 40ms (Views: 37.9ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/logout" for ::1 at 2019-05-03 11:41:00 -0700
+Processing by MerchantsController#logout as HTML
+  Parameters: {"authenticity_token"=>"HJjj97ddfis0CcWoslowKo8oK8BtN+xM2sdOW9VdqYD83WjW1AtBT6tTZcdiMyFdR0zg5Mdwo8kkh+7O186nAQ=="}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:46
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:41:00 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 41ms (Views: 39.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:41:09 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 49ms (Views: 46.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:41:11 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:41:11 -0700
+Started GET "/auth/github/callback?code=eed855a238f988f49154&state=ef909e1328ef90e40044fc81ff2e3c746a899e6b9ebb7f05" for ::1 at 2019-05-03 11:41:20 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"eed855a238f988f49154", "state"=>"ef909e1328ef90e40044fc81ff2e3c746a899e6b9ebb7f05", "provider"=>"github"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 36245782], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:41:20 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 45ms (Views: 42.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products" for ::1 at 2019-05-03 11:41:25 -0700
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:8
+  Rendered products/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 60ms (Views: 50.2ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/merchants/2" for ::1 at 2019-05-03 11:41:28 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+  Rendering merchants/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 7]]
+  ↳ app/views/merchants/show.html.erb:4
+  Rendered merchants/show.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 55ms (Views: 50.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/merchants/2" for ::1 at 2019-05-03 11:41:29 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+  Rendering merchants/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 7]]
+  ↳ app/views/merchants/show.html.erb:4
+  Rendered merchants/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 48ms (Views: 44.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/merchants/5" for ::1 at 2019-05-03 11:41:33 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+  Rendering merchants/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 7]]
+  ↳ app/views/merchants/show.html.erb:4
+  Rendered merchants/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 48ms (Views: 45.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/merchants/6" for ::1 at 2019-05-03 11:41:36 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+  Rendering merchants/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 7]]
+  ↳ app/views/merchants/show.html.erb:4
+  Rendered merchants/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 54ms (Views: 50.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/merchants/5" for ::1 at 2019-05-03 11:41:53 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+  Rendering merchants/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 7]]
+  ↳ app/views/merchants/show.html.erb:4
+  Rendered merchants/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 48ms (Views: 44.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/merchants/4" for ::1 at 2019-05-03 11:41:56 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+  Rendering merchants/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 7]]
+  ↳ app/views/merchants/show.html.erb:4
+  Rendered merchants/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 48ms (Views: 44.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/merchants/3" for ::1 at 2019-05-03 11:41:57 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+  Rendering merchants/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 7]]
+  ↳ app/views/merchants/show.html.erb:4
+  Rendered merchants/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 47ms (Views: 44.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/merchants/2" for ::1 at 2019-05-03 11:41:58 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+  Rendering merchants/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 7]]
+  ↳ app/views/merchants/show.html.erb:4
+  Rendered merchants/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 49ms (Views: 45.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/merchants/1" for ::1 at 2019-05-03 11:42:01 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+  Rendering merchants/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 7]]
+  ↳ app/views/merchants/show.html.erb:4
+  Rendered merchants/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 47ms (Views: 43.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/merchants/6" for ::1 at 2019-05-03 11:42:51 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+  Rendering merchants/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 7]]
+  ↳ app/views/merchants/show.html.erb:4
+  Rendered merchants/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 49ms (Views: 45.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/merchants/7" for ::1 at 2019-05-03 11:42:54 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+  Rendering merchants/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 7]]
+  ↳ app/views/merchants/show.html.erb:4
+  Rendered merchants/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 52ms (Views: 48.8ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/logout" for ::1 at 2019-05-03 11:42:57 -0700
+Processing by MerchantsController#logout as HTML
+  Parameters: {"authenticity_token"=>"q9Zygp+qSyMSJ4yCkRM89WFTXQmnizA1FI66ErjY2VZpOItcWV7IVduwkD9FKtNstNYSp5ZgbdxT9z91ixfs9A=="}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:46
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:42:57 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 46ms (Views: 43.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/merchants/3" for ::1 at 2019-05-03 11:43:00 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+Redirected to http://localhost:3000/merchants
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/merchants" for ::1 at 2019-05-03 11:43:00 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 45ms (Views: 42.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/merchants/4" for ::1 at 2019-05-03 11:43:01 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+Redirected to http://localhost:3000/merchants
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/merchants" for ::1 at 2019-05-03 11:43:01 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 46ms (Views: 43.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/merchants/5" for ::1 at 2019-05-03 11:43:03 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+Redirected to http://localhost:3000/merchants
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/merchants" for ::1 at 2019-05-03 11:43:03 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 44ms (Views: 41.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/merchants/6" for ::1 at 2019-05-03 11:43:04 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+Redirected to http://localhost:3000/merchants
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/merchants" for ::1 at 2019-05-03 11:43:04 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 47ms (Views: 44.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/merchants/7" for ::1 at 2019-05-03 11:43:05 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+Redirected to http://localhost:3000/merchants
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/merchants" for ::1 at 2019-05-03 11:43:05 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 51ms (Views: 48.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/merchants/1" for ::1 at 2019-05-03 11:43:06 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+Redirected to http://localhost:3000/merchants
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/merchants" for ::1 at 2019-05-03 11:43:06 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 45ms (Views: 42.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/merchants/2" for ::1 at 2019-05-03 11:43:07 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+Redirected to http://localhost:3000/merchants
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/merchants" for ::1 at 2019-05-03 11:43:07 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 45ms (Views: 42.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:43:08 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:43:08 -0700
+Started GET "/auth/github/callback?code=99d59665da79d01c9b58&state=718197df5c5f3fb1ef517bfe7f78991d7185e226a84b9f16" for ::1 at 2019-05-03 11:43:09 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"99d59665da79d01c9b58", "state"=>"718197df5c5f3fb1ef517bfe7f78991d7185e226a84b9f16", "provider"=>"github"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 36245782], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:43:09 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 45ms (Views: 43.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/merchants/3" for ::1 at 2019-05-03 11:43:11 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+  Rendering merchants/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 7]]
+  ↳ app/views/merchants/show.html.erb:4
+  Rendered merchants/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 46ms (Views: 42.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:43:17 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 47ms (Views: 44.6ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/logout" for ::1 at 2019-05-03 11:43:20 -0700
+Processing by MerchantsController#logout as HTML
+  Parameters: {"authenticity_token"=>"k0nfpeW5skNpQ3wao8cI3n9LT3z+gfSnYIju2wv+qAJRpyZ7I00xNaDUYKd3/udHqs4A0s9qqU4n8Wu8ODGdoA=="}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:46
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:43:20 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 52ms (Views: 49.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:43:22 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 47ms (Views: 43.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:43:23 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 47ms (Views: 44.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/merchants/1" for ::1 at 2019-05-03 11:43:26 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+Redirected to http://localhost:3000/merchants
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/merchants" for ::1 at 2019-05-03 11:43:26 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 47ms (Views: 44.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/merchants/2" for ::1 at 2019-05-03 11:43:29 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+Redirected to http://localhost:3000/merchants
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/merchants" for ::1 at 2019-05-03 11:43:29 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 45ms (Views: 42.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/merchants/1" for ::1 at 2019-05-03 11:43:33 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+Redirected to http://localhost:3000/merchants
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/merchants" for ::1 at 2019-05-03 11:43:33 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 48ms (Views: 45.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/merchants/2" for ::1 at 2019-05-03 11:43:39 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+Redirected to http://localhost:3000/merchants
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/merchants" for ::1 at 2019-05-03 11:43:39 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 52ms (Views: 49.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/merchants/3" for ::1 at 2019-05-03 11:43:41 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+Redirected to http://localhost:3000/merchants
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/merchants" for ::1 at 2019-05-03 11:43:41 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 45ms (Views: 42.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:44:03 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:44:03 -0700
+Started GET "/auth/github/callback?code=be0eb513a8037ad2acb0&state=97ed15561d61909a269813d342c84d0903fdedec42f12656" for ::1 at 2019-05-03 11:44:03 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"be0eb513a8037ad2acb0", "state"=>"97ed15561d61909a269813d342c84d0903fdedec42f12656", "provider"=>"github"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 36245782], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:44:04 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 44ms (Views: 41.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:44:07 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 46ms (Views: 43.1ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+Started GET "/" for ::1 at 2019-05-03 11:52:14 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 64ms (Views: 51.5ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:52:17 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:52:17 -0700
+Started GET "/auth/github/callback?code=8805f7481db1372ffa79&state=b5f7d0d8cb188944f25ae8e1c365cbfe865df12cdc9e8057" for ::1 at 2019-05-03 11:52:27 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"8805f7481db1372ffa79", "state"=>"b5f7d0d8cb188944f25ae8e1c365cbfe865df12cdc9e8057", "provider"=>"github"}
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 36245782], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:52:27 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 46ms (Views: 43.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/merchants/1" for ::1 at 2019-05-03 11:52:30 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+  Rendering merchants/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 1]]
+  ↳ app/views/merchants/show.html.erb:4
+  Rendered merchants/show.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 66ms (Views: 56.9ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/merchants/1" for ::1 at 2019-05-03 11:52:30 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+  Rendering merchants/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 1]]
+  ↳ app/views/merchants/show.html.erb:4
+  Rendered merchants/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 43ms (Views: 39.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products" for ::1 at 2019-05-03 11:52:36 -0700
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:8
+  Rendered products/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 54ms (Views: 51.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products" for ::1 at 2019-05-03 11:52:36 -0700
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:8
+  Rendered products/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 44ms (Views: 41.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/merchants/1" for ::1 at 2019-05-03 11:52:40 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+  Rendering merchants/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 1]]
+  ↳ app/views/merchants/show.html.erb:4
+  Rendered merchants/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 51ms (Views: 47.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:52:41 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 47ms (Views: 44.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/merchants/7" for ::1 at 2019-05-03 11:52:43 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+  Rendering merchants/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 7]]
+  ↳ app/views/merchants/show.html.erb:4
+  Rendered merchants/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 46ms (Views: 42.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/merchants/6" for ::1 at 2019-05-03 11:52:46 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+  Rendering merchants/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/show.html.erb:4
+  Rendered merchants/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 47ms (Views: 43.8ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/logout" for ::1 at 2019-05-03 11:52:51 -0700
+Processing by MerchantsController#logout as HTML
+  Parameters: {"authenticity_token"=>"GY//+I9HxbPbQlH8vBQduxtLmAB67tL3JWtFGU9XSLp/4bv1CnSMZe3w6Ma8q88RQDFQPoHCueZM3Efh3KpXoA=="}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:46
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:52:51 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 54ms (Views: 51.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:52:55 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:52:55 -0700
+Started GET "/auth/github/callback?code=843712d436d56ae8e399&state=aeb4da2cec706413408d31ba86bd28d0bc0cfe7363c64f98" for ::1 at 2019-05-03 11:52:56 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"843712d436d56ae8e399", "state"=>"aeb4da2cec706413408d31ba86bd28d0bc0cfe7363c64f98", "provider"=>"github"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 36245782], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:52:56 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 46ms (Views: 43.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:54:37 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 58ms (Views: 46.9ms | ActiveRecord: 5.7ms)
+
+
+Started DELETE "/logout" for ::1 at 2019-05-03 11:54:39 -0700
+Processing by MerchantsController#logout as HTML
+  Parameters: {"authenticity_token"=>"FbLYAP9nu4398w2ACGz2o4SVqkVTieqErVgK+IfpKBtz3JwNelTyW8tBtLoI0yQJ3+9ie6ilgZXE7wgAFBQ3AQ=="}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:46
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.5ms)
+
+
+
+RuntimeError - :
+  app/controllers/merchants_controller.rb:48:in `logout'
+
+Started POST "/__better_errors/b98754bef78ec326/variables" for ::1 at 2019-05-03 11:54:39 -0700
+Started POST "/__better_errors/b98754bef78ec326/eval" for ::1 at 2019-05-03 11:54:44 -0700
+Started POST "/__better_errors/b98754bef78ec326/eval" for ::1 at 2019-05-03 11:54:54 -0700
+Started GET "/" for ::1 at 2019-05-03 11:55:44 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 64ms (Views: 53.1ms | ActiveRecord: 3.7ms)
+
+
+Started DELETE "/logout" for ::1 at 2019-05-03 11:55:47 -0700
+Processing by MerchantsController#logout as HTML
+  Parameters: {"authenticity_token"=>"pOGPOyOHfH+qoPJhMf2sm7NJe6vTwjHpK13PUxiIfq/Cj8s2prQ1qZwSS1sxQn4x6DOzlSjuWvhC6s2ri3VhtQ=="}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:55:47 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 47ms (Views: 44.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:55:49 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:55:49 -0700
+Started GET "/auth/github/callback?code=b0a7c94a44783c1309be&state=b1d2738544f0d3610159d109016e89bf21cf25391b8470f6" for ::1 at 2019-05-03 11:55:50 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"b0a7c94a44783c1309be", "state"=>"b1d2738544f0d3610159d109016e89bf21cf25391b8470f6", "provider"=>"github"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 36245782], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.3ms)
+
+
+
+RuntimeError - :
+  app/controllers/merchants_controller.rb:22:in `create'
+
+Started POST "/__better_errors/6ebfb6dc0142ac64/variables" for ::1 at 2019-05-03 11:55:51 -0700
+Started POST "/__better_errors/6ebfb6dc0142ac64/eval" for ::1 at 2019-05-03 11:56:06 -0700
+Started GET "/auth/github/callback?code=b0a7c94a44783c1309be&state=b1d2738544f0d3610159d109016e89bf21cf25391b8470f6" for ::1 at 2019-05-03 11:56:31 -0700
+
+OAuth2::Error - bad_verification_code: The code passed is incorrect or expired.
+error=bad_verification_code&error_description=The+code+passed+is+incorrect+or+expired.&error_uri=https%3A%2F%2Fdeveloper.github.com%2Fapps%2Fmanaging-oauth-apps%2Ftroubleshooting-oauth-app-access-token-request-errors%2F%23bad-verification-code:
+
+Started POST "/__better_errors/553baaaab1d40196/variables" for ::1 at 2019-05-03 11:56:31 -0700
+Started GET "/" for ::1 at 2019-05-03 11:56:36 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 66ms (Views: 63.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:56:38 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:56:38 -0700
+Started GET "/auth/github/callback?code=6e42bc1d26a53c4a142d&state=cac429328d6db1e12b0d1680bb974cad955a086bb3784436" for ::1 at 2019-05-03 11:56:38 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"6e42bc1d26a53c4a142d", "state"=>"cac429328d6db1e12b0d1680bb974cad955a086bb3784436", "provider"=>"github"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 36245782], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.3ms)
+
+
+
+RuntimeError - :
+  app/controllers/merchants_controller.rb:22:in `create'
+
+Started POST "/__better_errors/5b3e2be40ba6c79e/variables" for ::1 at 2019-05-03 11:56:39 -0700
+Started GET "/" for ::1 at 2019-05-03 11:56:48 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 55ms (Views: 46.4ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:56:50 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 41ms (Views: 38.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:56:54 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:56:54 -0700
+Started GET "/auth/github/callback?code=8c367728261004aa9e11&state=db8089f0df4d27dc79de7f6b315b8b84f3344aff6dc84d94" for ::1 at 2019-05-03 11:56:54 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"8c367728261004aa9e11", "state"=>"db8089f0df4d27dc79de7f6b315b8b84f3344aff6dc84d94", "provider"=>"github"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 36245782], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:56:55 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 40ms (Views: 38.1ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/logout" for ::1 at 2019-05-03 11:57:01 -0700
+Processing by MerchantsController#logout as HTML
+  Parameters: {"authenticity_token"=>"l0OdAsvqNTypBEfk9wcX8B6cNPAoUyVlzXfoSw59Ey7xLdkPTtl86p+2/t73uMVaReb8ztN/TnSkwOqznYAMNA=="}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:57:01 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 42ms (Views: 39.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 11:57:09 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:5
+  Rendered merchants/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 49ms (Views: 46.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 11:57:11 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 11:57:12 -0700
