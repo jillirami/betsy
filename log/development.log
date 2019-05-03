@@ -2472,6 +2472,578 @@ Migrating to RenameCategoryproductTable (20190502212855)
   [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
   ↳ db/seeds.rb:25
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+<<<<<<< HEAD
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/products/new" for ::1 at 2019-05-02 17:52:44 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ngocle/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (288.2ms)
+  Rendered products/new.html.erb within layouts/application (293.9ms)
+Completed 500 Internal Server Error in 354ms (ActiveRecord: 5.8ms)
+
+
+
+NoMethodError - undefined method `merge' for :name:Symbol:
+  app/views/products/_form.html.erb:4:in `block in _app_views_products__form_html_erb__3222898294765151414_70109078419440'
+  app/views/products/_form.html.erb:1:in `_app_views_products__form_html_erb__3222898294765151414_70109078419440'
+  app/views/products/new.html.erb:2:in `_app_views_products_new_html_erb___4588075515515681574_70109072309460'
+
+Started POST "/__better_errors/2213a8ae2c7a0f84/variables" for ::1 at 2019-05-02 17:52:45 -0700
+Started GET "/products/new" for ::1 at 2019-05-02 17:53:15 -0700
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (66.9ms)
+  Rendered products/new.html.erb within layouts/application (71.6ms)
+Completed 200 OK in 702ms (Views: 695.0ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/products/new" for ::1 at 2019-05-02 17:53:25 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/products/new"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/products/new" for ::1 at 2019-05-02 17:53:42 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/products/new"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2019-05-02 18:03:33 -0700
+  [1m[35m (20.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ngocle/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/ngocle/.rvm/gems/ruby-2.5.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/ngocle/.rvm/gems/ruby-2.5.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (20.9ms)
+Completed 200 OK in 62ms (Views: 49.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/passengers" for ::1 at 2019-05-02 18:03:36 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/passengers"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/products/new" for ::1 at 2019-05-02 18:03:37 -0700
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (485.4ms)
+  Rendered products/new.html.erb within layouts/application (489.4ms)
+Completed 200 OK in 1180ms (Views: 1114.7ms | ActiveRecord: 16.4ms)
+
+
+Started POST "/products" for ::1 at 2019-05-02 18:03:52 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tMvZKImriC/ahmbHFgnL0L3sEhOSkt7McG/8c66Lm5xqHtBIJWUbfoeXoaiwZV2OymPbXyZSC++e85HFqjCY9A==", "product"=>{"category_ids"=>["", "3", "5"], "name"=>"surfing board", "price"=>"30", "description"=>"dfdfd", "photo"=>"", "inventory"=>"30"}, "commit"=>"Create Product"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 0, expected 1..2):
+  app/controllers/products_controller.rb:49:in `product_params'
+  app/controllers/products_controller.rb:26:in `create'
+
+Started POST "/__better_errors/c9e71b8b370f6883/variables" for ::1 at 2019-05-02 18:03:52 -0700
+Started GET "/" for ::1 at 2019-05-03 11:04:17 -0700
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ngocle/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/ngocle/.rvm/gems/ruby-2.5.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/ngocle/.rvm/gems/ruby-2.5.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (3.8ms)
+Completed 200 OK in 20ms (Views: 10.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products/new" for ::1 at 2019-05-03 11:04:19 -0700
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (41.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (411.8ms)
+  Rendered products/new.html.erb within layouts/application (414.9ms)
+Completed 200 OK in 1098ms (Views: 914.8ms | ActiveRecord: 118.1ms)
+
+
+Started GET "/products/new" for ::1 at 2019-05-03 11:05:23 -0700
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (26.5ms)
+  Rendered products/new.html.erb within layouts/application (30.1ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 3, expected 5..7):
+  app/views/products/_form.html.erb:4:in `block in _app_views_products__form_html_erb___2469131895622559704_70103930432580'
+  app/views/products/_form.html.erb:1:in `_app_views_products__form_html_erb___2469131895622559704_70103930432580'
+  app/views/products/new.html.erb:2:in `_app_views_products_new_html_erb___146180699093616105_70103930303920'
+
+Started POST "/__better_errors/764236d36767c0dd/variables" for ::1 at 2019-05-03 11:05:23 -0700
+Started GET "/products/new" for ::1 at 2019-05-03 11:05:30 -0700
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (6.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (15.5ms)
+  Rendered products/new.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 112ms (Views: 103.6ms | ActiveRecord: 6.1ms)
+
+
+Started POST "/products" for ::1 at 2019-05-03 11:06:06 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZCsN3pY8oa2XvmbauQxMUw08idinTI8Y9gW2rd14L3i6/gS+OvIy/MqvobUfYNoNerNAlBOMWjsYmdsb2cMsEA==", "product"=>{"category_ids"=>["", "6"], "name"=>"Magic Rink", "price"=>"30", "description"=>"dfdfd", "photo"=>"", "inventory"=>"30"}, "commit"=>"Create Product"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 0, expected 1..2):
+  app/controllers/products_controller.rb:49:in `product_params'
+  app/controllers/products_controller.rb:26:in `create'
+
+Started POST "/__better_errors/156441047cdababb/variables" for ::1 at 2019-05-03 11:06:06 -0700
+Started POST "/products" for ::1 at 2019-05-03 11:09:02 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZCsN3pY8oa2XvmbauQxMUw08idinTI8Y9gW2rd14L3i6/gS+OvIy/MqvobUfYNoNerNAlBOMWjsYmdsb2cMsEA==", "product"=>{"category_ids"=>["", "6"], "name"=>"Magic Rink", "price"=>"30", "description"=>"dfdfd", "photo"=>"", "inventory"=>"30"}, "commit"=>"Create Product"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 0, expected 1..2):
+  app/controllers/products_controller.rb:49:in `product_params'
+  app/controllers/products_controller.rb:26:in `create'
+
+Started POST "/__better_errors/37b9e70ff7fea3f7/variables" for ::1 at 2019-05-03 11:09:03 -0700
+Started POST "/products" for ::1 at 2019-05-03 11:10:13 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZCsN3pY8oa2XvmbauQxMUw08idinTI8Y9gW2rd14L3i6/gS+OvIy/MqvobUfYNoNerNAlBOMWjsYmdsb2cMsEA==", "product"=>{"category_ids"=>["", "6"], "name"=>"Magic Rink", "price"=>"30", "description"=>"dfdfd", "photo"=>"", "inventory"=>"30"}, "commit"=>"Create Product"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 0, expected 1..2):
+  app/controllers/products_controller.rb:52:in `product_params'
+  app/controllers/products_controller.rb:26:in `create'
+
+Started POST "/__better_errors/a17ff000c2ae607e/variables" for ::1 at 2019-05-03 11:10:13 -0700
+Started GET "/products/new" for ::1 at 2019-05-03 11:10:25 -0700
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (45.7ms)
+  Rendered products/new.html.erb within layouts/application (48.0ms)
+Completed 200 OK in 207ms (Views: 148.8ms | ActiveRecord: 23.0ms)
+
+
+Started POST "/products" for ::1 at 2019-05-03 11:11:30 -0700
+
+SyntaxError - syntax error, unexpected '=', expecting ')'
+...(product_params, :merchant_id = 1)
+...                              ^:
+  app/controllers/products_controller.rb:27:in `'
+
+Started POST "/__better_errors/0b681104ac94280e/variables" for ::1 at 2019-05-03 11:11:30 -0700
+Started GET "/products/new" for ::1 at 2019-05-03 11:12:19 -0700
+
+SyntaxError - syntax error, unexpected '=', expecting ')'
+...(product_params, :merchant_id =Merchant.first.id)
+...                              ^
+/Users/ngocle/Documents/ada/11-week-rails/betsy/app/controllers/products_controller.rb:27: syntax error, unexpected ')', expecting keyword_end
+...merchant_id =Merchant.first.id)
+...                              ^:
+  app/controllers/products_controller.rb:27:in `'
+
+Started POST "/__better_errors/98c8d82acc1230ff/variables" for ::1 at 2019-05-03 11:12:19 -0700
+Started POST "/__better_errors/a17ff000c2ae607e/variables" for ::1 at 2019-05-03 11:12:20 -0700
+Started GET "/products/new" for ::1 at 2019-05-03 11:12:23 -0700
+
+SyntaxError - syntax error, unexpected '=', expecting ')'
+...(product_params, :merchant_id =Merchant.first.id)
+...                              ^
+/Users/ngocle/Documents/ada/11-week-rails/betsy/app/controllers/products_controller.rb:27: syntax error, unexpected ')', expecting keyword_end
+...merchant_id =Merchant.first.id)
+...                              ^:
+  app/controllers/products_controller.rb:27:in `'
+
+Started POST "/__better_errors/8f63bbb465629a75/variables" for ::1 at 2019-05-03 11:12:24 -0700
+Started GET "/products/new" for ::1 at 2019-05-03 11:14:02 -0700
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (29.5ms)
+  Rendered products/new.html.erb within layouts/application (32.5ms)
+Completed 200 OK in 133ms (Views: 103.7ms | ActiveRecord: 10.8ms)
+
+
+Started POST "/products" for ::1 at 2019-05-03 11:14:07 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yHWgm2j6+KKJh4Sn/lpPLq+aoGBEe+KooBM7iICrVRwWoKn7xDRr89SWQ8hYNtlw2BVpLPC7N4tOj1Y+hBBWdA==", "product"=>{"category_ids"=>["", "6"], "name"=>"surfing board", "price"=>"30", "description"=>"", "photo"=>"", "inventory"=>""}, "commit"=>"Create Product"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 0, expected 1..2):
+  app/controllers/products_controller.rb:51:in `product_params'
+  app/controllers/products_controller.rb:27:in `create'
+
+Started POST "/__better_errors/d3c2b19d99e89792/variables" for ::1 at 2019-05-03 11:14:07 -0700
+Started GET "/products/new" for ::1 at 2019-05-03 11:14:25 -0700
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (28.2ms)
+  Rendered products/new.html.erb within layouts/application (32.1ms)
+Completed 200 OK in 139ms (Views: 95.3ms | ActiveRecord: 13.3ms)
+
+
+Started POST "/products" for ::1 at 2019-05-03 11:14:31 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R4kosI5fixArbk6xGoCpUqLUy4JBzQVlPeDWU5d8khuZXCHQIpEYQXZ/id687D8M1VsCzvUN0EbTfLvlk8eRcw==", "product"=>{"category_ids"=>["", "6"], "name"=>"surfing board", "price"=>"30", "description"=>"", "photo"=>"", "inventory"=>""}, "commit"=>"Create Product"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 0, expected 1..2):
+  app/controllers/products_controller.rb:50:in `product_params'
+  app/controllers/products_controller.rb:26:in `create'
+
+Started POST "/__better_errors/d811d673ccc155e2/variables" for ::1 at 2019-05-03 11:14:31 -0700
+Started GET "/products/new" for ::1 at 2019-05-03 11:16:04 -0700
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (33.4ms)
+  Rendered products/new.html.erb within layouts/application (36.5ms)
+Completed 200 OK in 176ms (Views: 138.0ms | ActiveRecord: 8.6ms)
+
+
+Started POST "/products" for ::1 at 2019-05-03 11:16:09 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"URuS7QlzOCyL8yI/LQl4vTtxQdWCWrdd2Vzs0xWMAEmPzpuNpb2rfdbi5VCLZe7jTP6ImTaaYn43wIFlETcDIQ==", "product"=>{"category_ids"=>["", "6"], "name"=>"surfing board", "price"=>"30", "description"=>"", "photo"=>"", "inventory"=>""}, "commit"=>"Create Product"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 0, expected 1..2):
+  app/controllers/products_controller.rb:50:in `product_params'
+  app/controllers/products_controller.rb:26:in `create'
+
+Started POST "/__better_errors/0e8b2f9c1a713140/variables" for ::1 at 2019-05-03 11:16:09 -0700
+Started GET "/passengers" for ::1 at 2019-05-03 11:16:47 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/passengers"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/products/new" for ::1 at 2019-05-03 11:16:48 -0700
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (36.6ms)
+  Rendered products/new.html.erb within layouts/application (39.9ms)
+Completed 200 OK in 164ms (Views: 114.4ms | ActiveRecord: 19.1ms)
+
+
+Started POST "/products" for ::1 at 2019-05-03 11:16:53 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TwKNn+5ZRvuIBcCti+zhRe53JEvSpU7SVsTTIi7pUPmR14T/QpfVqtUUB8ItgHcbmfjtB2Zlm/G4WL6UKlJTkQ==", "product"=>{"category_ids"=>["", "5"], "name"=>"surfing board", "price"=>"30", "description"=>"", "photo"=>"", "inventory"=>""}, "commit"=>"Create Product"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 0, expected 1..2):
+  app/controllers/products_controller.rb:50:in `product_params'
+  app/controllers/products_controller.rb:26:in `create'
+
+Started POST "/__better_errors/4b67924fcf1c5389/variables" for ::1 at 2019-05-03 11:16:53 -0700
+Started POST "/products" for ::1 at 2019-05-03 11:19:52 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TwKNn+5ZRvuIBcCti+zhRe53JEvSpU7SVsTTIi7pUPmR14T/QpfVqtUUB8ItgHcbmfjtB2Zlm/G4WL6UKlJTkQ==", "product"=>{"category_ids"=>["", "5"], "name"=>"surfing board", "price"=>"30", "description"=>"", "photo"=>"", "inventory"=>"30"}, "commit"=>"Create Product"}
+Unpermitted parameter: :category_ids
+  [1m[36mMerchant Load (48.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:27
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:29
+  [1m[36mProduct Exists (24.6ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "surfing board"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:29
+  [1m[36mProduct Create (8.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "surfing board"], ["price", 30], ["description", ""], ["photo", ""], ["inventory", 30], ["created_at", "2019-05-03 18:19:52.225155"], ["updated_at", "2019-05-03 18:19:52.225155"], ["merchant_id", 1]]
+  ↳ app/controllers/products_controller.rb:29
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:29
+Redirected to http://localhost:3000/products/11
+Completed 302 Found in 148ms (ActiveRecord: 89.8ms)
+
+
+Started GET "/products/11" for ::1 at 2019-05-03 11:19:52 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:8
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 87ms (Views: 80.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products/new" for ::1 at 2019-05-03 12:43:11 -0700
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ngocle/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (338.6ms)
+  Rendered products/new.html.erb within layouts/application (343.3ms)
+Completed 200 OK in 784ms (Views: 735.3ms | ActiveRecord: 10.3ms)
+
+
+Started POST "/products" for ::1 at 2019-05-03 12:43:28 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"K0OSvZPdPK2z5/MizK6Qo+Usvi/LzuBIayW/+t96EOf1lpvdPxOv/O72NE1qwgb9kqN3Y38ONWuFudJM28ETjw==", "product"=>{"category_ids"=>["", "4"], "name"=>"surfing board", "price"=>"30", "description"=>"", "photo"=>"", "inventory"=>"30"}, "commit"=>"Create Product"}
+Unpermitted parameter: :category_ids
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:30
+  [1m[36mProduct Exists (41.9ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "surfing board"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:30
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/products_controller.rb:30
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (17.2ms)
+  Rendered products/new.html.erb within layouts/application (19.7ms)
+Completed 400 Bad Request in 218ms (Views: 99.2ms | ActiveRecord: 49.7ms)
+
+
+Started GET "/products/new" for ::1 at 2019-05-03 12:44:34 -0700
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (10.2ms)
+  Rendered products/new.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 158ms (Views: 151.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/products" for ::1 at 2019-05-03 12:44:43 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CWUNFsFcaDxJeYEdP5+WSrB5V1CQSVj+2mMFrp8TxsLXsAR2bZL7bRRoRnKZ8wAUx/aeHCSJjd00/2gYm6jFqg==", "product"=>{"category_ids"=>["", "5"], "name"=>"Magic Rink", "price"=>"30", "description"=>"", "photo"=>"", "inventory"=>"30"}, "commit"=>"Create Product"}
+Unpermitted parameter: :category_ids
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:30
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Magic Rink"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:30
+  [1m[36mProduct Create (1.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Magic Rink"], ["price", 30], ["description", ""], ["photo", ""], ["inventory", 30], ["created_at", "2019-05-03 19:44:43.860891"], ["updated_at", "2019-05-03 19:44:43.860891"], ["merchant_id", 1]]
+  ↳ app/controllers/products_controller.rb:30
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:30
+Redirected to http://localhost:3000/products/12
+Completed 302 Found in 20ms (ActiveRecord: 7.3ms)
+
+
+Started GET "/products/12" for ::1 at 2019-05-03 12:44:43 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:8
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 130ms (Views: 118.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products/new" for ::1 at 2019-05-03 12:48:38 -0700
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (3.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (14.3ms)
+  Rendered products/new.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 177ms (Views: 167.1ms | ActiveRecord: 3.2ms)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (43.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (4585.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "betsy_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (227.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "betsy_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (847.8ms)[0m  [1m[35mCREATE DATABASE "betsy_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (793.4ms)[0m  [1m[35mCREATE DATABASE "betsy_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (1.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (1.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (28.7ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories_products" CASCADE[0m
+  ↳ db/schema.rb:24
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "categories_products" ("id" bigserial primary key, "category_id" bigint, "product_id" bigint)[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_categories_products_on_category_id" ON "categories_products"  ("category_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE  INDEX  "index_categories_products_on_product_id" ON "categories_products"  ("product_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "merchants" CASCADE[0m
+  ↳ db/schema.rb:31
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE "merchants" ("id" bigserial primary key, "username" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "name" character varying, "uid" integer, "provider" character varying)[0m
+  ↳ db/schema.rb:31
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "orderitems" CASCADE[0m
+  ↳ db/schema.rb:41
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "orderitems" ("id" bigserial primary key, "status" character varying, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "product_id" bigint, "order_id" bigint)[0m
+  ↳ db/schema.rb:41
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE  INDEX  "index_orderitems_on_order_id" ON "orderitems"  ("order_id")[0m
+  ↳ db/schema.rb:41
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_orderitems_on_product_id" ON "orderitems"  ("product_id")[0m
+  ↳ db/schema.rb:41
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "orders" CASCADE[0m
+  ↳ db/schema.rb:52
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "status" character varying, "name" character varying, "email" character varying, "address" character varying, "cc_num" integer, "cc_exp" character varying, "cc_cvv" integer, "billing_zip" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:52
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "products" CASCADE[0m
+  ↳ db/schema.rb:65
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "price" integer, "description" character varying, "photo" character varying, "inventory" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "merchant_id" bigint)[0m
+  ↳ db/schema.rb:65
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_merchant_id" ON "products"  ("merchant_id")[0m
+  ↳ db/schema.rb:65
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "reviews" CASCADE[0m
+  ↳ db/schema.rb:77
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" bigserial primary key, "rating" integer, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "product_id" bigint)[0m
+  ↳ db/schema.rb:77
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE  INDEX  "index_reviews_on_product_id" ON "reviews"  ("product_id")[0m
+  ↳ db/schema.rb:77
+  [1m[35m (5.9ms)[0m  [1m[35mALTER TABLE "orderitems" ADD CONSTRAINT "fk_rails_10745a926d"
+=======
   ↳ db/seeds.rb:25
   [1m[36mProduct::HABTM_Categories Create (0.3ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 2], ["product_id", 5]]
   ↳ db/seeds.rb:25
@@ -2987,37 +3559,59 @@ Completed 200 OK in 110ms (Views: 107.2ms | ActiveRecord: 0.4ms)
 >>>>>>> 6008b0812965ad5e80efbd7653b23ae00b606023
   ↳ db/schema.rb:77
   [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "orderitems" ADD CONSTRAINT "fk_rails_10745a926d"
+>>>>>>> 12bf39ddd156d0cf1bc31421ea7969071ec404c9
 FOREIGN KEY ("order_id")
   REFERENCES "orders" ("id")
 [0m
   ↳ db/schema.rb:86
 <<<<<<< HEAD
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "orderitems" ADD CONSTRAINT "fk_rails_95776705b6"
+=======
+<<<<<<< HEAD
   [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "orderitems" ADD CONSTRAINT "fk_rails_95776705b6"
 =======
   [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "orderitems" ADD CONSTRAINT "fk_rails_95776705b6"
 >>>>>>> 6008b0812965ad5e80efbd7653b23ae00b606023
+>>>>>>> 12bf39ddd156d0cf1bc31421ea7969071ec404c9
 FOREIGN KEY ("product_id")
   REFERENCES "products" ("id")
 [0m
   ↳ db/schema.rb:87
 <<<<<<< HEAD
+  [1m[35m (3.7ms)[0m  [1m[35mALTER TABLE "products" ADD CONSTRAINT "fk_rails_9009599abb"
+=======
+<<<<<<< HEAD
   [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "products" ADD CONSTRAINT "fk_rails_9009599abb"
 =======
   [1m[35m (2.6ms)[0m  [1m[35mALTER TABLE "products" ADD CONSTRAINT "fk_rails_9009599abb"
 >>>>>>> 6008b0812965ad5e80efbd7653b23ae00b606023
+>>>>>>> 12bf39ddd156d0cf1bc31421ea7969071ec404c9
 FOREIGN KEY ("merchant_id")
   REFERENCES "merchants" ("id")
 [0m
   ↳ db/schema.rb:88
 <<<<<<< HEAD
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "reviews" ADD CONSTRAINT "fk_rails_bedd9094d4"
+=======
+<<<<<<< HEAD
   [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "reviews" ADD CONSTRAINT "fk_rails_bedd9094d4"
 =======
   [1m[35m (4.6ms)[0m  [1m[35mALTER TABLE "reviews" ADD CONSTRAINT "fk_rails_bedd9094d4"
 >>>>>>> 6008b0812965ad5e80efbd7653b23ae00b606023
+>>>>>>> 12bf39ddd156d0cf1bc31421ea7969071ec404c9
 FOREIGN KEY ("product_id")
   REFERENCES "products" ("id")
 [0m
   ↳ db/schema.rb:89
+<<<<<<< HEAD
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190502212855)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+=======
 <<<<<<< HEAD
   [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
   ↳ db/schema.rb:13
@@ -3035,6 +3629,7 @@ FOREIGN KEY ("product_id")
   ↳ db/schema.rb:13
   [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
 >>>>>>> 6008b0812965ad5e80efbd7653b23ae00b606023
+>>>>>>> 12bf39ddd156d0cf1bc31421ea7969071ec404c9
 (20190430233847),
 (20190430233826),
 (20190430233813),
@@ -3050,6 +3645,67 @@ FOREIGN KEY ("product_id")
 
 [0m
   ↳ db/schema.rb:13
+<<<<<<< HEAD
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-03 19:49:40.804948"], ["updated_at", "2019-05-03 19:49:40.804948"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories_products" CASCADE[0m
+  ↳ db/schema.rb:24
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "categories_products" ("id" bigserial primary key, "category_id" bigint, "product_id" bigint)[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_categories_products_on_category_id" ON "categories_products"  ("category_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_categories_products_on_product_id" ON "categories_products"  ("product_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "merchants" CASCADE[0m
+  ↳ db/schema.rb:31
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "merchants" ("id" bigserial primary key, "username" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "name" character varying, "uid" integer, "provider" character varying)[0m
+  ↳ db/schema.rb:31
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "orderitems" CASCADE[0m
+  ↳ db/schema.rb:41
+  [1m[35m (10.2ms)[0m  [1m[35mCREATE TABLE "orderitems" ("id" bigserial primary key, "status" character varying, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "product_id" bigint, "order_id" bigint)[0m
+  ↳ db/schema.rb:41
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_orderitems_on_order_id" ON "orderitems"  ("order_id")[0m
+  ↳ db/schema.rb:41
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_orderitems_on_product_id" ON "orderitems"  ("product_id")[0m
+  ↳ db/schema.rb:41
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "orders" CASCADE[0m
+  ↳ db/schema.rb:52
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "status" character varying, "name" character varying, "email" character varying, "address" character varying, "cc_num" integer, "cc_exp" character varying, "cc_cvv" integer, "billing_zip" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:52
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "products" CASCADE[0m
+  ↳ db/schema.rb:65
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "price" integer, "description" character varying, "photo" character varying, "inventory" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "merchant_id" bigint)[0m
+  ↳ db/schema.rb:65
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_merchant_id" ON "products"  ("merchant_id")[0m
+  ↳ db/schema.rb:65
+  [1m[35m (1.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "reviews" CASCADE[0m
+  ↳ db/schema.rb:77
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" bigserial primary key, "rating" integer, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "product_id" bigint)[0m
+  ↳ db/schema.rb:77
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_reviews_on_product_id" ON "reviews"  ("product_id")[0m
+  ↳ db/schema.rb:77
+  [1m[35m (5.0ms)[0m  [1m[35mALTER TABLE "orderitems" ADD CONSTRAINT "fk_rails_10745a926d"
+=======
 <<<<<<< HEAD
   [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
   ↳ db/schema.rb:13
@@ -3167,37 +3823,59 @@ FOREIGN KEY ("product_id")
   ↳ db/schema.rb:77
   [1m[35m (3.8ms)[0m  [1m[35mALTER TABLE "orderitems" ADD CONSTRAINT "fk_rails_10745a926d"
 >>>>>>> 6008b0812965ad5e80efbd7653b23ae00b606023
+>>>>>>> 12bf39ddd156d0cf1bc31421ea7969071ec404c9
 FOREIGN KEY ("order_id")
   REFERENCES "orders" ("id")
 [0m
   ↳ db/schema.rb:86
 <<<<<<< HEAD
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "orderitems" ADD CONSTRAINT "fk_rails_95776705b6"
+=======
+<<<<<<< HEAD
   [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "orderitems" ADD CONSTRAINT "fk_rails_95776705b6"
 =======
   [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "orderitems" ADD CONSTRAINT "fk_rails_95776705b6"
 >>>>>>> 6008b0812965ad5e80efbd7653b23ae00b606023
+>>>>>>> 12bf39ddd156d0cf1bc31421ea7969071ec404c9
 FOREIGN KEY ("product_id")
   REFERENCES "products" ("id")
 [0m
   ↳ db/schema.rb:87
 <<<<<<< HEAD
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "products" ADD CONSTRAINT "fk_rails_9009599abb"
+=======
+<<<<<<< HEAD
   [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "products" ADD CONSTRAINT "fk_rails_9009599abb"
 =======
   [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "products" ADD CONSTRAINT "fk_rails_9009599abb"
 >>>>>>> 6008b0812965ad5e80efbd7653b23ae00b606023
+>>>>>>> 12bf39ddd156d0cf1bc31421ea7969071ec404c9
 FOREIGN KEY ("merchant_id")
   REFERENCES "merchants" ("id")
 [0m
   ↳ db/schema.rb:88
 <<<<<<< HEAD
+  [1m[35m (3.5ms)[0m  [1m[35mALTER TABLE "reviews" ADD CONSTRAINT "fk_rails_bedd9094d4"
+=======
+<<<<<<< HEAD
   [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "reviews" ADD CONSTRAINT "fk_rails_bedd9094d4"
 =======
   [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "reviews" ADD CONSTRAINT "fk_rails_bedd9094d4"
 >>>>>>> 6008b0812965ad5e80efbd7653b23ae00b606023
+>>>>>>> 12bf39ddd156d0cf1bc31421ea7969071ec404c9
 FOREIGN KEY ("product_id")
   REFERENCES "products" ("id")
 [0m
   ↳ db/schema.rb:89
+<<<<<<< HEAD
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190502212855)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+=======
 <<<<<<< HEAD
   [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
   ↳ db/schema.rb:13
@@ -3213,6 +3891,7 @@ FOREIGN KEY ("product_id")
 >>>>>>> 6008b0812965ad5e80efbd7653b23ae00b606023
   ↳ db/schema.rb:13
   [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+>>>>>>> 12bf39ddd156d0cf1bc31421ea7969071ec404c9
 (20190430233847),
 (20190430233826),
 (20190430233813),
@@ -3228,6 +3907,45 @@ FOREIGN KEY ("product_id")
 
 [0m
   ↳ db/schema.rb:13
+<<<<<<< HEAD
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-03 19:49:41.017779"], ["updated_at", "2019-05-03 19:49:41.017779"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (1.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2019-05-03 19:49:41.027154"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "cecil.kub"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "seth@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Create (0.6ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "cecil.kub"], ["email", "seth@gmail.com"], ["created_at", "2019-05-03 19:49:41.303263"], ["updated_at", "2019-05-03 19:49:41.303263"], ["name", "Jefferey Blanda"], ["uid", 57918573], ["provider", "github"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "janay"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "camille_paucek@yahoo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Create (0.3ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "janay"], ["email", "camille_paucek@yahoo.com"], ["created_at", "2019-05-03 19:49:41.308507"], ["updated_at", "2019-05-03 19:49:41.308507"], ["name", "Wilford Considine"], ["uid", 97205708], ["provider", "github"]]
+=======
 <<<<<<< HEAD
   [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
   ↳ db/schema.rb:13
@@ -3282,11 +4000,185 @@ FOREIGN KEY ("product_id")
   [1m[36mMerchant Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "anisha.dubuque@gmail.com"], ["LIMIT", 1]]
   ↳ db/seeds.rb:2
   [1m[36mMerchant Create (0.2ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "refugio.mraz"], ["email", "anisha.dubuque@gmail.com"], ["created_at", "2019-05-02 22:05:05.252395"], ["updated_at", "2019-05-02 22:05:05.252395"], ["name", "Mrs. Lesley Stracke"], ["uid", 47866426], ["provider", "github"]]
+>>>>>>> 12bf39ddd156d0cf1bc31421ea7969071ec404c9
   ↳ db/seeds.rb:2
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   ↳ db/seeds.rb:2
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   ↳ db/seeds.rb:2
+<<<<<<< HEAD
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "erick"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "deon@yahoo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Create (0.3ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "erick"], ["email", "deon@yahoo.com"], ["created_at", "2019-05-03 19:49:41.313167"], ["updated_at", "2019-05-03 19:49:41.313167"], ["name", "Dong Huel"], ["uid", 67526932], ["provider", "github"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "malik.murazik"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "teresia_wintheiser@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Create (0.3ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "malik.murazik"], ["email", "teresia_wintheiser@gmail.com"], ["created_at", "2019-05-03 19:49:41.318260"], ["updated_at", "2019-05-03 19:49:41.318260"], ["name", "Racheal Auer II"], ["uid", 78832086], ["provider", "github"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "elana_fisher"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "mickey@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Create (0.2ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "elana_fisher"], ["email", "mickey@gmail.com"], ["created_at", "2019-05-03 19:49:41.323416"], ["updated_at", "2019-05-03 19:49:41.323416"], ["name", "Waylon Nicolas"], ["uid", 11951273], ["provider", "github"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Chillies Whole"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mProduct Create (0.8ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Chillies Whole"], ["price", 10762], ["description", "Deleniti quidem exercitationem sed."], ["photo", "https://www.flickr.com/photos/67345249@N06/7519730426/in/photolist-csuzSA-UJQNe3-8o4tSN-32Fzza-qB8JZQ-qpwm9Z-qBfPrR-22TEdyt-Tx2D8K-Twnhx2-jHy3Ax-nVL4jX-5LiZeu-dEMrKG-8FpVZn-49f7Mi-7Cviom-2ckP8hh-jWaRL-5DKnq-dEMzvE-4J8ugU-5EQn-dbfsvz-ACeqh-qsFxU5-MBUg1-G895ky-4AWqMz-4m7o1q-UM3Rsx-5DA1QE-bxmYSY-2fx5cin-bxtBA3-4eps6x-dVtGXq-f8ptcA-9pGYXV-QisuaB-7HPiTH-ehBgDS-9qTUkT-4NptMG-pHenm-fJ2YYH-8GEcYH-6Rsv8H-2fx4hHH-opWRNd"], ["inventory", 1], ["created_at", "2019-05-03 19:49:41.359351"], ["updated_at", "2019-05-03 19:49:41.359351"], ["merchant_id", 2]]
+  ↳ db/seeds.rb:8
+  [1m[35m (40.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "BBQ Seasoning"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "BBQ Seasoning"], ["price", 16828], ["description", "Asperiores libero aut enim."], ["photo", "https://www.flickr.com/photos/67345249@N06/7519730426/in/photolist-csuzSA-UJQNe3-8o4tSN-32Fzza-qB8JZQ-qpwm9Z-qBfPrR-22TEdyt-Tx2D8K-Twnhx2-jHy3Ax-nVL4jX-5LiZeu-dEMrKG-8FpVZn-49f7Mi-7Cviom-2ckP8hh-jWaRL-5DKnq-dEMzvE-4J8ugU-5EQn-dbfsvz-ACeqh-qsFxU5-MBUg1-G895ky-4AWqMz-4m7o1q-UM3Rsx-5DA1QE-bxmYSY-2fx5cin-bxtBA3-4eps6x-dVtGXq-f8ptcA-9pGYXV-QisuaB-7HPiTH-ehBgDS-9qTUkT-4NptMG-pHenm-fJ2YYH-8GEcYH-6Rsv8H-2fx4hHH-opWRNd"], ["inventory", 7], ["created_at", "2019-05-03 19:49:41.404691"], ["updated_at", "2019-05-03 19:49:41.404691"], ["merchant_id", 5]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Mustard Powder"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Mustard Powder"], ["price", 25554], ["description", "Cum dignissimos provident ad."], ["photo", "https://www.flickr.com/photos/67345249@N06/7519730426/in/photolist-csuzSA-UJQNe3-8o4tSN-32Fzza-qB8JZQ-qpwm9Z-qBfPrR-22TEdyt-Tx2D8K-Twnhx2-jHy3Ax-nVL4jX-5LiZeu-dEMrKG-8FpVZn-49f7Mi-7Cviom-2ckP8hh-jWaRL-5DKnq-dEMzvE-4J8ugU-5EQn-dbfsvz-ACeqh-qsFxU5-MBUg1-G895ky-4AWqMz-4m7o1q-UM3Rsx-5DA1QE-bxmYSY-2fx5cin-bxtBA3-4eps6x-dVtGXq-f8ptcA-9pGYXV-QisuaB-7HPiTH-ehBgDS-9qTUkT-4NptMG-pHenm-fJ2YYH-8GEcYH-6Rsv8H-2fx4hHH-opWRNd"], ["inventory", 9], ["created_at", "2019-05-03 19:49:41.409691"], ["updated_at", "2019-05-03 19:49:41.409691"], ["merchant_id", 2]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Biryani Spice Mix"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Biryani Spice Mix"], ["price", 47325], ["description", "Tempora eos consequatur enim."], ["photo", "https://www.flickr.com/photos/67345249@N06/7519730426/in/photolist-csuzSA-UJQNe3-8o4tSN-32Fzza-qB8JZQ-qpwm9Z-qBfPrR-22TEdyt-Tx2D8K-Twnhx2-jHy3Ax-nVL4jX-5LiZeu-dEMrKG-8FpVZn-49f7Mi-7Cviom-2ckP8hh-jWaRL-5DKnq-dEMzvE-4J8ugU-5EQn-dbfsvz-ACeqh-qsFxU5-MBUg1-G895ky-4AWqMz-4m7o1q-UM3Rsx-5DA1QE-bxmYSY-2fx5cin-bxtBA3-4eps6x-dVtGXq-f8ptcA-9pGYXV-QisuaB-7HPiTH-ehBgDS-9qTUkT-4NptMG-pHenm-fJ2YYH-8GEcYH-6Rsv8H-2fx4hHH-opWRNd"], ["inventory", 13], ["created_at", "2019-05-03 19:49:41.414199"], ["updated_at", "2019-05-03 19:49:41.414199"], ["merchant_id", 2]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Fish Seasoning"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Fish Seasoning"], ["price", 94239], ["description", "Sunt perspiciatis doloribus assumenda."], ["photo", "https://www.flickr.com/photos/67345249@N06/7519730426/in/photolist-csuzSA-UJQNe3-8o4tSN-32Fzza-qB8JZQ-qpwm9Z-qBfPrR-22TEdyt-Tx2D8K-Twnhx2-jHy3Ax-nVL4jX-5LiZeu-dEMrKG-8FpVZn-49f7Mi-7Cviom-2ckP8hh-jWaRL-5DKnq-dEMzvE-4J8ugU-5EQn-dbfsvz-ACeqh-qsFxU5-MBUg1-G895ky-4AWqMz-4m7o1q-UM3Rsx-5DA1QE-bxmYSY-2fx5cin-bxtBA3-4eps6x-dVtGXq-f8ptcA-9pGYXV-QisuaB-7HPiTH-ehBgDS-9qTUkT-4NptMG-pHenm-fJ2YYH-8GEcYH-6Rsv8H-2fx4hHH-opWRNd"], ["inventory", 22], ["created_at", "2019-05-03 19:49:41.418647"], ["updated_at", "2019-05-03 19:49:41.418647"], ["merchant_id", 2]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:20
+  [1m[36mCategory Create (0.6ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "jewelry"], ["created_at", "2019-05-03 19:49:41.430575"], ["updated_at", "2019-05-03 19:49:41.430575"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (22.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:20
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "spice"], ["created_at", "2019-05-03 19:49:41.455397"], ["updated_at", "2019-05-03 19:49:41.455397"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:20
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "oneofakind"], ["created_at", "2019-05-03 19:49:41.457550"], ["updated_at", "2019-05-03 19:49:41.457550"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:20
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+Started GET "/products/new" for ::1 at 2019-05-03 12:50:16 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ngocle/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (316.4ms)
+  Rendered products/new.html.erb within layouts/application (321.0ms)
+Completed 200 OK in 819ms (Views: 776.0ms | ActiveRecord: 13.4ms)
+
+
+Started GET "/products/new" for ::1 at 2019-05-03 13:04:30 -0700
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (44.0ms)
+  Rendered products/new.html.erb within layouts/application (47.3ms)
+Completed 200 OK in 208ms (Views: 166.2ms | ActiveRecord: 14.4ms)
+
+
+Started POST "/products" for ::1 at 2019-05-03 13:06:12 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"e/YAfomhXLgyxJDbVEfgxMjittX1s6lrOGUsCcyqk6KlIwkeJW/P6W/VV7TyK3aav21/mUFzfEjW+UG/yBGQyg==", "product"=>{"category_ids"=>["", "3"], "name"=>"surfing board", "price"=>"30", "description"=>"", "photo"=>"", "inventory"=>"30"}, "commit"=>"Create Product"}
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/products_controller.rb:26
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:28
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:30
+  [1m[36mProduct Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "surfing board"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:30
+  [1m[36mProduct Create (1.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "surfing board"], ["price", 30], ["description", ""], ["photo", ""], ["inventory", 30], ["created_at", "2019-05-03 20:06:12.961628"], ["updated_at", "2019-05-03 20:06:12.961628"], ["merchant_id", 1]]
+  ↳ app/controllers/products_controller.rb:30
+  [1m[36mProduct::HABTM_Categories Create (4.2ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 3], ["product_id", 6]]
+  ↳ app/controllers/products_controller.rb:30
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:30
+Redirected to http://localhost:3000/products/6
+Completed 302 Found in 142ms (ActiveRecord: 23.4ms)
+
+
+Started GET "/products/6" for ::1 at 2019-05-03 13:06:12 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:8
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 114ms (Views: 108.3ms | ActiveRecord: 0.3ms)
+=======
   [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "raymon.fadel"], ["LIMIT", 1]]
   ↳ db/seeds.rb:2
   [1m[36mMerchant Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "pura.wolff@hotmail.com"], ["LIMIT", 1]]
@@ -9291,5 +10183,6 @@ Processing by MerchantsController#index as HTML
   [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
   ↳ app/views/layouts/application.html.erb:31
 Completed 200 OK in 66ms (Views: 61.2ms | ActiveRecord: 0.6ms)
+>>>>>>> 12bf39ddd156d0cf1bc31421ea7969071ec404c9
 
 
