@@ -85,3 +85,11 @@ group :test do
   gem 'minitest-reporters'
 end
 
+<<<<<<< HEAD
+=======
+
+gem "omniauth"
+gem "omniauth-github"
+
+require 'faker'
+>>>>>>> cd222a485e0a36dedaa28c5966901c04caac0298
