@@ -38,7 +38,6 @@ describe ProductsController do
     end
   end
 
-<<<<<<< HEAD
   describe "new" do
     it "succeeds" do
       get new_product_path
@@ -85,7 +84,7 @@ describe ProductsController do
       }.wont_change "Product.count"
 
       must_respond_with :bad_request
-=======
+
   describe "retired" do
     it "can mark a product as retired, but changing the retired field from false to true" do
       product = products(:one)
@@ -97,7 +96,6 @@ describe ProductsController do
 
       expect(product.retired).must_equal true
       must_redirect_to products_path
->>>>>>> 12bf39ddd156d0cf1bc31421ea7969071ec404c9
     end
   end
 end
