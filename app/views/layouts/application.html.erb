@@ -27,7 +27,7 @@
         <ul class="nav app-header__user-nav-container">
           <% if session[:merchant_id] %>
             <li class="nav-item app-header__nav_item">
-              <%= link_to "Merchant Dashboard", dashboard_path(id: Merchant.find(session[:merchant_id]).id) %>
+              <%= link_to "Merchant Dashboard", dashboard_path(id: Merchant.find(session[:merchant_id]).id), class: "btn btn-primary" %>
             </li>
             <li class="nav-item app-header__nav_item">
               <%= link_to "Log out", logout_path, method: "delete", class: "btn btn-primary" %>
