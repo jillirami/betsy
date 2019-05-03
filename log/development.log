@@ -8998,3 +8998,298 @@ Migrating to AddRetireToProductController (20190503042305)
   [1m[36mProduct Update (0.4ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1, "retired" = $2 WHERE "products"."id" = $3[0m  [["updated_at", "2019-05-03 04:52:09.107216"], ["retired", false], ["id", 4]]
   [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
 >>>>>>> 18d0067fc3b5a89e1eafe4145b6438d0fb93af89
+Started GET "/" for ::1 at 2019-05-03 13:54:55 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jillianne.ramirez/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (13.3ms)
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:30
+Completed 200 OK in 322ms (Views: 300.1ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 13:56:43 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (2.0ms)
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:30
+Completed 200 OK in 180ms (Views: 176.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 13:56:46 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (2.2ms)
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:30
+Completed 200 OK in 76ms (Views: 72.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 13:57:35 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (2.4ms)
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 197ms (Views: 193.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 13:57:37 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (2.1ms)
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 48ms (Views: 45.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 13:57:50 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (2.0ms)
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 57ms (Views: 53.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 13:58:18 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (3.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (7.4ms)
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 82ms (Views: 75.8ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 13:58:34 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (1.8ms)
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 48ms (Views: 45.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 14:00:02 -0700
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jillianne.ramirez/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.7ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (13.8ms)
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 304ms (Views: 277.6ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/merchants/dashboard/11" for ::1 at 2019-05-03 14:00:04 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:46
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 11]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (41.6ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 141ms (Views: 133.3ms | ActiveRecord: 2.4ms)
+
+
+Started DELETE "/logout" for ::1 at 2019-05-03 14:00:05 -0700
+Processing by MerchantsController#logout as HTML
+  Parameters: {"authenticity_token"=>"XOMrNtKp6M9ZRWdW88YScKawxZwGv3B34pR1D5VCfHwcuK8ezEmmUh/GsXn1aSg9JMQchq+MXBdck7vU0W102Q=="}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:50
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 14:00:05 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 92ms (Views: 89.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 14:00:08 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 75ms (Views: 71.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-03 14:00:11 -0700
+Started GET "/auth/github" for ::1 at 2019-05-03 14:00:11 -0700
+Started GET "/auth/github/callback?code=5c03f25fde19ddd1185e&state=91364327f92b0c877fdb594cb405e66ac13d4607df45032a" for ::1 at 2019-05-03 14:00:11 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"5c03f25fde19ddd1185e", "state"=>"91364327f92b0c877fdb594cb405e66ac13d4607df45032a", "provider"=>"github"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 36245782], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 14:00:12 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (2.0ms)
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 49ms (Views: 47.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/merchants/dashboard/11" for ::1 at 2019-05-03 14:00:13 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:46
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 11]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (2.2ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 69ms (Views: 63.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products/new" for ::1 at 2019-05-03 14:00:16 -0700
+
+AbstractController::ActionNotFound - The action 'new' could not be found for ProductsController:
+
+Started POST "/__better_errors/e1a84f7bd4e93252/variables" for ::1 at 2019-05-03 14:00:16 -0700
+Started GET "/merchants/dashboard/11" for ::1 at 2019-05-03 14:00:17 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:46
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 11]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (2.3ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 66ms (Views: 60.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/merchants/dashboard/11" for ::1 at 2019-05-03 14:06:51 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jillianne.ramirez/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:46
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 11]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (23.0ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 334ms (Views: 306.4ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/products" for ::1 at 2019-05-03 14:06:52 -0700
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:8
+  Rendered products/index.html.erb within layouts/application (15.5ms)
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 72ms (Views: 65.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/merchants" for ::1 at 2019-05-03 14:06:52 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (3.0ms)
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 86ms (Views: 81.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 14:06:53 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (2.6ms)
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 70ms (Views: 66.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products" for ::1 at 2019-05-03 14:06:54 -0700
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (2.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:8
+  Rendered products/index.html.erb within layouts/application (5.6ms)
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 75ms (Views: 69.0ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/merchants" for ::1 at 2019-05-03 14:06:54 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (3.1ms)
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 79ms (Views: 73.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/merchants/dashboard/11" for ::1 at 2019-05-03 14:06:55 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMerchant Load (3.1ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:46
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 11]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (2.2ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 95ms (Views: 87.6ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/" for ::1 at 2019-05-03 14:06:56 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (2.6ms)
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 66ms (Views: 61.2ms | ActiveRecord: 0.6ms)
+
+
