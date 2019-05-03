@@ -1982,3 +1982,154 @@ Migrating to RenameCategoryproductTable (20190502212855)
   [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
   ↳ db/seeds.rb:24
   [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/products/new" for ::1 at 2019-05-02 17:52:44 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ngocle/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (288.2ms)
+  Rendered products/new.html.erb within layouts/application (293.9ms)
+Completed 500 Internal Server Error in 354ms (ActiveRecord: 5.8ms)
+
+
+
+NoMethodError - undefined method `merge' for :name:Symbol:
+  app/views/products/_form.html.erb:4:in `block in _app_views_products__form_html_erb__3222898294765151414_70109078419440'
+  app/views/products/_form.html.erb:1:in `_app_views_products__form_html_erb__3222898294765151414_70109078419440'
+  app/views/products/new.html.erb:2:in `_app_views_products_new_html_erb___4588075515515681574_70109072309460'
+
+Started POST "/__better_errors/2213a8ae2c7a0f84/variables" for ::1 at 2019-05-02 17:52:45 -0700
+Started GET "/products/new" for ::1 at 2019-05-02 17:53:15 -0700
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (66.9ms)
+  Rendered products/new.html.erb within layouts/application (71.6ms)
+Completed 200 OK in 702ms (Views: 695.0ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/products/new" for ::1 at 2019-05-02 17:53:25 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/products/new"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/products/new" for ::1 at 2019-05-02 17:53:42 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/products/new"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2019-05-02 18:03:33 -0700
+  [1m[35m (20.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ngocle/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/ngocle/.rvm/gems/ruby-2.5.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/ngocle/.rvm/gems/ruby-2.5.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (20.9ms)
+Completed 200 OK in 62ms (Views: 49.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/passengers" for ::1 at 2019-05-02 18:03:36 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/passengers"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/products/new" for ::1 at 2019-05-02 18:03:37 -0700
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (485.4ms)
+  Rendered products/new.html.erb within layouts/application (489.4ms)
+Completed 200 OK in 1180ms (Views: 1114.7ms | ActiveRecord: 16.4ms)
+
+
+Started POST "/products" for ::1 at 2019-05-02 18:03:52 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tMvZKImriC/ahmbHFgnL0L3sEhOSkt7McG/8c66Lm5xqHtBIJWUbfoeXoaiwZV2OymPbXyZSC++e85HFqjCY9A==", "product"=>{"category_ids"=>["", "3", "5"], "name"=>"surfing board", "price"=>"30", "description"=>"dfdfd", "photo"=>"", "inventory"=>"30"}, "commit"=>"Create Product"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 0, expected 1..2):
+  app/controllers/products_controller.rb:49:in `product_params'
+  app/controllers/products_controller.rb:26:in `create'
+
+Started POST "/__better_errors/c9e71b8b370f6883/variables" for ::1 at 2019-05-02 18:03:52 -0700

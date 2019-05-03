@@ -1,7 +1,7 @@
-<%= form_with model: @work do |f| %>
+<%= form_with model: @product do |f| %>
 
 <%= f.label :category %>
-<%= f.select :category, Category.all, {}, class: "form-control" %>
+<%= collection_check_boxes(:product, :category_ids, Category.all, :id, :name) %>
 
 <%= f.label :name %>
 <%= f.text_field :name %>

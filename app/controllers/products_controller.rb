@@ -17,9 +17,9 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
 
-    if params[:merchant_id]
-      @product.merchant = Merchant.find_by(id: params[:merchant_id])
-    end
+    # if params[:merchant_id]
+    #   @product.merchant = Merchant.find_by(id: params[:merchant_id])
+    # end
   end
 
   def create
@@ -46,6 +46,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    return params.require(:product).permit(:name, :price, :description, :photo, :inventory)
+    return params.require(:product).permit(:name, :price, :description, :photo, :inventory, :category_id[])
   end
 end
