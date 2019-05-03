@@ -16,3 +16,13 @@
 @import "bootstrap";
 /* Import scss content */
 @import "**/*";
+
+.app-header__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .app-header__nav_item {
+    margin-top: 1rem;
+  }

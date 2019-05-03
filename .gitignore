@@ -12,6 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+log/development.log
 
 # Ignore uploaded files in development
 /storage/*
@@ -28,3 +29,9 @@
 
 
 .env
+<<<<<<< HEAD
+
+tmp/cache/bootsnap-load-path-cache
+=======
+log/development.log
+>>>>>>> cd222a485e0a36dedaa28c5966901c04caac0298

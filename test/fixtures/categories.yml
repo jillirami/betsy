@@ -1,7 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+cat1:
+  name: jewerly
 
-two:
-  name: MyString
+cat2:
+  name: oneofakind
+
+cat3:
+  name: spice
