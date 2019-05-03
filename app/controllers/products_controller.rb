@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
     product.toggle(:retired)
     product.save
 
-    redirect_to products_path
+    #is there another page we would want to fallback to? check test if we change.
+    redirect_back(fallback_location: products_path)
   end
 end

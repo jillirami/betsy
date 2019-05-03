@@ -36,6 +36,7 @@ describe ProductsController do
       product.reload
 
       expect(product.retired).must_equal true
+      must_redirect_to products_path
     end
   end
 end
