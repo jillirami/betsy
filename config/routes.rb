@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: "merchants#index"
   resources :products
   resources :merchants
+  resources :orders
 
   delete "/logout", to: "users#destroy", as: "logout"
 
