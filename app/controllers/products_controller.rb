@@ -49,13 +49,13 @@ class ProductsController < ApplicationController
 
   def product_params
     return params.require(:product).permit(:name, :price, :description, :photo, :inventory, :merchant_id, category_ids: [])
-  def retired
-    product = Product.find_by(id: params[:id])
+    def retired
+      product = Product.find_by(id: params[:id])
 
-    product.toggle(:retired)
-    product.save
+      product.toggle(:retired)
+      product.save
 
-    #is there another page we would want to fallback to? check test if we change.
-    redirect_back(fallback_location: products_path)
-  end
+      #is there another page we would want to fallback to? check test if we change.
+      redirect_back(fallback_location: products_path)
+    end
 end
