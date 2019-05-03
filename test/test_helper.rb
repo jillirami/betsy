@@ -32,20 +32,20 @@ class ActiveSupport::TestCase
              uid: merchant.uid,
              info: {
                email: merchant.email,
-               nickname: merchant.username,
+               username: merchant.username,
+               name: merchant.name,
              },
            }
   end
 
   def perform_login(merchant = nil)
-    merchant ||= merchant(:merchant_test) # what should this be called?
+    merchant ||= merchants(:spices)
     OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(mock_auth_hash(merchant))
-
     get auth_callback_path(:github)
 
     must_respond_with :redirect
     must_redirect_to root_path
 
-    return user
+    return merchant
   end
 end
