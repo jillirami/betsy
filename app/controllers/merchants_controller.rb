@@ -43,6 +43,10 @@ class MerchantsController < ApplicationController
     end
   end
 
+  def dashboard
+    @merchant = Merchant.find_by(id: session[:merchant_id])
+  end
+
   def logout
     merchant = Merchant.find_by(id: session[:merchant_id])
 

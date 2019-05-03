@@ -12,19 +12,20 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+log/development.log
 
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
 
-/node_modules
-/yarn-error.log
+# /node_modules
+# /yarn-error.log
 
 /public/assets
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
-/config/master.key
+# /config/master.key
 
 
 .env

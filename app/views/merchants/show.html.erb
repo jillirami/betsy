@@ -1,10 +1,11 @@
-<h2><%= @merchant.name %></h2>
-<h2><%= @merchant.email %></h2>
+<h3>Merchant Name: <%= @merchant.name %></h3>
+<h3>Merchant Email: <%= @merchant.email %></h3>
 
 <% @merchant.products.each do |product| %>
-  <p><%= product.name %></p>
-  <p><%= product.price / 10.0 %></p>
-  <p><%= product.description %></p>
-  <p><%= product.photo %></p>
-  <p><img src="#{product.inventory}" alt="Image of #{product.name}"></p>
+<ul>
+  <li><%= product.name %></li>
+  <li><%= product.price / 100 %></li>
+  <li><%= product.description %></li>
+  <li><img src="#{product.inventory}" alt="Image of #{product.name}"></li>
+</ul>
 <% end %>
