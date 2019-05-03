@@ -15,7 +15,7 @@ describe MerchantsController do
 
     perform_login(merchant)
     must_redirect_to root_path
-    expect { Merchant.count }.must_equal merchant_count
+    expect(Merchant.count).must_equal merchant_count
     # flash notices-- > :success
 
     expect(session[:merchant_id]).must_equal merchant.id
@@ -30,7 +30,7 @@ describe MerchantsController do
     }.must_change "Merchant.count", 1
 
     merchant = Merchant.find_by(uid: merchant.uid, provider: merchant.provider)
-
+    # OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(mock_auth_hash(user))
     # expect(flash[:success]).must_equal
     # #flash success
 
@@ -65,15 +65,15 @@ describe MerchantsController do
 
   describe "show" do
     it "should get show" do
-      valid_merchant_id = merchants(:one_m).id
+      valid_merchant_id = merchants(:spices).id
 
       get merchants_url(valid_merchant_id)
       value(response).must_be :successful?
     end
 
     it "should give a flash notice instead if invalid user" do
-      invalid_id = merchants(:one_m).id
-      merchants(:one_m).destroy
+      invalid_id = merchants(:spices).id
+      merchants(:spices).destroy
 
       get merchant_path(invalid_id)
 
