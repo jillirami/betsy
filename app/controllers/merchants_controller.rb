@@ -16,6 +16,7 @@ class MerchantsController < ApplicationController
     auth_hash = request.env["omniauth.auth"]
 
     merchant = Merchant.find_by(uid: auth_hash[:uid], provider: "github")
+
     if merchant
       flash[:success] = "Logged in as a returning merchant #{merchant.username}"
     else
@@ -33,7 +34,7 @@ class MerchantsController < ApplicationController
     return redirect_to root_path
   end
 
-  def current
+  def current #
     @merchant = Merchant.find_by(id: session[:merchant_id])
     if @merchant.nil?
       flash[:error] = "You must be logged in first!"
@@ -41,10 +42,10 @@ class MerchantsController < ApplicationController
     end
   end
 
-  def destroy
-    session[:merchant_id] = nil?
-    flash[:success] = "Successfully logged out!"
-
+  def logout #
+    merchant = Merchant.find_by(id: session[:merchant_id])
+    session[:merchant_id] = nil
+    flash[:success] = "Successfully logged out, #{merchant.username}!"
     redirect_to root_path
   end
 end
