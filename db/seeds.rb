@@ -1,3 +1,5 @@
+require 'faker'
+
 5.times do
   Merchant.create!(username: Faker::Internet.username, email: Faker::Internet.free_email, name: Faker::Name.name, uid: Faker::Number.number(8), provider: "github")
 end

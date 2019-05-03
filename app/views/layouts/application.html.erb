@@ -1,15 +1,87 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Betsy</title>
+    <title>My Precious Boutique</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag 'favicon.ico' %>
   </head>
 
   <body>
+      
+    <header class="app-header__header">
+
+      <h1>
+        <%= link_to "My Precious Boutique", root_path %>
+          <small>The Nation's Leading Purveyor of The Finer Things</small>
+      </h1>
+
+      <nav class="app-header__nav">
+
+        <ul class="nav app-header__site-nav-container" >
+          <li class="nav-item app-header__nav_item" >
+            <%= link_to "View all products", products_path, class: "nav-link"%>
+          </li>
+          <li class="nav-item app-header__nav_item">
+            <%= link_to "View all merchants", merchants_path, class: "nav-link"%>
+          </li>
+        </ul>
+
+        <ul class="nav app-header__user-nav-container">
+          <% if session[:merchant_id] %>
+            <li class="nav-item app-header__nav_item">
+              <%= link_to "Merchant Dashboard", dashboard_path(id: Merchant.find(session[:merchant_id]).id), class: "btn btn-primary" %>
+            </li>
+            <li class="nav-item app-header__nav_item">
+              <%= link_to "Log out", logout_path, method: "delete", class: "btn btn-primary" %>
+            </li>
+          <% else %>
+            <li class="nav-item app-header__nav_item">
+              <%= link_to "Login with GitHub", github_login_path, class: "btn btn-primary" %>
+            </li>
+          <% end %>
+        </ul>
+      
+      </nav>
+    </header>
+
+  <% if flash.count > 0%>
+          <% flash.each do |name, message| %>
+            <% if message.class == Array %>
+              <ul>
+              <% message.each do |msg| %>
+                <li><%= name %>: <%= msg %> </li>
+                <section class="flash">
+                  <div class="alert alert-warning">
+                    <%= message %>
+                  </div>
+                </section>
+              <% end %>
+            <% else %>
+              <% if name == "success" %>
+                <section class="flash">
+                  <div class="alert alert-success">
+                    <%= message %>
+                  </div>
+                </section>
+              <% else %>
+                <section class="flash">
+                  <div class="alert alert-danger">
+                    <%= message %>
+                  </div>
+                </section>
+              <% end %>
+            <% end %>
+            </ul>
+          <% end %>
+  <% end %>
+
+  <main>
     <%= yield %>
+  </main>
+  
   </body>
 </html>
