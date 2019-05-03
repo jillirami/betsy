@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <header>
     <nav class="app-header__nav">
       <ul class="nav app-header__site-nav-container" >
         <li class="nav-item app-header__nav_item" >
@@ -18,8 +19,8 @@
       </ul>
       <ul class="nav app-header__user-nav-container">
         <% if session[:merchant_id] %>
-          <li>
-            <%= link_to "Log out", logout_path, method: "delete", class: "btn btn-primary" %>
+          <li class="nav-item app-header__nav_item" >
+            <%= link_to "Log out", logout_path, method: :delete, class: "btn btn-primary" %>
           </li>
         <% else %>
           <li class="nav-item app-header__nav_item">
@@ -28,6 +29,41 @@
         <% end %>
       </ul>
     </nav>
+    </header>
+
+  <% if flash.count > 0%>
+          <% flash.each do |name, message| %>
+            <% if message.class == Array %>
+              <ul>
+              <% message.each do |msg| %>
+                <li><%= name %>: <%= msg %> </li>
+                <section class="flash">
+                  <div class="alert alert-warning">
+                    <%= message %>
+                  </div>
+                </section>
+              <% end %>
+            <% else %>
+              <% if name == "success" %>
+                <section class="flash">
+                  <div class="alert alert-success">
+                    <%= message %>
+                  </div>
+                </section>
+              <% else %>
+                <section class="flash">
+                  <div class="alert alert-danger">
+                    <%= message %>
+                  </div>
+                </section>
+              <% end %>
+            <% end %>
+            </ul>
+          <% end %>
+  <% end %>
+
+  <main>
     <%= yield %>
+  </main>
   </body>
 </html>
