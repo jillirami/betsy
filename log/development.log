@@ -10186,3 +10186,112 @@ Completed 200 OK in 66ms (Views: 61.2ms | ActiveRecord: 0.6ms)
 >>>>>>> 12bf39ddd156d0cf1bc31421ea7969071ec404c9
 
 
+Started GET "/products/new" for ::1 at 2019-05-03 15:10:02 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ngocle/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+
+ActiveRecord::PendingMigrationError - Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+:
+
+Started GET "/products" for ::1 at 2019-05-03 15:10:04 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ngocle/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+
+ActiveRecord::PendingMigrationError - Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+:
+
+Started POST "/__better_errors/2da7a4c02ab691e2/variables" for ::1 at 2019-05-03 15:10:04 -0700
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8263949505629717655)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddRetireToProductController (20190503042305)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (47.1ms)[0m  [1m[35mALTER TABLE "products" ADD "retired" boolean DEFAULT FALSE[0m
+  ↳ db/migrate/20190503042305_add_retire_to_product_controller.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190503042305"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (40.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8263949505629717655)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/products" for ::1 at 2019-05-03 15:20:09 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ngocle/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+
+SyntaxError - syntax error, unexpected end-of-input, expecting keyword_end:
+  app/controllers/products_controller.rb:61:in `'
+
+Started POST "/__better_errors/35f85dd49f7542f8/variables" for ::1 at 2019-05-03 15:20:10 -0700
+Started GET "/products" for ::1 at 2019-05-03 15:21:55 -0700
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:8
+  Rendered products/index.html.erb within layouts/application (21.7ms)
+Completed 200 OK in 4142ms (Views: 4109.4ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/products" for ::1 at 2019-05-03 15:23:22 -0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ngocle/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:8
+  Rendered products/index.html.erb within layouts/application (26.8ms)
+Completed 200 OK in 585ms (Views: 550.3ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/products" for ::1 at 2019-05-03 15:23:24 -0700
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:8
+  Rendered products/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 99ms (Views: 95.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products" for ::1 at 2019-05-03 15:23:27 -0700
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:8
+  Rendered products/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 92ms (Views: 85.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/products/1" for ::1 at 2019-05-03 15:23:28 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:8
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 118ms (Views: 101.5ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/merchants" for ::1 at 2019-05-03 15:23:30 -0700
+Processing by MerchantsController#index as HTML
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.8ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 117ms (Views: 95.0ms | ActiveRecord: 6.7ms)
+
+
