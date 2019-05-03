@@ -1,0 +1,23 @@
+<h3>MY PROFILE</h3>
+<ul>
+  <li>Name: <%= @merchant.name %></li>
+  <li>Username: <%= @merchant.username %></li>
+  <li>Email: <%= @merchant.email %></li> 
+</ul>
+
+
+
+<h3>MY STORE</h3>
+
+<% @merchant.products.each do |product| %>
+<ul>
+  <li><%= product.name %></li>
+  <li><%= product.price / 100 %></li>
+  <li><%= product.description %></li>
+  <li><%= product.photo %></li>
+  <li><img src="#{product.inventory}" alt="Image of #{product.name}"></li>
+  <li><%= button_to "Retire Product", retired_product_path(product.id), method: :patch %></li>
+</ul>
+<% end %>
+
+<%= link_to "Add Product to Store", new_product_path %>
