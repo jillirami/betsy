@@ -1,0 +1,42 @@
+<section>
+  <%= form_with model: @order do |f| %>
+    <div class="order-form">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="order-form">
+      <%= f.label :email %>
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
+
+    <div class="order-form">
+      <%= f.label :address %>
+      <%= f.text_field :address, class: "form-control" %>
+    </div>
+
+    <div class="order-form">
+      <%= f.label :cc_num %>
+      <%= f.text_field :cc_num, class: "form-control" %>
+    </div>
+
+    <div class="order-form">
+      <%= f.label :cc_exp %>
+      <%= f.text_field :cc_exp, class: "form-control" %>
+    </div>
+
+    <div class="order-form">
+      <%= f.label :cc_cvv %>
+      <%= f.text_field :cc_cvv, class: "form-control" %>
+    </div>
+
+    <div class="order-form">
+      <%= f.label :billing_zip %>
+      <%= f.text_field :billing_zip, class: "form-control" %>
+    </div>
+
+    <div class="order-form">
+      <%= f.submit action_name, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</section>
