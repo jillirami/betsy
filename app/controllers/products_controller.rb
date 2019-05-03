@@ -12,4 +12,13 @@ class ProductsController < ApplicationController
       redirect_to products_path
     end
   end
+
+  def retired
+    @product = Product.find_by(id: params[:id])
+
+    @product.toggle(:retired)
+    @product.save
+
+    redirect_to products_path
+  end
 end

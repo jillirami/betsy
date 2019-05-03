@@ -1,5 +1,5 @@
 <h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+
 
 
 <h2>All Products</h2>
@@ -7,7 +7,14 @@
 <ul>
 <% @products.each do |product|%>
 <li>
+<% if product.retired == false %>
 <%= link_to product.name, product_path(product.id) %>
+
+<%= button_to "Retire Product", retired_product_path(product.id), method: :patch %>
+
+
+<%end%>
 </li>
 <%end %>
 </ul>
+
