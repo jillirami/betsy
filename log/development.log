@@ -2859,3 +2859,44 @@ Processing by ProductsController#new as HTML
 Completed 200 OK in 819ms (Views: 776.0ms | ActiveRecord: 13.4ms)
 
 
+Started GET "/products/new" for ::1 at 2019-05-03 13:04:30 -0700
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (44.0ms)
+  Rendered products/new.html.erb within layouts/application (47.3ms)
+Completed 200 OK in 208ms (Views: 166.2ms | ActiveRecord: 14.4ms)
+
+
+Started POST "/products" for ::1 at 2019-05-03 13:06:12 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"e/YAfomhXLgyxJDbVEfgxMjittX1s6lrOGUsCcyqk6KlIwkeJW/P6W/VV7TyK3aav21/mUFzfEjW+UG/yBGQyg==", "product"=>{"category_ids"=>["", "3"], "name"=>"surfing board", "price"=>"30", "description"=>"", "photo"=>"", "inventory"=>"30"}, "commit"=>"Create Product"}
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/products_controller.rb:26
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:28
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:30
+  [1m[36mProduct Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "surfing board"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:30
+  [1m[36mProduct Create (1.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "surfing board"], ["price", 30], ["description", ""], ["photo", ""], ["inventory", 30], ["created_at", "2019-05-03 20:06:12.961628"], ["updated_at", "2019-05-03 20:06:12.961628"], ["merchant_id", 1]]
+  ↳ app/controllers/products_controller.rb:30
+  [1m[36mProduct::HABTM_Categories Create (4.2ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 3], ["product_id", 6]]
+  ↳ app/controllers/products_controller.rb:30
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:30
+Redirected to http://localhost:3000/products/6
+Completed 302 Found in 142ms (ActiveRecord: 23.4ms)
+
+
+Started GET "/products/6" for ::1 at 2019-05-03 13:06:12 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:8
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 114ms (Views: 108.3ms | ActiveRecord: 0.3ms)
+
+
