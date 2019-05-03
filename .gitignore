@@ -28,3 +28,5 @@
 
 
 .env
+
+tmp/cache/bootsnap-load-path-cache
