@@ -1,18 +1,6 @@
 require "test_helper"
 
 describe ProductsController do
-  before do
-    @new_product = {
-      "product": {
-        name: "Dirty Computer",
-        price: 400,
-        description: "dirty but good",
-        photo: "photo url",
-        inventory: 20,
-        merchant_id: Merchant.first.id,
-      },
-    }
-  end
   describe "index" do
     it "can get the index path" do
       get products_path
@@ -40,6 +28,8 @@ describe ProductsController do
 
   describe "new" do
     it "succeeds" do
+      perform_login(merchants(:jewelry))
+
       get new_product_path
 
       must_respond_with :success
@@ -47,9 +37,23 @@ describe ProductsController do
   end
 
   describe "create" do
+    before do
+      perform_login(merchants(:jewelry))
+    end
     it "creates a product with valid data for a real category" do
+      new_product_input = {
+        "product": {
+          name: "Dirty Computer",
+          price: 400,
+          description: "dirty but good",
+          photo: "photo url",
+          inventory: 20,
+          merchant_id: merchants(:jewelry).id,
+        },
+      }
+
       expect {
-        post products_path, params: @new_product
+        post products_path, params: new_product_input
       }.must_change "Product.count", 1
 
       new_product_id = Product.find_by(name: "Dirty Computer").id
@@ -57,14 +61,15 @@ describe ProductsController do
       must_respond_with :redirect
       must_redirect_to product_path(new_product_id)
 
-      new_product = Product.find_by(name: @new_product[:product][:name])
+      new_product = Product.find_by(name: "Dirty Computer")
+      p new_product
 
       expect(new_product).wont_be_nil
-      expect(new_product.name).must_equal @new_product[:product][:name]
-      expect(new_product.price).must_equal @new_product[:product][:price]
-      expect(new_product.description).must_equal @new_product[:product][:description]
-      expect(new_product.photo).must_equal @new_product[:product][:photo]
-      expect(new_product.inventory).must_equal @new_product[:product][:inventory]
+      expect(new_product.name).must_equal new_product_input[:product][:name]
+      expect(new_product.price).must_equal new_product_input[:product][:price]
+      expect(new_product.description).must_equal new_product_input[:product][:description]
+      expect(new_product.photo).must_equal new_product_input[:product][:photo]
+      expect(new_product.inventory).must_equal new_product_input[:product][:inventory]
     end
 
     it "renders bad_request and does not update the DB for bogus data" do
@@ -84,6 +89,8 @@ describe ProductsController do
       }.wont_change "Product.count"
 
       must_respond_with :bad_request
+    end
+  end
   describe "retired" do
     it "can mark a product as retired, but changing the retired field from false to true" do
       product = products(:one)

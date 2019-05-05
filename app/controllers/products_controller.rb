@@ -16,16 +16,11 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-
-    if params[:merchant_id]
-      @product.merchant = Merchant.find_by(id: params[:merchant_id])
-    end
   end
 
   def create
     product = Product.new(product_params)
-    #currently hardcoding merchant to merchant first (delete this once the merchant login is working)
-    product.merchant = Merchant.first
+    product.merchant = @current_merchant
 
     is_successful = product.save
 
@@ -34,7 +29,7 @@ class ProductsController < ApplicationController
       redirect_to product_path(product.id)
     else
       product.errors.messages.each do |field, messages|
-        flash.now[:error_form] = messages
+        flash.now[field] = messages
       end
 
       render :new, status: :bad_request
