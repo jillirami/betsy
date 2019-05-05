@@ -9889,6 +9889,14 @@ Migrating to AddRetireToProductController (20190503042305)
   [1m[36mProduct Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 AND "products"."id" != $2 LIMIT $3[0m  [["name", "Mexican Salsa Mix"], ["id", 4], ["LIMIT", 1]]
   [1m[36mProduct Update (0.4ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1, "retired" = $2 WHERE "products"."id" = $3[0m  [["updated_at", "2019-05-03 04:52:09.107216"], ["retired", false], ["id", 4]]
   [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+<<<<<<< HEAD
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Create (43.9ms)[0m  [1m[32mINSERT INTO "orders" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "test order name"], ["created_at", "2019-05-03 18:32:43.453592"], ["updated_at", "2019-05-03 18:32:43.453592"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+=======
 >>>>>>> 18d0067fc3b5a89e1eafe4145b6438d0fb93af89
 <<<<<<< HEAD
   [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
@@ -12333,6 +12341,7 @@ Completed 200 OK in 117ms (Views: 95.0ms | ActiveRecord: 6.7ms)
 >>>>>>> 9df218f03e071712a9a65406eec7fc67848594d8
 
 
+<<<<<<< HEAD
 Started GET "/" for ::1 at 2019-05-05 08:18:47 -0700
   [1m[35m (3.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /Users/myriamwalden-duarte/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
@@ -12525,3 +12534,47 @@ Did you mean?  require:
 
 Started POST "/__better_errors/29d1e24362e70da9/variables" for ::1 at 2019-05-05 08:19:43 -0700
 Started POST "/__better_errors/29d1e24362e70da9/eval" for ::1 at 2019-05-05 08:22:15 -0700
+=======
+>>>>>>> 6bb64a3ac35e3dae5bb80b92502681ed69d9127d
+>>>>>>> 92efa557106c5ef55e74b27592c0c6953f1b94b9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8263949505629717655)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddStatusOrderController (20190504234449)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (6.3ms)[0m  [1m[35mALTER TABLE "orders" ALTER COLUMN "status" TYPE character varying, ALTER COLUMN "status" SET DEFAULT 'pending'[0m
+  ↳ db/migrate/20190504234449_add_status_order_controller.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190504234449"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8263949505629717655)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8263949505629717655)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(8263949505629717655)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
