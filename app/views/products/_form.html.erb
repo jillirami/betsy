@@ -1,7 +1,15 @@
-<%= form_with model: @product do |f| %>
 
-<%= f.label :category %>
-<%= collection_check_boxes(:product, :category_ids, Category.all, :id, :name) %>
+<section>
+<%= form_with model: @product do |f| %>
+<h4><%= f.label :category %></h4>
+<%= collection_check_boxes(:product, :category_ids, Category.all, :id, :name) do |b| %>
+    <ul>
+      <%= b.label(class: "check_box") do %>
+        <li> <%= b.object.name %> <%= b.check_box(class: "check_box") %> </li>
+      <% end %>
+    </ul>
+<% end %>
+</section>
 
 <%= f.label :name %>
 <%= f.text_field :name %>
