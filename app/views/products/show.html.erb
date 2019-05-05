@@ -6,6 +6,11 @@
     <li>Price: $<%= (@product.price/100).to_f%></li>
     <li>Description: <%= @product.description%></li>
     <li>Currently in stock: <%= @product.inventory%></li>
+    <li>Categories: 
+    <% @product.categories.each do |category|%>
+    <%= category.name%>
+    <% end %>
+    </li>
 </ul>
 <br>
 <%= image_tag "#{@product.photo}", alt: "photo desciption here" %>
