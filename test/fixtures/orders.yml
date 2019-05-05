@@ -1,14 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  status: MyString
-  name: MyString
-  email: MyString
-  address: MyString
-  cc_num: 1
-  cc_exp: MyString
-  cc_cvv: 1
-  billing_zip: 1
+pending:
+  status: pending
+  name: First Last
+  email: f.last@gmail.com
+  address: 123 1st St
+  cc_num: 1234
+  cc_exp: 12/20
+  cc_cvv: 123
+  billing_zip: 10000
 
 two:
   status: MyString
