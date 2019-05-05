@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   delete "/logout", to: "merchants#logout", as: "logout"
-  root to: "merchants#index"
+  root to: "orderitems#index"
   resources :products
   resources :merchants
   resources :orders

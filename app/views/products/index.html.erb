@@ -9,6 +9,7 @@
     <% if product.retired == false %>
     <li>
       <%= link_to product.name, product_path(product.id) %>
+      <%= link_to "Add to Cart", %>
     </li>
     <%end%>
   <%end %>

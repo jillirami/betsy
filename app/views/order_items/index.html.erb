@@ -1,2 +1,8 @@
 <h1>OrderItems#index</h1>
 <p>Find me in app/views/order_items/index.html.erb</p>
+
+
+<#% @orderitems.each do |orderitem| %>
+<#%= Product.find_by(id: orderitem.product_id).name %>
+<#%= orderitem.quantity %>
+<#% end %>

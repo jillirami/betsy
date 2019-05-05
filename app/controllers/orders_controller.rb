@@ -9,9 +9,9 @@ class OrdersController < ApplicationController
     end
   end
 
-  # def new
-  #   @order = Order.new
-  # end
+  def new
+    @order = Order.new
+  end
 
   def create
     order = Order.create
