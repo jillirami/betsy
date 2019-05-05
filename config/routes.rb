@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   # patch "/orders/:id", to: "orders#update", as: "update_order"
   resources :orders
+  resources :categories
 
   # resources :merchants do
   # resources :reviews, only: [:new, :create]

@@ -16,17 +16,23 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+
+    if params[:merchant_id]
+      @product.merchant = Merchant.find_by(id: params[:merchant_id])
+    end
   end
 
   def create
     product = Product.new(product_params)
-    product.merchant = @current_merchant
+
+    product.merchant = Merchant.find_by(id: session[:merchant_id]) # successfully adding merchant in session
 
     is_successful = product.save
 
     if is_successful
       flash[:success] = "Product added successfully"
       redirect_to product_path(product.id)
+      raise
     else
       product.errors.messages.each do |field, messages|
         flash.now[field] = messages
