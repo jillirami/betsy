@@ -1,6 +1,8 @@
 require "test_helper"
 
 describe ProductsController do
+  let(:existing_product) { products(:one) }
+
   describe "index" do
     it "can get the index path" do
       get products_path
@@ -93,8 +95,6 @@ describe ProductsController do
   end
 
   describe "edit" do
-    let(:existing_product) { products(:one) }
-
     before do
       perform_login(merchants(:jewelry))
     end
@@ -115,11 +115,10 @@ describe ProductsController do
   end
 
   describe "update" do
-    let(:existing_product) { products(:one) }
-
     before do
       perform_login(merchants(:jewelry))
     end
+
     it "succeeds for valid data and an extant product ID" do
       updates = {product: {name: "Medium Ring"}}
 
@@ -156,9 +155,10 @@ describe ProductsController do
   end
 
   describe "retired" do
-    it "can mark a product as retired, but changing the retired field from false to true" do
+    before do
       perform_login(merchants(:jewelry))
-
+    end
+    it "can mark a product as retired, but changing the retired field from false to true" do
       product = products(:one)
 
       patch retired_product_path(product.id)
@@ -171,8 +171,8 @@ describe ProductsController do
       bogus_id = existing_product.id
       existing_product.destroy
 
-      retired product_path(bogus_id), params: {product: {name: "Test Name"}}
-      must_respond_with :not_found
+      patch retired_product_path(bogus_id)
+      expect(flash[:error]).must_equal "That Product does not exist"
     end
   end
 end

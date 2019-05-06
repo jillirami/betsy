@@ -62,7 +62,7 @@ class ProductsController < ApplicationController
 
   def retired
     if @product.nil?
-      flash[:error] = "That product does not exist"
+      flash[:error] = "That Product does not exist"
     else
       @product.toggle(:retired)
       @product.save
