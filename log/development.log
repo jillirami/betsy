@@ -14069,3 +14069,2028 @@ Processing by MerchantsController#index as HTML
 Completed 200 OK in 110ms (Views: 80.9ms | ActiveRecord: 22.3ms)
 
 
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (231.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "betsy_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (225.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "betsy_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (620.4ms)[0m  [1m[35mCREATE DATABASE "betsy_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (464.3ms)[0m  [1m[35mCREATE DATABASE "betsy_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (10.7ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories_products" CASCADE[0m
+  ↳ db/schema.rb:24
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "categories_products" ("id" bigserial primary key, "category_id" bigint, "product_id" bigint)[0m
+  ↳ db/schema.rb:24
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE  INDEX  "index_categories_products_on_category_id" ON "categories_products"  ("category_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE  INDEX  "index_categories_products_on_product_id" ON "categories_products"  ("product_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "merchants" CASCADE[0m
+  ↳ db/schema.rb:31
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "merchants" ("id" bigserial primary key, "username" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "name" character varying, "uid" integer, "provider" character varying)[0m
+  ↳ db/schema.rb:31
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "orderitems" CASCADE[0m
+  ↳ db/schema.rb:41
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "orderitems" ("id" bigserial primary key, "status" character varying, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "product_id" bigint, "order_id" bigint)[0m
+  ↳ db/schema.rb:41
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_orderitems_on_order_id" ON "orderitems"  ("order_id")[0m
+  ↳ db/schema.rb:41
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE  INDEX  "index_orderitems_on_product_id" ON "orderitems"  ("product_id")[0m
+  ↳ db/schema.rb:41
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "orders" CASCADE[0m
+  ↳ db/schema.rb:52
+  [1m[35m (14.2ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "status" character varying DEFAULT 'pending', "name" character varying, "email" character varying, "address" character varying, "cc_num" integer, "cc_exp" character varying, "cc_cvv" integer, "billing_zip" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:52
+  [1m[35m (4.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "products" CASCADE[0m
+  ↳ db/schema.rb:65
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "price" integer, "description" character varying, "photo" character varying, "inventory" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "merchant_id" bigint, "retired" boolean DEFAULT FALSE)[0m
+  ↳ db/schema.rb:65
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_merchant_id" ON "products"  ("merchant_id")[0m
+  ↳ db/schema.rb:65
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "reviews" CASCADE[0m
+  ↳ db/schema.rb:78
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" bigserial primary key, "rating" integer, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "product_id" bigint)[0m
+  ↳ db/schema.rb:78
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE  INDEX  "index_reviews_on_product_id" ON "reviews"  ("product_id")[0m
+  ↳ db/schema.rb:78
+  [1m[35m (3.3ms)[0m  [1m[35mALTER TABLE "orderitems" ADD CONSTRAINT "fk_rails_10745a926d"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  ↳ db/schema.rb:87
+  [1m[35m (6.9ms)[0m  [1m[35mALTER TABLE "orderitems" ADD CONSTRAINT "fk_rails_95776705b6"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+[0m
+  ↳ db/schema.rb:88
+  [1m[35m (7.9ms)[0m  [1m[35mALTER TABLE "products" ADD CONSTRAINT "fk_rails_9009599abb"
+FOREIGN KEY ("merchant_id")
+  REFERENCES "merchants" ("id")
+[0m
+  ↳ db/schema.rb:89
+  [1m[35m (3.8ms)[0m  [1m[35mALTER TABLE "reviews" ADD CONSTRAINT "fk_rails_bedd9094d4"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+[0m
+  ↳ db/schema.rb:90
+  [1m[35m (8.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190504234449)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190430233847),
+(20190430233826),
+(20190430233813),
+(20190501205757),
+(20190430233742),
+(20190430233706),
+(20190503042305),
+(20190501233259),
+(20190501210303),
+(20190502212855),
+(20190501210404),
+(20190501205323),
+(20190430233759),
+(20190501205616);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (1.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-05 16:48:18.743198"], ["updated_at", "2019-05-05 16:48:18.743198"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories_products" CASCADE[0m
+  ↳ db/schema.rb:24
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "categories_products" ("id" bigserial primary key, "category_id" bigint, "product_id" bigint)[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_categories_products_on_category_id" ON "categories_products"  ("category_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (8.7ms)[0m  [1m[35mCREATE  INDEX  "index_categories_products_on_product_id" ON "categories_products"  ("product_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "merchants" CASCADE[0m
+  ↳ db/schema.rb:31
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "merchants" ("id" bigserial primary key, "username" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "name" character varying, "uid" integer, "provider" character varying)[0m
+  ↳ db/schema.rb:31
+  [1m[35m (2.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "orderitems" CASCADE[0m
+  ↳ db/schema.rb:41
+  [1m[35m (9.4ms)[0m  [1m[35mCREATE TABLE "orderitems" ("id" bigserial primary key, "status" character varying, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "product_id" bigint, "order_id" bigint)[0m
+  ↳ db/schema.rb:41
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE  INDEX  "index_orderitems_on_order_id" ON "orderitems"  ("order_id")[0m
+  ↳ db/schema.rb:41
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_orderitems_on_product_id" ON "orderitems"  ("product_id")[0m
+  ↳ db/schema.rb:41
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "orders" CASCADE[0m
+  ↳ db/schema.rb:52
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "status" character varying DEFAULT 'pending', "name" character varying, "email" character varying, "address" character varying, "cc_num" integer, "cc_exp" character varying, "cc_cvv" integer, "billing_zip" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:52
+  [1m[35m (1.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "products" CASCADE[0m
+  ↳ db/schema.rb:65
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "price" integer, "description" character varying, "photo" character varying, "inventory" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "merchant_id" bigint, "retired" boolean DEFAULT FALSE)[0m
+  ↳ db/schema.rb:65
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_merchant_id" ON "products"  ("merchant_id")[0m
+  ↳ db/schema.rb:65
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "reviews" CASCADE[0m
+  ↳ db/schema.rb:78
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" bigserial primary key, "rating" integer, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "product_id" bigint)[0m
+  ↳ db/schema.rb:78
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE  INDEX  "index_reviews_on_product_id" ON "reviews"  ("product_id")[0m
+  ↳ db/schema.rb:78
+  [1m[35m (7.5ms)[0m  [1m[35mALTER TABLE "orderitems" ADD CONSTRAINT "fk_rails_10745a926d"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  ↳ db/schema.rb:87
+  [1m[35m (3.5ms)[0m  [1m[35mALTER TABLE "orderitems" ADD CONSTRAINT "fk_rails_95776705b6"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+[0m
+  ↳ db/schema.rb:88
+  [1m[35m (8.3ms)[0m  [1m[35mALTER TABLE "products" ADD CONSTRAINT "fk_rails_9009599abb"
+FOREIGN KEY ("merchant_id")
+  REFERENCES "merchants" ("id")
+[0m
+  ↳ db/schema.rb:89
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "reviews" ADD CONSTRAINT "fk_rails_bedd9094d4"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+[0m
+  ↳ db/schema.rb:90
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190504234449)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190430233847),
+(20190430233826),
+(20190430233813),
+(20190501205757),
+(20190430233742),
+(20190430233706),
+(20190503042305),
+(20190501233259),
+(20190501210303),
+(20190502212855),
+(20190501210404),
+(20190501205323),
+(20190430233759),
+(20190501205616);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-05 16:48:19.002506"], ["updated_at", "2019-05-05 16:48:19.002506"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2019-05-05 16:48:19.013232"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (234.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "betsy_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (227.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "betsy_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (652.4ms)[0m  [1m[35mCREATE DATABASE "betsy_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (485.8ms)[0m  [1m[35mCREATE DATABASE "betsy_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories_products" CASCADE[0m
+  ↳ db/schema.rb:24
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "categories_products" ("id" bigserial primary key, "category_id" bigint, "product_id" bigint)[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_categories_products_on_category_id" ON "categories_products"  ("category_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_categories_products_on_product_id" ON "categories_products"  ("product_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "merchants" CASCADE[0m
+  ↳ db/schema.rb:31
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "merchants" ("id" bigserial primary key, "username" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "name" character varying, "uid" integer, "provider" character varying)[0m
+  ↳ db/schema.rb:31
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "orderitems" CASCADE[0m
+  ↳ db/schema.rb:41
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "orderitems" ("id" bigserial primary key, "status" character varying, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "product_id" bigint, "order_id" bigint)[0m
+  ↳ db/schema.rb:41
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_orderitems_on_order_id" ON "orderitems"  ("order_id")[0m
+  ↳ db/schema.rb:41
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_orderitems_on_product_id" ON "orderitems"  ("product_id")[0m
+  ↳ db/schema.rb:41
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "orders" CASCADE[0m
+  ↳ db/schema.rb:52
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "status" character varying DEFAULT 'pending', "name" character varying, "email" character varying, "address" character varying, "cc_num" integer, "cc_exp" character varying, "cc_cvv" integer, "billing_zip" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:52
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "products" CASCADE[0m
+  ↳ db/schema.rb:65
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "price" integer, "description" character varying, "photo" character varying, "inventory" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "merchant_id" bigint, "retired" boolean DEFAULT FALSE)[0m
+  ↳ db/schema.rb:65
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_merchant_id" ON "products"  ("merchant_id")[0m
+  ↳ db/schema.rb:65
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "reviews" CASCADE[0m
+  ↳ db/schema.rb:78
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" bigserial primary key, "rating" integer, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "product_id" bigint)[0m
+  ↳ db/schema.rb:78
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE  INDEX  "index_reviews_on_product_id" ON "reviews"  ("product_id")[0m
+  ↳ db/schema.rb:78
+  [1m[35m (3.1ms)[0m  [1m[35mALTER TABLE "orderitems" ADD CONSTRAINT "fk_rails_10745a926d"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  ↳ db/schema.rb:87
+  [1m[35m (3.9ms)[0m  [1m[35mALTER TABLE "orderitems" ADD CONSTRAINT "fk_rails_95776705b6"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+[0m
+  ↳ db/schema.rb:88
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "products" ADD CONSTRAINT "fk_rails_9009599abb"
+FOREIGN KEY ("merchant_id")
+  REFERENCES "merchants" ("id")
+[0m
+  ↳ db/schema.rb:89
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "reviews" ADD CONSTRAINT "fk_rails_bedd9094d4"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+[0m
+  ↳ db/schema.rb:90
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190504234449)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190430233847),
+(20190430233826),
+(20190430233813),
+(20190501205757),
+(20190430233742),
+(20190430233706),
+(20190503042305),
+(20190501233259),
+(20190501210303),
+(20190502212855),
+(20190501210404),
+(20190501205323),
+(20190430233759),
+(20190501205616);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-05 16:52:59.686329"], ["updated_at", "2019-05-05 16:52:59.686329"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (12.8ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories_products" CASCADE[0m
+  ↳ db/schema.rb:24
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "categories_products" ("id" bigserial primary key, "category_id" bigint, "product_id" bigint)[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_categories_products_on_category_id" ON "categories_products"  ("category_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE  INDEX  "index_categories_products_on_product_id" ON "categories_products"  ("product_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "merchants" CASCADE[0m
+  ↳ db/schema.rb:31
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "merchants" ("id" bigserial primary key, "username" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "name" character varying, "uid" integer, "provider" character varying)[0m
+  ↳ db/schema.rb:31
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "orderitems" CASCADE[0m
+  ↳ db/schema.rb:41
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "orderitems" ("id" bigserial primary key, "status" character varying, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "product_id" bigint, "order_id" bigint)[0m
+  ↳ db/schema.rb:41
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_orderitems_on_order_id" ON "orderitems"  ("order_id")[0m
+  ↳ db/schema.rb:41
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_orderitems_on_product_id" ON "orderitems"  ("product_id")[0m
+  ↳ db/schema.rb:41
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "orders" CASCADE[0m
+  ↳ db/schema.rb:52
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "status" character varying DEFAULT 'pending', "name" character varying, "email" character varying, "address" character varying, "cc_num" integer, "cc_exp" character varying, "cc_cvv" integer, "billing_zip" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:52
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "products" CASCADE[0m
+  ↳ db/schema.rb:65
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "price" integer, "description" character varying, "photo" character varying, "inventory" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "merchant_id" bigint, "retired" boolean DEFAULT FALSE)[0m
+  ↳ db/schema.rb:65
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_merchant_id" ON "products"  ("merchant_id")[0m
+  ↳ db/schema.rb:65
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "reviews" CASCADE[0m
+  ↳ db/schema.rb:78
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" bigserial primary key, "rating" integer, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "product_id" bigint)[0m
+  ↳ db/schema.rb:78
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE  INDEX  "index_reviews_on_product_id" ON "reviews"  ("product_id")[0m
+  ↳ db/schema.rb:78
+  [1m[35m (6.6ms)[0m  [1m[35mALTER TABLE "orderitems" ADD CONSTRAINT "fk_rails_10745a926d"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  ↳ db/schema.rb:87
+  [1m[35m (2.6ms)[0m  [1m[35mALTER TABLE "orderitems" ADD CONSTRAINT "fk_rails_95776705b6"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+[0m
+  ↳ db/schema.rb:88
+  [1m[35m (3.4ms)[0m  [1m[35mALTER TABLE "products" ADD CONSTRAINT "fk_rails_9009599abb"
+FOREIGN KEY ("merchant_id")
+  REFERENCES "merchants" ("id")
+[0m
+  ↳ db/schema.rb:89
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "reviews" ADD CONSTRAINT "fk_rails_bedd9094d4"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+[0m
+  ↳ db/schema.rb:90
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190504234449)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190430233847),
+(20190430233826),
+(20190430233813),
+(20190501205757),
+(20190430233742),
+(20190430233706),
+(20190503042305),
+(20190501233259),
+(20190501210303),
+(20190502212855),
+(20190501210404),
+(20190501205323),
+(20190430233759),
+(20190501205616);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-05 16:52:59.910455"], ["updated_at", "2019-05-05 16:52:59.910455"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.7ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2019-05-05 16:52:59.914212"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:4
+  [1m[36mMerchant Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "sandy.oreilly"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:4
+  [1m[36mMerchant Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "abram_schaefer@hotmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:4
+  [1m[36mMerchant Create (1.9ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "sandy.oreilly"], ["email", "abram_schaefer@hotmail.com"], ["created_at", "2019-05-05 16:53:01.635722"], ["updated_at", "2019-05-05 16:53:01.635722"], ["name", "Sherman Padberg"], ["uid", 99980079], ["provider", "github"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:4
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "louis_pfeffer"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:4
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "edmond_breitenberg@yahoo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:4
+  [1m[36mMerchant Create (0.3ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "louis_pfeffer"], ["email", "edmond_breitenberg@yahoo.com"], ["created_at", "2019-05-05 16:53:01.643154"], ["updated_at", "2019-05-05 16:53:01.643154"], ["name", "Eladia Grimes"], ["uid", 76679103], ["provider", "github"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:4
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "annis.powlowski"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:4
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "vella@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:4
+  [1m[36mMerchant Create (0.3ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "annis.powlowski"], ["email", "vella@gmail.com"], ["created_at", "2019-05-05 16:53:01.648144"], ["updated_at", "2019-05-05 16:53:01.648144"], ["name", "Marcellus Blick"], ["uid", 82060584], ["provider", "github"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:4
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "lovetta"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:4
+  [1m[36mMerchant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "lowell.keler@yahoo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:4
+  [1m[36mMerchant Create (0.3ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "lovetta"], ["email", "lowell.keler@yahoo.com"], ["created_at", "2019-05-05 16:53:01.654184"], ["updated_at", "2019-05-05 16:53:01.654184"], ["name", "Lashon Gottlieb"], ["uid", 33477185], ["provider", "github"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:4
+  [1m[36mMerchant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "charles_gislason"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:4
+  [1m[36mMerchant Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "tammie.schroeder@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:4
+  [1m[36mMerchant Create (0.3ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "charles_gislason"], ["email", "tammie.schroeder@gmail.com"], ["created_at", "2019-05-05 16:53:01.659058"], ["updated_at", "2019-05-05 16:53:01.659058"], ["name", "Moses Leffler III"], ["uid", 49354717], ["provider", "github"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:4
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mProduct Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Coriander Seed"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mProduct Create (42.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Coriander Seed"], ["price", 52537], ["description", "Est nulla autem omnis."], ["photo", "https://picsum.photos/200/300"], ["inventory", 19], ["created_at", "2019-05-05 16:53:01.700795"], ["updated_at", "2019-05-05 16:53:01.700795"], ["merchant_id", 4]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Cumin Seed Royal"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Cumin Seed Royal"], ["price", 20660], ["description", "Officiis facilis cumque aperiam."], ["photo", "https://picsum.photos/200/300"], ["inventory", 4], ["created_at", "2019-05-05 16:53:01.749013"], ["updated_at", "2019-05-05 16:53:01.749013"], ["merchant_id", 5]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Zahtar Spice Mix"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Zahtar Spice Mix"], ["price", 81800], ["description", "Sint voluptate et commodi."], ["photo", "https://picsum.photos/200/300"], ["inventory", 22], ["created_at", "2019-05-05 16:53:01.755129"], ["updated_at", "2019-05-05 16:53:01.755129"], ["merchant_id", 3]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Piri Piri Seasoning"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Piri Piri Seasoning"], ["price", 55522], ["description", "Repellat saepe et debitis."], ["photo", "https://picsum.photos/200/300"], ["inventory", 14], ["created_at", "2019-05-05 16:53:01.761015"], ["updated_at", "2019-05-05 16:53:01.761015"], ["merchant_id", 4]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Vanilla Bean"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Vanilla Bean"], ["price", 69619], ["description", "Mollitia assumenda et nesciunt."], ["photo", "https://picsum.photos/200/300"], ["inventory", 17], ["created_at", "2019-05-05 16:53:01.767362"], ["updated_at", "2019-05-05 16:53:01.767362"], ["merchant_id", 3]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCategory Create (0.7ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "jewelry"], ["created_at", "2019-05-05 16:53:01.782588"], ["updated_at", "2019-05-05 16:53:01.782588"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (39.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "spice"], ["created_at", "2019-05-05 16:53:01.825154"], ["updated_at", "2019-05-05 16:53:01.825154"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "oneofakind"], ["created_at", "2019-05-05 16:53:01.828074"], ["updated_at", "2019-05-05 16:53:01.828074"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mProduct::HABTM_Categories Create (0.9ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 2], ["product_id", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mProduct::HABTM_Categories Create (0.4ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 3], ["product_id", 1]]
+  ↳ db/seeds.rb:27
+  [1m[35m (39.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mProduct::HABTM_Categories Create (0.4ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 3], ["product_id", 2]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mProduct::HABTM_Categories Create (0.3ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 3], ["product_id", 4]]
+  ↳ db/seeds.rb:27
+  [1m[36mProduct::HABTM_Categories Create (0.2ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 2], ["product_id", 4]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mProduct::HABTM_Categories Create (0.3ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 1], ["product_id", 5]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+Started GET "/" for ::1 at 2019-05-05 09:53:57 -0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ngocle/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by MerchantsController#index as HTML
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (1.2ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (32.5ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 500 Internal Server Error in 559ms (ActiveRecord: 9.4ms)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find Merchant with 'id'=6:
+  app/views/layouts/application.html.erb:36:in `_app_views_layouts_application_html_erb__3321066338602549878_70258273111660'
+
+Started POST "/__better_errors/fc07db40ca5c961e/variables" for ::1 at 2019-05-05 09:53:58 -0700
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants"[0m
+Started GET "/" for ::1 at 2019-05-05 09:57:32 -0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ngocle/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by MerchantsController#index as HTML
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (27.8ms)
+Completed 200 OK in 509ms (Views: 476.9ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/products" for ::1 at 2019-05-05 09:57:38 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mMerchant Load (1.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:8
+  Rendered products/index.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 127ms (Views: 65.3ms | ActiveRecord: 20.5ms)
+
+
+Started GET "/auth/github" for ::1 at 2019-05-05 09:57:43 -0700
+Started GET "/auth/github" for ::1 at 2019-05-05 09:57:44 -0700
+Started GET "/auth/github/callback?code=7987834aceeaf54ac156&state=55937e77eb49bd00603b74d9540ffb664238c15ef129de9e" for ::1 at 2019-05-05 09:57:48 -0700
+Processing by MerchantsController#create as HTML
+  Parameters: {"code"=>"7987834aceeaf54ac156", "state"=>"55937e77eb49bd00603b74d9540ffb664238c15ef129de9e", "provider"=>"github"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."uid" = $1 AND "merchants"."provider" = $2 LIMIT $3[0m  [["uid", 37170363], ["provider", "github"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/merchants_controller.rb:25
+  [1m[36mMerchant Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."username" = $1 LIMIT $2[0m  [["username", "lebaongoc"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:25
+  [1m[36mMerchant Exists (4.2ms)[0m  [1m[34mSELECT  1 AS one FROM "merchants" WHERE "merchants"."email" = $1 LIMIT $2[0m  [["email", "ngocle@outlook.com"], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:25
+  [1m[36mMerchant Create (0.5ms)[0m  [1m[32mINSERT INTO "merchants" ("username", "email", "created_at", "updated_at", "name", "uid", "provider") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "lebaongoc"], ["email", "ngocle@outlook.com"], ["created_at", "2019-05-05 16:57:49.508758"], ["updated_at", "2019-05-05 16:57:49.508758"], ["name", "Ngoc Le"], ["uid", 37170363], ["provider", "github"]]
+  ↳ app/controllers/merchants_controller.rb:25
+  [1m[35m (41.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/merchants_controller.rb:25
+Redirected to http://localhost:3000/
+Completed 302 Found in 58ms (ActiveRecord: 47.4ms)
+
+
+Started GET "/" for ::1 at 2019-05-05 09:57:49 -0700
+Processing by MerchantsController#index as HTML
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.9ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (5.0ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 88ms (Views: 79.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-05 09:57:53 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (8.6ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (19.8ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 124ms (Views: 100.4ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/products/new" for ::1 at 2019-05-05 09:57:54 -0700
+Processing by ProductsController#new as HTML
+  [1m[36mMerchant Load (10.1ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (328.0ms)
+  Rendered products/new.html.erb within layouts/application (331.1ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 416ms (Views: 383.7ms | ActiveRecord: 14.8ms)
+
+
+Started POST "/products" for ::1 at 2019-05-05 09:58:09 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"B2FTyyG3zoESJABm8ZTQG5o9W8PQPJZ2ZoPfoh9brKVk0pd3dVby1jp+aGz+s8yKilyfnPxLuKBluiH865OapA==", "product"=>{"category_ids"=>["", "1"], "name"=>"Magic Rink", "price"=>"40", "description"=>"cool ring", "photo"=>"", "inventory"=>"30"}, "commit"=>"Create Product"}
+  [1m[36mMerchant Load (1.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/products_controller.rb:22
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:25
+  [1m[36mProduct Exists (4.5ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "Magic Rink"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:25
+  [1m[36mProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Magic Rink"], ["price", 40], ["description", "cool ring"], ["photo", ""], ["inventory", 30], ["created_at", "2019-05-05 16:58:10.037609"], ["updated_at", "2019-05-05 16:58:10.037609"], ["merchant_id", 6]]
+  ↳ app/controllers/products_controller.rb:25
+  [1m[36mProduct::HABTM_Categories Create (0.7ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 1], ["product_id", 6]]
+  ↳ app/controllers/products_controller.rb:25
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:25
+Redirected to http://localhost:3000/products/6
+Completed 302 Found in 48ms (ActiveRecord: 15.7ms)
+
+
+Started GET "/products/6" for ::1 at 2019-05-05 09:58:10 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:50
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.7ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 89ms (Views: 76.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products" for ::1 at 2019-05-05 09:58:13 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mMerchant Load (19.7ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:8
+  Rendered products/index.html.erb within layouts/application (2.1ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 92ms (Views: 57.9ms | ActiveRecord: 20.1ms)
+
+
+Started GET "/products/6" for ::1 at 2019-05-05 09:58:14 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (21.6ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mProduct Load (1.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:50
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.5ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 104ms (Views: 71.4ms | ActiveRecord: 23.5ms)
+
+
+Started GET "/products" for ::1 at 2019-05-05 09:58:22 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:8
+  Rendered products/index.html.erb within layouts/application (3.4ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 71ms (Views: 63.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products/1" for ::1 at 2019-05-05 09:58:23 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchant Load (6.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mProduct Load (4.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:50
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.5ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 77ms (Views: 58.9ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/products" for ::1 at 2019-05-05 09:58:26 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mMerchant Load (3.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:8
+  Rendered products/index.html.erb within layouts/application (4.3ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 78ms (Views: 65.6ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/products/4" for ::1 at 2019-05-05 09:58:26 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mMerchant Load (7.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mProduct Load (2.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:50
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.6ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 88ms (Views: 67.6ms | ActiveRecord: 10.2ms)
+
+
+Started GET "/products" for ::1 at 2019-05-05 09:58:29 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mMerchant Load (15.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:8
+  Rendered products/index.html.erb within layouts/application (3.9ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 83ms (Views: 61.8ms | ActiveRecord: 15.8ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-05 10:36:57 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ngocle/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.7ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (94.3ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 714ms (Views: 650.9ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-05 10:36:58 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.8ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (2.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (8.4ms)
+  [1m[36mCACHE Merchant Load (0.8ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 251ms (Views: 221.1ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/products/new" for ::1 at 2019-05-05 10:37:01 -0700
+Processing by ProductsController#new as HTML
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (338.7ms)
+  Rendered products/new.html.erb within layouts/application (343.4ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 409ms (Views: 398.3ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/products/new" for ::1 at 2019-05-05 10:37:02 -0700
+Processing by ProductsController#new as HTML
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (1.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (9.3ms)
+  Rendered products/new.html.erb within layouts/application (14.0ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 107ms (Views: 98.2ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/products" for ::1 at 2019-05-05 10:37:15 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VBL8GJg6ltpOrUeWnfPXJ5To0VMW/H//MY2kRofhnm03oTikzNuqjWb3L5yS1Mu2hIkVDDqLUSkytFoYcymobA==", "product"=>{"category_ids"=>["", "3"], "name"=>"", "price"=>"", "description"=>"", "photo"=>"", "inventory"=>""}, "commit"=>"Create Product"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/products_controller.rb:22
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:25
+  [1m[36mProduct Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", ""], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/products_controller.rb:25
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (22.6ms)
+  Rendered products/new.html.erb within layouts/application (27.0ms)
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 400 Bad Request in 155ms (Views: 107.5ms | ActiveRecord: 20.7ms)
+
+
+Started GET "/products" for ::1 at 2019-05-05 10:38:15 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:8
+  Rendered products/index.html.erb within layouts/application (19.6ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 149ms (Views: 113.0ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-05 10:38:17 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (17.8ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (9.5ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 102ms (Views: 75.4ms | ActiveRecord: 18.5ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-05 10:38:17 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (2.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (5.6ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 95ms (Views: 85.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/products/new" for ::1 at 2019-05-05 10:38:19 -0700
+Processing by ProductsController#new as HTML
+  [1m[36mMerchant Load (14.1ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.1ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (31.7ms)
+  Rendered products/new.html.erb within layouts/application (36.1ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 127ms (Views: 89.0ms | ActiveRecord: 20.3ms)
+
+
+Started GET "/products/new" for ::1 at 2019-05-05 10:38:19 -0700
+Processing by ProductsController#new as HTML
+  [1m[36mMerchant Load (1.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.1ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (8.1ms)
+  Rendered products/new.html.erb within layouts/application (11.0ms)
+  [1m[36mCACHE Merchant Load (0.1ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 98ms (Views: 89.3ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/products" for ::1 at 2019-05-05 10:38:27 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Zn4u6CoRWj76esuhHDWAoJPSfT+ekA555QqbQEEdyGcFzepUfvBmadIgo6sTEpwxg7O5YLLnIK/mM2UetdX+Zg==", "product"=>{"category_ids"=>["", "3"], "name"=>"", "price"=>"", "description"=>"", "photo"=>"", "inventory"=>""}, "commit"=>"Create Product"}
+  [1m[36mMerchant Load (0.7ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/products_controller.rb:22
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:25
+  [1m[36mProduct Exists (2.3ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", ""], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/products_controller.rb:25
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (19.3ms)
+  Rendered products/new.html.erb within layouts/application (23.5ms)
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 400 Bad Request in 191ms (Views: 90.8ms | ActiveRecord: 26.8ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-05 11:06:31 -0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ngocle/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.8ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (65.9ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 613ms (Views: 554.9ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-05 11:06:32 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (8.2ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 173ms (Views: 163.0ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/products/6/edit" for ::1 at 2019-05-05 11:06:35 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/products/6/edit"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2019-05-05 15:06:37 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ngocle/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by MerchantsController#index as HTML
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.7ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (6.5ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 655ms (Views: 599.8ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-05 15:06:46 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (1.8ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (88.1ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 217ms (Views: 196.5ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-05 15:06:47 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (2.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (6.9ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 133ms (Views: 122.6ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/products/new" for ::1 at 2019-05-05 15:06:51 -0700
+Processing by ProductsController#new as HTML
+  [1m[36mMerchant Load (4.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (32.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (374.9ms)
+  Rendered products/new.html.erb within layouts/application (381.4ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 453ms (Views: 404.6ms | ActiveRecord: 41.2ms)
+
+
+Started GET "/products/new" for ::1 at 2019-05-05 15:06:51 -0700
+Processing by ProductsController#new as HTML
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (7.5ms)
+  Rendered products/new.html.erb within layouts/application (10.5ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 70ms (Views: 64.4ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/products" for ::1 at 2019-05-05 15:07:04 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ln693wmu0/KrGfKFxuCCrDYAkVzza68LFVbBvUk6NvfQQgyDxA7IZExN9xc43TsxXkTIrCCsQphNj4ytmZR5Bg==", "product"=>{"category_ids"=>["", "3"], "name"=>"magic shirt", "price"=>"30", "description"=>"", "photo"=>"", "inventory"=>"300"}, "commit"=>"Create Product"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/products_controller.rb:22
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:25
+  [1m[36mProduct Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 LIMIT $2[0m  [["name", "magic shirt"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:25
+  [1m[36mProduct Create (1.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "price", "description", "photo", "inventory", "created_at", "updated_at", "merchant_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "magic shirt"], ["price", 30], ["description", ""], ["photo", ""], ["inventory", 300], ["created_at", "2019-05-05 22:07:04.176681"], ["updated_at", "2019-05-05 22:07:04.176681"], ["merchant_id", 6]]
+  ↳ app/controllers/products_controller.rb:25
+  [1m[36mProduct::HABTM_Categories Create (0.8ms)[0m  [1m[32mINSERT INTO "categories_products" ("category_id", "product_id") VALUES ($1, $2) RETURNING "id"[0m  [["category_id", 3], ["product_id", 7]]
+  ↳ app/controllers/products_controller.rb:25
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:25
+Redirected to http://localhost:3000/products/7
+Completed 302 Found in 27ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/products/7" for ::1 at 2019-05-05 15:07:04 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:70
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.5ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 93ms (Views: 87.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/merchants" for ::1 at 2019-05-05 15:07:53 -0700
+Processing by MerchantsController#index as HTML
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (3.0ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 95ms (Views: 87.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/merchants/6" for ::1 at 2019-05-05 15:07:54 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (1.1ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mMerchant Load (2.5ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+  Rendering merchants/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/show.html.erb:4
+  Rendered merchants/show.html.erb within layouts/application (4.1ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 77ms (Views: 64.9ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/merchants/6" for ::1 at 2019-05-05 15:07:54 -0700
+Processing by MerchantsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:7
+  Rendering merchants/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/show.html.erb:4
+  Rendered merchants/show.html.erb within layouts/application (2.1ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 75ms (Views: 66.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-05 23:37:19 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.9ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (20.2ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 188ms (Views: 166.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-05 23:37:19 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (4.2ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 122ms (Views: 112.7ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/products/6/edit" for ::1 at 2019-05-05 23:37:22 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/products/6/edit"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/products/6/edit" for ::1 at 2019-05-05 23:38:21 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/products/6/edit"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2019-05-05 23:44:49 -0700
+Processing by MerchantsController#index as HTML
+  [1m[36mMerchant Load (0.8ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (3.4ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 121ms (Views: 113.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-05 23:44:51 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (10.5ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (2.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (8.7ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 104ms (Views: 82.9ms | ActiveRecord: 12.8ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-05 23:44:51 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (1.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (3.2ms)
+  [1m[36mCACHE Merchant Load (0.1ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 117ms (Views: 104.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/products/6/edit" for ::1 at 2019-05-05 23:44:53 -0700
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:70
+  Rendering products/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  [1m[35m (42.2ms)[0m  [1m[34mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_products" ON "categories"."id" = "categories_products"."category_id" WHERE "categories_products"."product_id" = $1[0m  [["product_id", 6]]
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (71.8ms)
+  Rendered products/edit.html.erb within layouts/application (75.5ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 183ms (Views: 125.7ms | ActiveRecord: 43.7ms)
+
+
+Started GET "/" for ::1 at 2019-05-05 23:45:07 -0700
+Processing by MerchantsController#index as HTML
+  [1m[36mMerchant Load (1.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (15.5ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (19.2ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 162ms (Views: 133.9ms | ActiveRecord: 16.5ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-05 23:45:09 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.8ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (4.2ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 91ms (Views: 84.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-05 23:45:09 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (4.1ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 127ms (Views: 120.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products/6/edit" for ::1 at 2019-05-05 23:45:11 -0700
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:70
+  Rendering products/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_products" ON "categories"."id" = "categories_products"."category_id" WHERE "categories_products"."product_id" = $1[0m  [["product_id", 6]]
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (8.7ms)
+  Rendered products/edit.html.erb within layouts/application (12.2ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 82ms (Views: 72.3ms | ActiveRecord: 1.9ms)
+
+
+Started PATCH "/products/6" for ::1 at 2019-05-05 23:45:26 -0700
+Processing by ProductsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LVXlgkcwBjW1TBcXutn9BsRhqgNSkJDtUAnxH6BjYqfzgOzi6/6VZOhd0HgctWtYs+5jT+ZQRc6+lZyppNhhzw==", "product"=>{"category_ids"=>["", "1"], "name"=>"Magic Rink", "price"=>"2000", "description"=>"cool ring", "photo"=>"", "inventory"=>"30"}, "commit"=>"Update Product", "id"=>"6"}
+  [1m[36mMerchant Load (0.9ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:70
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:43
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/products_controller.rb:43
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categories_products" ON "categories"."id" = "categories_products"."category_id" WHERE "categories_products"."product_id" = $1[0m  [["product_id", 6]]
+  ↳ app/controllers/products_controller.rb:43
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:43
+  [1m[36mProduct Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 AND "products"."id" != $2 LIMIT $3[0m  [["name", "Magic Rink"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:43
+  [1m[36mProduct Update (2.1ms)[0m  [1m[33mUPDATE "products" SET "price" = $1, "updated_at" = $2 WHERE "products"."id" = $3[0m  [["price", 2000], ["updated_at", "2019-05-06 06:45:26.503708"], ["id", 6]]
+  ↳ app/controllers/products_controller.rb:43
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:43
+Redirected to http://localhost:3000/products/6
+Completed 302 Found in 30ms (ActiveRecord: 7.6ms)
+
+
+Started GET "/products/6" for ::1 at 2019-05-05 23:45:26 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:70
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.2ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 83ms (Views: 75.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-05 23:45:36 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (3.5ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (5.7ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 108ms (Views: 95.0ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-05 23:45:36 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (3.3ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 93ms (Views: 85.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products/7/edit" for ::1 at 2019-05-05 23:45:39 -0700
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mMerchant Load (1.8ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:70
+  Rendering products/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_products" ON "categories"."id" = "categories_products"."category_id" WHERE "categories_products"."product_id" = $1[0m  [["product_id", 7]]
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (7.7ms)
+  Rendered products/edit.html.erb within layouts/application (11.7ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 83ms (Views: 71.9ms | ActiveRecord: 3.2ms)
+
+
+Started PATCH "/products/7" for ::1 at 2019-05-05 23:45:51 -0700
+Processing by ProductsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nfOcZCRHSyt1fW1cV6C8MxdtSohpEhp1jgKpUCcVrzpDJpUEiInYeihsqjPxzCptYOKDxN3Sz1ZgnsTmI66sUg==", "product"=>{"category_ids"=>["", "3"], "name"=>"MAGIC shirt", "price"=>"30", "description"=>"cool shirt", "photo"=>"", "inventory"=>"300"}, "commit"=>"Update Product", "id"=>"7"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:70
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:43
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/products_controller.rb:43
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categories_products" ON "categories"."id" = "categories_products"."category_id" WHERE "categories_products"."product_id" = $1[0m  [["product_id", 7]]
+  ↳ app/controllers/products_controller.rb:43
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:43
+  [1m[36mProduct Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 AND "products"."id" != $2 LIMIT $3[0m  [["name", "MAGIC shirt"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:43
+  [1m[36mProduct Update (1.5ms)[0m  [1m[33mUPDATE "products" SET "name" = $1, "description" = $2, "updated_at" = $3 WHERE "products"."id" = $4[0m  [["name", "MAGIC shirt"], ["description", "cool shirt"], ["updated_at", "2019-05-06 06:45:51.853468"], ["id", 7]]
+  ↳ app/controllers/products_controller.rb:43
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:43
+Redirected to http://localhost:3000/products/7
+Completed 302 Found in 20ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/products/7" for ::1 at 2019-05-05 23:45:51 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mProduct Load (1.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:70
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.8ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 102ms (Views: 93.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/products" for ::1 at 2019-05-05 23:45:54 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mMerchant Load (4.5ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:8
+  Rendered products/index.html.erb within layouts/application (3.1ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 79ms (Views: 68.9ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/products/6" for ::1 at 2019-05-05 23:45:56 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (2.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:70
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.1ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 83ms (Views: 72.5ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-05 23:46:07 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (4.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (4.8ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 96ms (Views: 86.1ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-05 23:46:07 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (3.6ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 99ms (Views: 92.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products/6/edit" for ::1 at 2019-05-05 23:46:13 -0700
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:70
+  Rendering products/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_products" ON "categories"."id" = "categories_products"."category_id" WHERE "categories_products"."product_id" = $1[0m  [["product_id", 6]]
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (8.0ms)
+  Rendered products/edit.html.erb within layouts/application (11.5ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 83ms (Views: 75.4ms | ActiveRecord: 1.6ms)
+
+
+Started PATCH "/products/6" for ::1 at 2019-05-05 23:46:20 -0700
+Processing by ProductsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tcyprS7VthAPbRunwMHqItwsM7tA3Wq68BIeEBSRjMdrGaDNghslQVJ83MhmrXx8q6P69/Qdv5kejnOmECqPrw==", "product"=>{"category_ids"=>["", "1"], "name"=>"Magic Rink", "price"=>"30", "description"=>"cool ring", "photo"=>"", "inventory"=>"30"}, "commit"=>"Update Product", "id"=>"6"}
+  [1m[36mMerchant Load (1.8ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:70
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:43
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/products_controller.rb:43
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categories_products" ON "categories"."id" = "categories_products"."category_id" WHERE "categories_products"."product_id" = $1[0m  [["product_id", 6]]
+  ↳ app/controllers/products_controller.rb:43
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:43
+  [1m[36mProduct Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 AND "products"."id" != $2 LIMIT $3[0m  [["name", "Magic Rink"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:43
+  [1m[36mProduct Update (0.6ms)[0m  [1m[33mUPDATE "products" SET "price" = $1, "updated_at" = $2 WHERE "products"."id" = $3[0m  [["price", 30], ["updated_at", "2019-05-06 06:46:20.566941"], ["id", 6]]
+  ↳ app/controllers/products_controller.rb:43
+  [1m[35m (40.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:43
+Redirected to http://localhost:3000/products/6
+Completed 302 Found in 61ms (ActiveRecord: 45.1ms)
+
+
+Started GET "/products/6" for ::1 at 2019-05-05 23:46:20 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:70
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.0ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 70ms (Views: 65.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/merchants" for ::1 at 2019-05-05 23:55:41 -0700
+Processing by MerchantsController#index as HTML
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.7ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (3.9ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 189ms (Views: 109.4ms | ActiveRecord: 51.3ms)
+
+
+Started GET "/products" for ::1 at 2019-05-05 23:55:42 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:8
+  Rendered products/index.html.erb within layouts/application (18.9ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 101ms (Views: 80.8ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-05 23:55:43 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (2.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (13.7ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 112ms (Views: 94.0ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-05 23:55:44 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (3.4ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 106ms (Views: 99.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products/6/edit" for ::1 at 2019-05-05 23:55:46 -0700
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:70
+  Rendering products/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_products" ON "categories"."id" = "categories_products"."category_id" WHERE "categories_products"."product_id" = $1[0m  [["product_id", 6]]
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (71.4ms)
+  Rendered products/edit.html.erb within layouts/application (74.4ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 188ms (Views: 161.1ms | ActiveRecord: 8.8ms)
+
+
+Started PATCH "/products/6" for ::1 at 2019-05-05 23:55:50 -0700
+Processing by ProductsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yNQTyRZulzFL6gbluYDM4diaiIVgRNNxTFYsw5Xa3PxWwtXxEdywkaSlicmlu4O2RnaytAdJwHZFRVo65kgD+A==", "product"=>{"category_ids"=>["", "1"], "name"=>"Magic Rink", "price"=>"30", "description"=>"cool ring", "photo"=>"", "inventory"=>"30"}, "commit"=>"Update Product", "id"=>"6"}
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:70
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:43
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/products_controller.rb:43
+  [1m[36mCategory Load (1.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categories_products" ON "categories"."id" = "categories_products"."category_id" WHERE "categories_products"."product_id" = $1[0m  [["product_id", 6]]
+  ↳ app/controllers/products_controller.rb:43
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:43
+  [1m[36mProduct Exists (3.9ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."name" = $1 AND "products"."id" != $2 LIMIT $3[0m  [["name", "Magic Rink"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:43
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:43
+Redirected to http://localhost:3000/products/6
+Completed 302 Found in 72ms (ActiveRecord: 7.1ms)
+
+
+Started GET "/products/6" for ::1 at 2019-05-05 23:55:50 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:70
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.8ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 74ms (Views: 67.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-05 23:55:53 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (3.8ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (4.3ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 89ms (Views: 78.4ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-05 23:55:53 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (3.6ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 97ms (Views: 91.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products/new" for ::1 at 2019-05-05 23:55:56 -0700
+Processing by ProductsController#new as HTML
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (9.2ms)
+  Rendered products/new.html.erb within layouts/application (12.6ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 94ms (Views: 85.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products/new" for ::1 at 2019-05-05 23:55:56 -0700
+Processing by ProductsController#new as HTML
+  [1m[36mMerchant Load (0.2ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:4
+  Rendered products/_form.html.erb (7.1ms)
+  Rendered products/new.html.erb within layouts/application (9.8ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 82ms (Views: 77.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products" for ::1 at 2019-05-05 23:55:59 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mMerchant Load (3.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:8
+  Rendered products/index.html.erb within layouts/application (2.2ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 78ms (Views: 67.8ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/" for ::1 at 2019-05-06 10:10:47 -0700
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ngocle/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by MerchantsController#index as HTML
+  [1m[36mMerchant Load (40.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering merchants/index.html.erb within layouts/application
+  [1m[36mMerchant Load (0.6ms)[0m  [1m[34mSELECT "merchants".* FROM "merchants" ORDER BY "merchants"."id" ASC[0m
+  ↳ app/views/merchants/index.html.erb:3
+  Rendered merchants/index.html.erb within layouts/application (5.1ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 702ms (Views: 566.4ms | ActiveRecord: 89.8ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-06 10:10:50 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.7ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (65.4ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 191ms (Views: 176.0ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/merchants/dashboard/6" for ::1 at 2019-05-06 10:10:50 -0700
+Processing by MerchantsController#dashboard as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMerchant Load (0.4ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/merchants_controller.rb:47
+  Rendering merchants/dashboard.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."merchant_id" = $1[0m  [["merchant_id", 6]]
+  ↳ app/views/merchants/dashboard.html.erb:12
+  Rendered merchants/dashboard.html.erb within layouts/application (3.8ms)
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:36
+Completed 200 OK in 130ms (Views: 122.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products/new" for ::1 at 2019-05-06 10:10:53 -0700
+Processing by ProductsController#new as HTML
+  [1m[36mMerchant Load (0.5ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.5ms)
+
+
+
+RuntimeError - :
+  app/controllers/products_controller.rb:19:in `new'
+
+Started POST "/__better_errors/5a25e1bc5e4f4743/variables" for ::1 at 2019-05-06 10:10:53 -0700
+Started GET "/products/new" for ::1 at 2019-05-06 10:10:53 -0700
+Processing by ProductsController#new as HTML
+  [1m[36mMerchant Load (0.3ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Merchant Load (0.0ms)[0m  [1m[34mSELECT  "merchants".* FROM "merchants" WHERE "merchants"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.3ms)
+
+
+
+RuntimeError - :
+  app/controllers/products_controller.rb:19:in `new'
+
