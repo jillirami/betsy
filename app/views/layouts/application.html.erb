@@ -40,6 +40,9 @@
             </li>
           <% else %>
             <li class="nav-item app-header__nav_item">
+              <%= link_to "View Cart", order_path(session[:order_id]), class: "btn btn-primary" %>
+            </li>
+            <li class="nav-item app-header__nav_item">
               <%= link_to "Login with GitHub", github_login_path, class: "btn btn-primary" %>
             </li>
           <% end %>

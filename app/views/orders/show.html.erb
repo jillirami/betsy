@@ -1,1 +1,8 @@
 Order show page!!!!!
+
+
+
+<% @order.orderitems.each do |order_item| %>
+<%= Product.find_by(id: order_item.product_id).name %>
+<%= order_item.quantity %>
+<% end %>
