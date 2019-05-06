@@ -16,7 +16,6 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-
   end
 
   def create
@@ -39,19 +38,25 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    if @product.nil?
+      head :not_found
+    end
   end
 
   def update
-    is_successful = @product.update(product_params)
-
-    if is_successful
-      flash[:success] = "Product updated successfully"
-      redirect_to product_path(@product.id)
+    if @product.nil?
+      head :not_found
     else
-      @product.errors.messages.each do |field, messages|
-        flash.now[field] = messages
+      is_successful = @product.update(product_params)
+      if is_successful
+        flash[:success] = "Product updated successfully"
+        redirect_to product_path(@product.id)
+      else
+        @product.errors.messages.each do |field, messages|
+          flash.now[field] = messages
+        end
+        render :edit, status: :bad_request
       end
-      render :edit, status: :bad_request
     end
   end
 
