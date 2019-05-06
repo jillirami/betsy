@@ -1,4 +1,29 @@
 class CategoriesController < ApplicationController
   def index
+    @categories = Category.all
+  end
+
+  def new
+    @category = Category.new(name: "Default category name")
+  end
+
+  def create
+    category = Category.new(category_params)
+
+    is_successful = category.save
+
+    if is_successful
+      flash[:success] = "Category successfully created"
+      redirect_to categories_path
+    else
+      category.errors.messages.each do |field, messages|
+        flash.now[field] = messages
+      end
+      render :new, status: :bad_request
+    end
+  end
+
+  def category_params
+    return params.require(:category).permit(:name)
   end
 end
