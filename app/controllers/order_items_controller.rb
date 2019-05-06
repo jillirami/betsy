@@ -1,4 +1,8 @@
 class OrderItemsController < ApplicationController
+  def index
+    # @order_items = Orderitems.all.where(ord)
+  end
+
   def create
     if session[:order_id]
       @order = Order.find(session[:order_id])
@@ -24,7 +28,7 @@ class OrderItemsController < ApplicationController
     @order_item = Orderitem.find_by(id: params[:id])
 
     if @order_item.nil?
-      redirect_to order_items_path
+      redirect_to order_path
     end
   end
 
@@ -32,13 +36,13 @@ class OrderItemsController < ApplicationController
     order_item = Orderitem.find_by(id: params[:id])
 
     if order_item.nil?
-      redirect_to order_items_path
+      redirect_to order_path
     else
-      is_successful = order_item.update(order_item_params)
+      is_successful = order_item.update(quantity: params[:quantity])
     end
 
     if is_successful
-      redirect_to order_items_path
+      redirect_to order_path
     end
   end
 

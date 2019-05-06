@@ -5,8 +5,14 @@
 <ul>
 <li>Product: <%= Product.find_by(id: order_item.product_id).name %></li>
 <li>Quantity: <%= order_item.quantity %></li>
+
+   <%#= form_with url: order_items_path(order_item.id), method: :patch do |f| %>
+    <%#= f.number_field :quantity, value: order_item.quantity  %>
+    <%#= f.submit "Update Quantity", class: "btn btn-primary" %>
+    <%# end %>   
+
 </ul>
 <% end %>
 
-<%= link_to "Update Order", edit_order_path(@order.id) %>
+<%= link_to "Complete Order", edit_order_path(@order.id) %>
 
