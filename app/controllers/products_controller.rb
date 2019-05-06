@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :require_login, only: [:new, :create, :edit, :update, :retired]
-  before_action :find_product, only: [:show, :edit, :update, :retire]
+  before_action :find_product, only: [:show, :edit, :update, :retired]
 
   def index
     @products = Product.all
