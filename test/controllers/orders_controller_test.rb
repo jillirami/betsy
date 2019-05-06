@@ -20,6 +20,14 @@ describe OrdersController do
 
   describe "create" do
     it "can successfully create a new order" do
+      expect {
+        post orders_path
+      }.must_change "Order.count", 1
+
+      expect(Order.last.status).must_equal "pending"
+    end
+
+    it "***what happens when invalid?*****" do
     end
   end
 end
