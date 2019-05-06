@@ -11,8 +11,16 @@
     <%= category.name%>
     <% end %>
     </li>
+    <li><%#= link_to "Create Orderitem", orderitems_path, method: :post %></li>
+    <%= form_with url: orderitems_path, method: :post do |f| %>
+    <%= "Add to Cart: " %>
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity %>
+
+    <%= f.hidden_field :product_id, value: @product.id %>
+
+    <%= f.submit class: "btn btn-primary" %>
+    <% end %>   
 </ul>
 <br>
 <%= image_tag "#{@product.photo}", alt: "photo desciption here" %>
-
-

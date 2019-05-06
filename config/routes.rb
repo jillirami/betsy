@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :merchants
   resources :orders
   resources :categories
+  resources :orderitems
 
   # resources :merchants do
   # resources :reviews, only: [:new, :create]
