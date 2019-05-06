@@ -1,6 +1,8 @@
 require "test_helper"
 
 describe ProductsController do
+  let(:existing_product) { products(:one) }
+
   describe "index" do
     it "can get the index path" do
       get products_path
@@ -62,7 +64,7 @@ describe ProductsController do
       must_redirect_to product_path(new_product_id)
 
       new_product = Product.find_by(name: "Dirty Computer")
-      p new_product
+
       expect(flash[:success]).must_equal "Product added successfully"
       expect(new_product).wont_be_nil
       expect(new_product.name).must_equal new_product_input[:product][:name]
@@ -93,8 +95,6 @@ describe ProductsController do
   end
 
   describe "edit" do
-    let(:existing_product) { products(:one) }
-
     before do
       perform_login(merchants(:jewelry))
     end
@@ -106,20 +106,19 @@ describe ProductsController do
     end
 
     it "renders 404 not_found for a bogus product ID" do
-      bogus_id = -1
+      bogus_id = existing_product.id
+      existing_product.destroy
 
       get edit_product_path(bogus_id)
-
       must_respond_with :not_found
     end
   end
 
   describe "update" do
-    let(:existing_product) { products(:one) }
-
     before do
       perform_login(merchants(:jewelry))
     end
+
     it "succeeds for valid data and an extant product ID" do
       updates = {product: {name: "Medium Ring"}}
 
@@ -128,13 +127,14 @@ describe ProductsController do
       }.wont_change "Product.count"
       updated_product = Product.find_by(id: existing_product.id)
 
+      expect(flash[:success]).must_equal "Product updated successfully"
       updated_product.name.must_equal "Medium Ring"
       must_respond_with :redirect
       must_redirect_to product_path(existing_product.id)
     end
 
     it "renders bad_request for bogus data" do
-      updates = {Product: {title: nil}}
+      updates = {"product": {name: ""}}
 
       expect {
         patch product_path(existing_product), params: updates
@@ -142,29 +142,37 @@ describe ProductsController do
 
       product = Product.find_by(id: existing_product.id)
 
-      must_respond_with :not_found
+      must_respond_with :bad_request
     end
 
     it "renders 404 not_found for a bogus product ID" do
-      bogus_id = -1
+      bogus_id = existing_product.id
+      existing_product.destroy
 
-      patch product_path(bogus_id), params: {product: {name: "Test Title"}}
-
+      patch product_path(bogus_id), params: {product: {name: "Test Name"}}
       must_respond_with :not_found
     end
   end
 
   describe "retired" do
+    before do
+      perform_login(merchants(:jewelry))
+    end
     it "can mark a product as retired, but changing the retired field from false to true" do
       product = products(:one)
 
-      expect(product.retired).must_equal false
-
       patch retired_product_path(product.id)
       product.reload
+      must_redirect_to products_path
 
       expect(product.retired).must_equal true
-      must_redirect_to products_path
+    end
+    it "renders flash error message for a bogus product ID" do
+      bogus_id = existing_product.id
+      existing_product.destroy
+
+      patch retired_product_path(bogus_id)
+      expect(flash[:error]).must_equal "That Product does not exist"
     end
   end
 end
