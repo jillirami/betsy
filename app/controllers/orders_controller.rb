@@ -10,8 +10,6 @@ class OrdersController < ApplicationController
   end
 
   def edit
-    # order = Order.create
-    # session[:order_id] = order.id
     @order = Order.find_by(id: session[:order_id])
   end
 
