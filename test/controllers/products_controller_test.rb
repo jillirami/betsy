@@ -62,7 +62,7 @@ describe ProductsController do
       must_redirect_to product_path(new_product_id)
 
       new_product = Product.find_by(name: "Dirty Computer")
-      p new_product
+
       expect(flash[:success]).must_equal "Product added successfully"
       expect(new_product).wont_be_nil
       expect(new_product.name).must_equal new_product_input[:product][:name]
@@ -128,6 +128,7 @@ describe ProductsController do
       }.wont_change "Product.count"
       updated_product = Product.find_by(id: existing_product.id)
 
+      expect(flash[:success]).must_equal "Product updated successfully"
       updated_product.name.must_equal "Medium Ring"
       must_respond_with :redirect
       must_redirect_to product_path(existing_product.id)
@@ -165,6 +166,13 @@ describe ProductsController do
       must_redirect_to products_path
 
       expect(product.retired).must_equal true
+    end
+    it "renders flash error message for a bogus product ID" do
+      bogus_id = existing_product.id
+      existing_product.destroy
+
+      retired product_path(bogus_id), params: {product: {name: "Test Name"}}
+      must_respond_with :not_found
     end
   end
 end
