@@ -106,10 +106,10 @@ describe ProductsController do
     end
 
     it "renders 404 not_found for a bogus product ID" do
-      bogus_id = -1
+      bogus_id = existing_product.id
+      existing_product.destroy
 
       get edit_product_path(bogus_id)
-
       must_respond_with :not_found
     end
   end
@@ -134,7 +134,7 @@ describe ProductsController do
     end
 
     it "renders bad_request for bogus data" do
-      updates = {Product: {title: nil}}
+      updates = {"product": {name: ""}}
 
       expect {
         patch product_path(existing_product), params: updates
@@ -142,29 +142,29 @@ describe ProductsController do
 
       product = Product.find_by(id: existing_product.id)
 
-      must_respond_with :not_found
+      must_respond_with :bad_request
     end
 
     it "renders 404 not_found for a bogus product ID" do
-      bogus_id = -1
+      bogus_id = existing_product.id
+      existing_product.destroy
 
-      patch product_path(bogus_id), params: {product: {name: "Test Title"}}
-
+      patch product_path(bogus_id), params: {product: {name: "Test Name"}}
       must_respond_with :not_found
     end
   end
 
   describe "retired" do
     it "can mark a product as retired, but changing the retired field from false to true" do
-      product = products(:one)
+      perform_login(merchants(:jewelry))
 
-      expect(product.retired).must_equal false
+      product = products(:one)
 
       patch retired_product_path(product.id)
       product.reload
+      must_redirect_to products_path
 
       expect(product.retired).must_equal true
-      must_redirect_to products_path
     end
   end
 end
