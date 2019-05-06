@@ -1,6 +1,8 @@
+
+
 <%= form_with model: @product do |f| %>
 
-<%= f.label :category %>
+<h4><%= f.label :category %></h4>
 <%= collection_check_boxes(:product, :category_ids, Category.all, :id, :name) %>
 
 <%= f.label :name %>

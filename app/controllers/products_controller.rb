@@ -16,10 +16,12 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+
   end
 
   def create
     product = Product.new(product_params)
+
     product.merchant = @current_merchant
 
     is_successful = product.save
