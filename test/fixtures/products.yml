@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString1
+  name: Small Ring
   price: 1
   description: MyString
   photo:
@@ -10,7 +10,7 @@ one:
   retired: false
 
 two:
-  name: MyString2
+  name: Big Ring
   price: 1
   description: MyString
   photo:
