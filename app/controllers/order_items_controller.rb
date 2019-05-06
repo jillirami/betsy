@@ -1,22 +1,13 @@
 class OrderItemsController < ApplicationController
-  def index
-    @orderitems = Orderitem.all.order(:id)
-  end
-
-  # def show
-  #   @order_items = current_order.orderitems
-  # end
-
   def create
-    # product_id = params[:id].to_i
+    if session[:order_id]
+      @order = Order.find(session[:order_id])
+    else
+      @order = Order.create
+      session[:order_id] = @order.id
+    end
 
-    # if session[:order_id]
-    #   @order = Order.find(session[:order_id])
-    # else
-    #   @order = Order.create
-    # end
-
-    @order_item = Orderitem.new(quantity: params[:quantity], product_id: params[:product_id], order_id: params[:order_id])
+    @order_item = Orderitem.new(quantity: params[:quantity], product_id: params[:product_id], order_id: @order.id)
 
     is_successful = @order_item.save
     
@@ -53,12 +44,6 @@ class OrderItemsController < ApplicationController
 
   def destroy
   end
-
-  # private
-
-  # def order_item_params
-  #   params.require(:order_item).permit(:quantity, :product_id, :order_id) # product_id: Product.find_by(id: params[:id]), order_id: Order.find_by(id: session[:order_id].id))
-  # end
 end
     
     

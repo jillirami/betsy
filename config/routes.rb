@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get "/merchants/current", to: "merchants#current", as: "current_merchant"
   get "/merchants/dashboard/:id", to: "merchants#dashboard", as: "dashboard"
+  get "/orders/receipt/:id", to: "orders#receipt", as: "receipt"
   get "/auth/github", as: "github_login"
   get "/auth/:provider/callback", to: "merchants#create", as: "auth_callback"
 

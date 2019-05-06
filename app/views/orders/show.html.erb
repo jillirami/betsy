@@ -1,8 +1,12 @@
-Order show page!!!!!
-
+<h3>Your Cart</h3>
 
 
 <% @order.orderitems.each do |order_item| %>
-<%= Product.find_by(id: order_item.product_id).name %>
-<%= order_item.quantity %>
+<ul>
+<li>Product: <%= Product.find_by(id: order_item.product_id).name %></li>
+<li>Quantity: <%= order_item.quantity %></li>
+</ul>
 <% end %>
+
+<%= link_to "Update Order", edit_order_path(@order.id) %>
+

@@ -12,12 +12,6 @@ class ProductsController < ApplicationController
 
       redirect_to products_path
     end
-
-    if session[:order_id]
-      @order = Order.find(session[:order_id])
-    else
-      @order = Order.create
-    end
   end
 
   def new
