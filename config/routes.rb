@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   resources :products
   resources :merchants
   resources :orders
+  resources :categories
 
   # resources :merchants do
-    # resources :reviews, only: [:new, :create]
+  # resources :reviews, only: [:new, :create]
   # end
-
 
   get "/merchants/current", to: "merchants#current", as: "current_merchant"
   get "/merchants/dashboard/:id", to: "merchants#dashboard", as: "dashboard"

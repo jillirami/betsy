@@ -18,11 +18,49 @@
 @import "**/*";
 
 .app-header__nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
-  .app-header__nav_item {
-    margin-top: 1rem;
-  }
+.app-header__nav_item {
+  margin-top: 1rem;
+  color: black;
+}
+
+.btn-primary {
+  color: black;
+  background-color: #FFF9D4;
+  border-color: #FFF9D4;
+}
+
+.btn-primary:hover {
+  color: #FFF9D4;
+  background-color: black;
+  border-color: black;
+}
+
+.nav-link {
+  color: #FFF9D4;
+}
+
+.nav-link:hover {
+  color: black;
+}
+
+h1 a {
+  color: #FFF9D4;
+}
+
+h1 a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+header {
+  background: #D3A13B url("goldceiling.jpg") repeat center top;
+}
+
+body {
+  background-color: #FFF9D0;
+}
