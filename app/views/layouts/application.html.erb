@@ -39,6 +39,11 @@
               <%= link_to "Log out", logout_path, method: "delete", class: "btn btn-primary" %>
             </li>
           <% else %>
+            <% if session[:order_id] %>
+            <li class="nav-item app-header__nav_item">
+              <%= link_to "View Cart", order_path(id: Order.find(session[:order_id]).id), class: "btn btn-primary" %>
+            </li>
+            <% end %>
             <li class="nav-item app-header__nav_item">
               <%= link_to "Login with GitHub", github_login_path, class: "btn btn-primary" %>
             </li>
