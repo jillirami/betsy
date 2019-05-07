@@ -3,6 +3,7 @@ require "test_helper"
 describe Product do
   let (:merchant) { merchants(:jewelry) }
   let (:product) { products(:one) }
+  let (:category) { categories(:cat1) }
 
   it "must be valid" do
     valid_product = product.valid?
@@ -46,43 +47,27 @@ describe Product do
 
   describe "relationships" do
     it "belongs to an merchant" do
-
-      # Act
       product.merchant = merchant
 
-      # Assert
       expect(product.merchant_id).must_equal merchant.id
     end
 
     it "can set the merchant through the merchant_id" do
-      # Arrangec
-      new_author = Author.create(name: "new author")
+      product.merchant_id = merchant.id
 
-      # Act
-      book.author_id = new_author.id
-
-      # Assert
-      expect(book.author).must_equal new_author
+      expect(product.merchant).must_equal merchant
     end
 
-    it "can have 0 genres" do
+    it "can have 0 category" do
+      categories = product.categories
 
-      # Act
-      genres = book.genres
-
-      # Assert
-      expect(genres.length).must_equal 0
+      expect(categories.length).must_equal 0
     end
 
-    it "can have 1 or more genres by shoveling a genre into book.genres" do
-      # Arrange
-      new_genre = genres(:one)
+    it "can have 1 or more category by shoveling a category into product.categories" do
+      product.categories << category
 
-      # Act
-      book.genres << new_genre
-
-      # Assert
-      expect(new_genre.books).must_include book
+      expect(product.categories).must_include category
     end
   end
 end
