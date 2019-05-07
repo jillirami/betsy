@@ -9,24 +9,6 @@ class OrdersController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
-  # def new
-  #   @order = Order.new
-  # end
-
-  def create
-    @order = Order.create
-    session[:order_id] = @order.id
-    # @order = Order.new(id: session[order_id])
-    # if (@order.save)
-    #   redirect_to :action => :index
-    # else
-    #   render :action => :new
-    # end
-  end
-
-=======
->>>>>>> master
   def edit
     @order = Order.find_by(id: session[:order_id])
   end
@@ -47,7 +29,6 @@ class OrdersController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
   def destroy
     @order = Order.find_by(id: session[:order_id])
     @order.status = "cancelled"
@@ -58,28 +39,10 @@ class OrdersController < ApplicationController
     redirect_to root_path
   end
 
-  # def create
-  #   order = Order.new(order_params)
-
-  #   is_successful = order.save
-
-  #   if is_successful
-  #     flash[:success] = "Thank you for placing an order!"
-  #     redirect_to order_path(order.id)
-  #   else
-  #     order.errors.messages.each do |field, messages|
-  #       flash.now[:error_form] = messages
-  #     end
-
-  #     render :new, status: :bad_request
-  #   end
-  # end
-=======
   def receipt
     @order = Order.find_by(id: params[:id])
     session[:order_id] = nil
   end
->>>>>>> master
 
   private
 
