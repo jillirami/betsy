@@ -11,16 +11,26 @@ class OrderItemsController < ApplicationController
       session[:order_id] = @order.id
     end
 
-    @order_item = Orderitem.new(quantity: params[:quantity], product_id: params[:product_id], order_id: @order.id)
+    product = Product.find_by(id: params[:product_id])
 
-    is_successful = @order_item.save
-    
-    if is_successful
-      flash[:success] = "Item added to Cart"
-      return redirect_to products_path
+    if params[:quantity].to_i > product.inventory
+      flash[:error] = "Not enough #{Product.find_by(id: params[:product_id]).name} in stock"
+      return redirect_to product_path(product.id)
     else
-      flash[:error] = "Could not add item to Cart"
-      return redirect_to root_path
+      @order_item = Orderitem.new(quantity: params[:quantity], product_id: params[:product_id], order_id: @order.id)
+
+      is_successful = @order_item.save
+
+      new_inventory = (product.inventory - params[:quantity].to_i)
+      product.update(inventory: new_inventory)
+      
+      if is_successful
+        flash[:success] = "Item added to Cart"
+        return redirect_to products_path
+      else
+        flash[:error] = "Could not add item to Cart"
+        return redirect_to root_path
+      end
     end
   end
 
@@ -34,10 +44,15 @@ class OrderItemsController < ApplicationController
 
   def update
     order_item = Orderitem.find_by(id: params[:id])
+    order = order_item.order_id
 
     if order_item.nil?
       redirect_to order_path
     else
+      if params[:quantity].to_i > product.inventory
+        flash[:error] = "Not enough #{Product.find_by(id: params[:product_id]).name} in stock"
+        return redirect_to order_path(order.id)
+      else
       is_successful = order_item.update(quantity: params[:quantity])
     end
 
