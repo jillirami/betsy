@@ -2,10 +2,17 @@
 
 <% @order.cart.each do |order_item, quantity| %>
 <ul>
-<li>Product: <%= order_item %></li>
-<li>Quantity: <%= quantity %></li>
+  <li>Product: <%= order_item %></li>
+  <li> <%= form_with url: order_item_path(Orderitem.find_by(product_id: Product.find_by(name: order_item)).id), method: :patch do |f| %>
+        <%= f.label :quantity %>
+        <%= f.number_field :quantity, min: 0, value: quantity %>
+
+        <%= f.submit "Update Quantity", class: "btn btn-primary" %>
+      <% end %>   
+  </li>
 </ul>
 <% end %>
 
 <%= link_to "Complete Order", edit_order_path(@order.id) %>
 
+   

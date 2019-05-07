@@ -1,7 +1,7 @@
 class OrderItemsController < ApplicationController
-  def index
-    # @order_items = Orderitems.all.where(ord)
-  end
+  # def index
+  #   # @order_items = Orderitems.all.where(ord)
+  # end
 
   def create
     if session[:order_id]
@@ -14,7 +14,7 @@ class OrderItemsController < ApplicationController
     product = Product.find_by(id: params[:product_id])
 
     if params[:quantity].to_i > product.inventory
-      flash[:error] = "Not enough #{Product.find_by(id: params[:product_id]).name} in stock"
+      flash[:error] = "Not enough #{product.name} in stock"
       return redirect_to product_path(product.id)
     else
       @order_item = Orderitem.new(quantity: params[:quantity], product_id: params[:product_id], order_id: @order.id)
@@ -44,21 +44,37 @@ class OrderItemsController < ApplicationController
 
   def update
     order_item = Orderitem.find_by(id: params[:id])
-    order = order_item.order_id
+    order_id = order_item.order_id
+
+    product = Product.find_by(id: order_item.product_id)
 
     if order_item.nil?
-      redirect_to order_path
+      redirect_to order_path(order_id)
     else
-      if params[:quantity].to_i > product.inventory
-        flash[:error] = "Not enough #{Product.find_by(id: params[:product_id]).name} in stock"
-        return redirect_to order_path(order.id)
+      if params[:quantity].to_i < order_item.quantity
+        is_successful = order_item.update(quantity: params[:quantity])
+
+        order_item_decrease = (order_item.quantity - params[:quantity].to_i)
+        new_inventory = (product.inventory + order_item_decrease)
+        product.update(inventory: new_inventory)
+      elsif params[:quantity].to_i > order_item.quantity
+        order_item_increase = (params[:quantity].to_i - order_item.quantity)
+        if order_item_increase > product.inventory
+          flash[:error] = "Not enough #{product.name} in stock"
+          return redirect_to order_path(order_id)
+        else
+          is_successful = order_item.update(quantity: params[:quantity])
+
+          new_inventory = (product.inventory - order_item_increase)
+          product.update(inventory: new_inventory)
+        end
       else
-      is_successful = order_item.update(quantity: params[:quantity])
+        return redirect_to order_path(order_id)
       end
     end
 
     if is_successful
-      redirect_to order_path
+      redirect_to order_path(order_id)
     end
   end
 
