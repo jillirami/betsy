@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
     end
   end
 
+<<<<<<< HEAD
   # def new
   #   @order = Order.new
   # end
@@ -24,18 +25,20 @@ class OrdersController < ApplicationController
     # end
   end
 
+=======
+>>>>>>> master
   def edit
     @order = Order.find_by(id: session[:order_id])
   end
 
   def update
     @order = Order.find_by(id: session[:order_id])
+    @order.status = "paid"
     is_successful = @order.update(order_params)
 
     if is_successful
       flash[:success] = "Thank you for placing your order!"
-      session[:order_id] = nil
-      redirect_to order_path(@order.id)
+      redirect_to receipt_path(@order.id)
     else
       @order.errors.messages.each do |field, messages|
         flash.now[field] = messages
@@ -44,6 +47,7 @@ class OrdersController < ApplicationController
     end
   end
 
+<<<<<<< HEAD
   def destroy
     @order = Order.find_by(id: session[:order_id])
     @order.status = "cancelled"
@@ -70,6 +74,12 @@ class OrdersController < ApplicationController
   #     render :new, status: :bad_request
   #   end
   # end
+=======
+  def receipt
+    @order = Order.find_by(id: params[:id])
+    session[:order_id] = nil
+  end
+>>>>>>> master
 
   private
 

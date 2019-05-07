@@ -16,7 +16,12 @@
   <li><%= product.description %></li>
   <li><%= product.photo %></li>
   <li><img src="#{product.inventory}" alt="Image of #{product.name}"></li>
-  <li><%= button_to "Retire Product", retired_product_path(product.id), method: :patch %></li>
+  <% if product.retired == false %>
+    <li><%= button_to "Retire Product", retired_product_path(product.id), method: :patch %></li>
+  <% else %>
+    <li><%= button_to "Unretire Product", retired_product_path(product.id), method: :patch %></li>
+  <% end %>
+  <li><%= button_to "Update Product", edit_product_path(product.id), method: :get %></li>
 </ul>
 <% end %>
 

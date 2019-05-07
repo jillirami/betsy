@@ -1,1 +1,11 @@
-Order show page!!!!!
+<h3>Your Cart</h3>
+
+<% @order.cart.each do |order_item, quantity| %>
+<ul>
+<li>Product: <%= order_item %></li>
+<li>Quantity: <%= quantity %></li>
+</ul>
+<% end %>
+
+<%= link_to "Complete Order", edit_order_path(@order.id) %>
+

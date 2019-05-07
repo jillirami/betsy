@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
-  before_action :find_product, only: [:show, :edit, :update, :retire]
+  before_action :require_login, only: [:new, :create, :edit, :update, :retired]
+  before_action :find_product, only: [:show, :edit, :update, :retired]
 
   def index
     @products = Product.all
@@ -16,23 +16,18 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-
-    if params[:merchant_id]
-      @product.merchant = Merchant.find_by(id: params[:merchant_id])
-    end
   end
 
   def create
     product = Product.new(product_params)
 
-    product.merchant = Merchant.find_by(id: session[:merchant_id]) # successfully adding merchant in session
+    product.merchant = @current_merchant
 
     is_successful = product.save
 
     if is_successful
       flash[:success] = "Product added successfully"
-      redirect_to product_path(product.id)
-      raise
+      redirect_to dashboard_path(product.merchant.id)
     else
       product.errors.messages.each do |field, messages|
         flash.now[field] = messages
@@ -42,10 +37,36 @@ class ProductsController < ApplicationController
     end
   end
 
-  def retired
-    @product.toggle(:retired)
-    @product.save
+  def edit
+    if @product.nil?
+      head :not_found
+    end
+  end
 
+  def update
+    if @product.nil?
+      head :not_found
+    else
+      is_successful = @product.update(product_params)
+      if is_successful
+        flash[:success] = "Product updated successfully"
+        redirect_to product_path(@product.id)
+      else
+        @product.errors.messages.each do |field, messages|
+          flash.now[field] = messages
+        end
+        render :edit, status: :bad_request
+      end
+    end
+  end
+
+  def retired
+    if @product.nil?
+      flash[:error] = "That Product does not exist"
+    else
+      @product.toggle(:retired)
+      @product.save
+    end
     #is there another page we would want to fallback to? check test if we change.
     redirect_back(fallback_location: products_path)
   end
@@ -57,6 +78,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    return params.require(:product).permit(:name, :price, :description, :photo, :inventory, :merchant_id, category_ids: [])
+    return params.require(:product).permit(:name, :price, :description, :photo, :inventory, category_ids: [])
   end
 end
