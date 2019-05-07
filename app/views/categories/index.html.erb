@@ -1,9 +1,8 @@
 <body>
     <h1>Categories List</h1>
     <ul>
-    <% @categories.each do |category| %>
-        <li><%= category.name %></li>
-    <% end %>
-    </ul>
-    <%= link_to "Back to merchant's dashboard", dashboard_path(id: session[:merchant_id]) %>
+      <% @categories.each do |category| %>
+        <li><%= link_to category.name, category_path(category.id) %></li>
+      <% end %>
+    </ul>   
 </body>
