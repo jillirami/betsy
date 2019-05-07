@@ -9,9 +9,10 @@
 
 <h3>MY STORE</h3>
 
-<h5>Active Products: </h5>
+
 <% @merchant.products.each do |product| %>
   <% if product.retired == false %>
+  <h5>Active Products: </h5>
   <ul>
     <li>Active Products: </li>
     <li><%= product.name %></li>
@@ -28,9 +29,10 @@
 <h6><%= link_to "Add Product to Store", new_product_path %></h6>
 <h6><%= link_to "Create New Category", new_category_path %></h6>
 
-<h5>Retired Products: </h5>
+
 <% @merchant.products.each do |product| %>
   <% if product.retired == true %>
+  <h5>Retired Products: </h5>
   <ul>
     <li>Active Products: </li>
     <li><%= product.name %></li>
