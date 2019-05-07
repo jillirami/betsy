@@ -54,6 +54,7 @@ class OrderItemsController < ApplicationController
         return redirect_to order_path(order.id)
       else
       is_successful = order_item.update(quantity: params[:quantity])
+      end
     end
 
     if is_successful
