@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
 
     if is_successful
       flash[:success] = "Product added successfully"
-      redirect_to product_path(product.id)
+      redirect_to dashboard_path(product.merchant.id)
     else
       product.errors.messages.each do |field, messages|
         flash.now[field] = messages
@@ -38,25 +38,31 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    if @product.nil?
+      head :not_found
+    end
   end
 
   def update
-    is_successful = @product.update(product_params)
-
-    if is_successful
-      flash[:success] = "Product updated successfully"
-      redirect_to product_path(@product.id)
+    if @product.nil?
+      head :not_found
     else
-      @product.errors.messages.each do |field, messages|
-        flash.now[field] = messages
+      is_successful = @product.update(product_params)
+      if is_successful
+        flash[:success] = "Product updated successfully"
+        redirect_to product_path(@product.id)
+      else
+        @product.errors.messages.each do |field, messages|
+          flash.now[field] = messages
+        end
+        render :edit, status: :bad_request
       end
-      render :edit, status: :bad_request
     end
   end
 
   def retired
     if @product.nil?
-      flash[:error] = "That product does not exist"
+      flash[:error] = "That Product does not exist"
     else
       @product.toggle(:retired)
       @product.save

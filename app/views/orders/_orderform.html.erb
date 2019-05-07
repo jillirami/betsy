@@ -1,5 +1,5 @@
 <section>
-  <%= form_with model: @order do |f| %>
+  <%= form_with model: @order, url: order_path do |f| %>
     <div class="order-form">
       <%= f.label :name %>
       <%= f.text_field :name, class: "form-control" %>
