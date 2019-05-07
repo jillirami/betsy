@@ -1,4 +1,4 @@
-<h3>MY PROFILE</h3>
+<h3>My Profile</h3>
 <ul>
   <li>Name: <%= @merchant.name %></li>
   <li>Username: <%= @merchant.username %></li>
@@ -7,23 +7,41 @@
 
 
 
-<h3>MY STORE</h3>
+<h3>My Store</h3>
+
 
 <% @merchant.products.each do |product| %>
-<ul>
-  <li><%= product.name %></li>
-  <li><%= product.price / 100 %></li>
-  <li><%= product.description %></li>
-  <li><%= product.photo %></li>
-  <li><img src="#{product.inventory}" alt="Image of #{product.name}"></li>
   <% if product.retired == false %>
+  <h5>Active Products: </h5>
+  <ul>
+    <li>Active Products: </li>
+    <li><%= product.name %></li>
+    <li><%= product.price / 100 %></li>
+    <li><%= product.description %></li>
+    <li><%= product.photo %></li>
+    <li><img src="#{product.inventory}" alt="Image of #{product.name}"></li>
     <li><%= button_to "Retire Product", retired_product_path(product.id), method: :patch %></li>
-  <% else %>
-    <li><%= button_to "Unretire Product", retired_product_path(product.id), method: :patch %></li>
+    <li><%= button_to "Update Product", edit_product_path(product.id), method: :get %></li>
+  </ul>
   <% end %>
-  <li><%= button_to "Update Product", edit_product_path(product.id), method: :get %></li>
-</ul>
 <% end %>
 
-<%= link_to "Add Product to Store", new_product_path %>
-<%= link_to "Create new category", new_category_path%>
+<h6><%= link_to "Add Product to Store", new_product_path %></h6>
+<h6><%= link_to "Create New Category", new_category_path %></h6>
+
+
+<% @merchant.products.each do |product| %>
+  <% if product.retired == true %>
+  <h5>Retired Products: </h5>
+  <ul>
+    <li>Active Products: </li>
+    <li><%= product.name %></li>
+    <li><%= product.price / 100 %></li>
+    <li><%= product.description %></li>
+    <li><%= product.photo %></li>
+    <li><img src="#{product.inventory}" alt="Image of #{product.name}"></li>
+    <li><%= button_to "Unretire Product", retired_product_path(product.id), method: :patch %></li>
+    <li><%= button_to "Update Product", edit_product_path(product.id), method: :get %></li>
+  </ul>
+  <% end %>
+<% end %>

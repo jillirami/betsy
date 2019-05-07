@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
 
     if is_successful
       flash[:success] = "Product added successfully"
-      redirect_to product_path(product.id)
+      redirect_to dashboard_path(product.merchant.id)
     else
       product.errors.messages.each do |field, messages|
         flash.now[field] = messages

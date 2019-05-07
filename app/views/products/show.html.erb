@@ -1,8 +1,7 @@
 <h1>Product show page</h1>
 
-<h2>Product Details:</h2>
+<h4><%= @product.name%></h4>
 <ul>
-    <li>Name: <%= @product.name%></li>
     <li>Price: $<%= (@product.price/100).to_f%></li>
     <li>Description: <%= @product.description%></li>
     <li>Currently in stock: <%= @product.inventory%></li>
@@ -11,6 +10,14 @@
     <%= category.name%>
     <% end %>
     </li>
+    <%= form_with url: order_items_path, method: :post do |f| %>
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity, min: 0 %>
+
+    <%= f.hidden_field :product_id, value: @product.id %>
+
+    <%= f.submit "Add to Cart", class: "btn btn-primary" %>
+    <% end %>   
 </ul>
 <br>
 <%= image_tag "#{@product.photo}", alt: "photo desciption here" %>

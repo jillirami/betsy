@@ -1,0 +1,19 @@
+<h2>Receipt: </h2>  
+
+<ul>
+  <li>Name: <%= @order.name %></li>
+  <li>Email: <%= @order.email %></li>
+  <li>Address: <%= @order.address %></li>
+  <li>Credit Card Number: <%= @order.cc_num %></li>
+  <li>Credit Card Exp: <%= @order.cc_exp %></li>
+  <li>CVV: <%= @order.cc_cvv %></li>
+  <li>Billing zip: <%= @order.billing_zip %></li>
+</ul>
+
+
+<% @order.orderitems.each do |order_item| %>
+  <ul>
+  <li>Product: <%= Product.find_by(id: order_item.product_id).name %></li>
+  <li>Quantity: <%= order_item.quantity %></li>
+  </ul>
+<% end %>
