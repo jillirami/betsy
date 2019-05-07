@@ -1,4 +1,4 @@
-require 'faker'
+require "faker"
 
 5.times do
   Merchant.create!(username: Faker::Internet.username, email: Faker::Internet.free_email, name: Faker::Name.name, uid: Faker::Number.number(8), provider: "github")
@@ -6,15 +6,14 @@ end
 
 merchants = Merchant.all
 
-
 5.times do |index|
   Product.create!(name: Faker::Food.spice, price: Faker::Number.leading_zero_number(6), description: Faker::Lorem.sentence, photo: "https://picsum.photos/200/300", inventory: Faker::Number.between(1, 25), merchant_id: merchants.sample.id)
 end
 
 categories = [
-  {name: "jewelry"},
-  {name: "spice"},
-  {name: "oneofakind"},
+  { name: "jewelry" },
+  { name: "spice" },
+  { name: "oneofakind" },
 ]
 
 category_classes = []

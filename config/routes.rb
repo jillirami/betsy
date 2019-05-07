@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: "products#index"
   resources :products
   resources :merchants
+
+  # patch "/orders/:id", to: "orders#update", as: "update_order"
   resources :orders
   resources :categories
   resources :order_items
