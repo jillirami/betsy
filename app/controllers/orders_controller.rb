@@ -29,6 +29,7 @@ class OrdersController < ApplicationController
     end
   end
 
+  #rename, add custom path
   def destroy
     @order = Order.find_by(id: session[:order_id])
     @order.status = "cancelled"

@@ -48,4 +48,11 @@ class ActiveSupport::TestCase
 
     return merchant
   end
+
+  # def order_session
+  #   order = Order.create
+  #   session[:order_id] = order.id
+
+  #   return session[:order_id]
+  # end
 end
