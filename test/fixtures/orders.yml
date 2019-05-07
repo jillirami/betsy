@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-pending:
+order1:
   status: pending
   name: First Last
   email: f.last@gmail.com

@@ -3,7 +3,7 @@ require "test_helper"
 describe OrdersController do
   describe "show" do
     it "should show order details for a valid order" do
-      order = orders(:pending)
+      order = orders(:order1)
       get order_path(order.id)
 
       must_respond_with :success
