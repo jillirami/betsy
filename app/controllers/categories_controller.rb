@@ -5,6 +5,10 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
+  def show
+    @category = Category.find_by(id: params[:id])
+  end
+
   def new
     @category = Category.new(name: "Default category name")
   end
