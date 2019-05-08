@@ -27,12 +27,9 @@
 <h4> Product Review </h4>
 
 <ul>
-    <li>Price: $<%= (@product.price/100).to_f%></li>
-    <li>Description: <%= @product.description%></li>
-    <li>Currently in stock: <%= @product.inventory%></li>
-    <li>Categories: 
-    <% @product.categories.each do |category|%>
-    <%= category.name%>
+    <% @product.reviews.each do |review|%>
+    <li>Name: <%= review.reviewer %></li>
+    <li>Rating: <%= review.rating %></li>
+    <li>Review Description: <%= review.description %></li>
     <% end %>
-    </li>
 </ul>
