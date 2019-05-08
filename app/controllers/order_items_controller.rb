@@ -94,7 +94,11 @@ class OrderItemsController < ApplicationController
       returned_inventory = (product.inventory + @order_item.quantity)
       product.update(inventory: returned_inventory)
 
-      @order_item.destroy
+      deleted_orders = Orderitem.where(product_id: @order_item.product_id)
+
+      deleted_orders.each do |delete_order|
+        delete_order.destroy
+      end
 
       flash[:success] = "Item removed from Cart"
       redirect_to order_path(@order.id)
