@@ -1,9 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  rating: 1
-  description: MyString
+sus_review:
+  reviewer: Susan
+  rating: 5
+  description: OMG! This is the best!
+  product_id: one
 
-two:
-  rating: 1
-  description: MyString

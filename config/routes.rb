@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
   root to: "products#index"
+
+  # patch "/orders/:id", to: "orders#update", as: "update_order"
+
   delete "/logout", to: "merchants#logout", as: "logout"
   resources :products, except: [:destroy]
+
+  resources :products do
+    resources :reviews, only: [:new, :create]
+  end
+  
   resources :merchants, only: [:index, :show, :create]
 
   resources :orders, only: [:show, :edit, :update]
