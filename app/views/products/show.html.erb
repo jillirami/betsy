@@ -24,3 +24,15 @@
 
 <%= button_to "Review Product", new_product_review_path(@product.id), method: :get %>
 
+<h4> Product Review </h4>
+
+<ul>
+    <li>Price: $<%= (@product.price/100).to_f%></li>
+    <li>Description: <%= @product.description%></li>
+    <li>Currently in stock: <%= @product.inventory%></li>
+    <li>Categories: 
+    <% @product.categories.each do |category|%>
+    <%= category.name%>
+    <% end %>
+    </li>
+</ul>
