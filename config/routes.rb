@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :merchants
 
   # patch "/orders/:id", to: "orders#update", as: "update_order"
-  resources :orders
+  resources :orders, only: [:show, :edit, :update]
   resources :categories
   resources :order_items
 
@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback", to: "merchants#create", as: "auth_callback"
 
   patch "/products/:id/retired", to: "products#retired", as: "retired_product"
+  patch "/orders/:id/cancel", to: "orders#cancel", as: "cancel_order"
 end

@@ -15,4 +15,9 @@ describe Order do
       end
     end
   end
+
+  describe "custom methods" do
+    it "cart" do
+    end
+  end
 end

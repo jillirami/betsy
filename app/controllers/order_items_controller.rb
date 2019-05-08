@@ -20,7 +20,7 @@ class OrderItemsController < ApplicationController
       new_inventory = (product.inventory - params[:quantity].to_i)
 
       product.update(inventory: new_inventory)
-      
+
       if is_successful
         flash[:success] = "Item added to Cart"
         return redirect_to products_path
