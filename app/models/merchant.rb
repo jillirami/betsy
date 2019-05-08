@@ -14,21 +14,29 @@ class Merchant < ApplicationRecord
     return merchant
   end
 
-  def self.find_products(merchant)
-    Product.where(merchant_id: merchant.id)
-  end
-
-  def self.find_order_items(merchant)
+  def self.find_order_items(merchant, status)
     orders = []
-
-    products = find_products(merchant)
-    products.each do |p|
-      order_items = Orderitem.find_order_items_by_product(p)
-      order_items.each do |order_items|
-        orders << order_items
+    products = merchant.products
+    products.each do |product|
+      order_items = Orderitem.find_order_items_by_product(product)
+      order_items.each do |order_item|
+        if status == "all"
+          orders << order_item
+        elsif order = find_order_by_status(order_item, status)
+          orders << order_item
+        end
       end
     end
     return orders.sort!
+  end
+
+  def self.find_order_by_status(order_item, status)
+    order = Order.find_by(id: order_item.order_id)
+    if order.status == status
+      return order
+    else
+      return false
+    end
   end
 
   def self.calculate_subtotal(order_item)
