@@ -22,4 +22,5 @@
 <br>
 <%= image_tag "#{@product.photo}", alt: "photo desciption here" %>
 
+<%= button_to "Review Product", new_product_review_path(@product.id), method: :get %>
 

@@ -5,13 +5,11 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
 
-    if params[:product_id]
-      @review.product_id = Product.find_by(id: params[:product_id]).id
-    end
   end
 
   def create
     review = Review.new(review_params)
+    review.product_id = Product.find_by(id: params[:product_id]).id
 
     if review.save
       flash[:success] = "Successfully created review!"
