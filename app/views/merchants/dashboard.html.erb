@@ -9,12 +9,61 @@
 
 <h3>My Store</h3>
 
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Oder</th>
+      <th>Date</th>
+      <th>Product</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+      <th>Order status</th>
+      <th>Shippment</th>
+      <th>Edit shipment</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%total_revenue = 0%>
+  <% orders = Merchant.find_order_items(@merchant)%>
+  <% orders.each do |order_item|%>
+  
+  <% total_revenue += Merchant.calculate_subtotal(order_item) %>
+  
+    <tr>
+      <th><%= link_to order_item.order_id, order_path(order_item.order_id)%></th>
+      <th><%= order_item.created_at.to_date%></th>
+      <th><%= link_to order_item.product.name, product_path(order_item.product.id)%></th>
+      <th>$<%= order_item.product.price%></th>
+      <th><%= order_item.quantity %></th>
+      <th>$<%= Merchant.calculate_subtotal(order_item)%></th>
+      <% order = Order.find_by(id: order_item.order_id) %>
+      <th><%= order.status%>  </th>
+      <th><%= order_item.status.class%></th>
+      <th><%= link_to "Edit shipment"%></th>
+    </tr>
+<%end%>
+<%= total_revenue %>
+</tbody>
+</table>
 
-<% @merchant.products.each do |product| %>
+
+
+
+
+
+
+
+
+
+
+
+<% products = @merchant.products %>
+<% products.each do |product| %>
   <% if product.retired == false %>
   <h5>Active Products: </h5>
   <ul>
-    <li>Active Products: </li>
+ 
     <li><%= product.name %></li>
     <li><%= product.price / 100 %></li>
     <li><%= product.description %></li>
@@ -34,7 +83,7 @@
   <% if product.retired == true %>
   <h5>Retired Products: </h5>
   <ul>
-    <li>Active Products: </li>
+    
     <li><%= product.name %></li>
     <li><%= product.price / 100 %></li>
     <li><%= product.description %></li>
