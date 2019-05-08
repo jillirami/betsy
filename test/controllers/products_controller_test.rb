@@ -61,7 +61,7 @@ describe ProductsController do
       new_product_id = Product.find_by(name: "Dirty Computer").id
 
       must_respond_with :redirect
-      must_redirect_to product_path(new_product_id)
+      must_redirect_to dashboard_path(merchants(:jewelry).id)
 
       new_product = Product.find_by(name: "Dirty Computer")
 
@@ -106,8 +106,7 @@ describe ProductsController do
     end
 
     it "renders 404 not_found for a bogus product ID" do
-      bogus_id = existing_product.id
-      existing_product.destroy
+      bogus_id = -1
 
       get edit_product_path(bogus_id)
       must_respond_with :not_found
@@ -146,8 +145,7 @@ describe ProductsController do
     end
 
     it "renders 404 not_found for a bogus product ID" do
-      bogus_id = existing_product.id
-      existing_product.destroy
+      bogus_id = -1
 
       patch product_path(bogus_id), params: {product: {name: "Test Name"}}
       must_respond_with :not_found
@@ -168,8 +166,7 @@ describe ProductsController do
       expect(product.retired).must_equal true
     end
     it "renders flash error message for a bogus product ID" do
-      bogus_id = existing_product.id
-      existing_product.destroy
+      bogus_id = -1
 
       patch retired_product_path(bogus_id)
       expect(flash[:error]).must_equal "That Product does not exist"

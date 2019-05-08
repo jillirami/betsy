@@ -25,10 +25,30 @@
           <li class="nav-item app-header__nav_item" >
             <%= link_to "View all products", products_path, class: "nav-link"%>
           </li>
-          <li class="nav-item app-header__nav_item">
-            <%= link_to "View all merchants", merchants_path, class: "nav-link"%>
-          </li>
-        </ul>
+        
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          Products by Category <span class="caret"></span>
+          </button>
+            <ul class="dropdown-menu" role="menu">
+              <% category = Category.all.order(:name)%>
+              <% category.each do |option| %> 
+                <li><%= link_to "#{option.name}", category_path(option.id) %></li>
+              <%end%>
+            </ul>
+        </div>
+
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          Products by Merchant <span class="caret"></span>
+          </button>
+            <ul class="dropdown-menu" role="menu">
+              <% c = Merchant.all.order(:name)%>
+              <% c.each do |option| %> 
+                <li><%= link_to "#{option.username}", merchant_path(option.id) %></li>
+              <%end%>
+            </ul>
+        </div>
 
         <ul class="nav app-header__user-nav-container">
           <% if session[:merchant_id] %>

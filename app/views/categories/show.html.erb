@@ -1,0 +1,17 @@
+<main>
+  <h3><%= @category.name %></h3>
+
+  <% products_by_category = Product.browse_by_category(@category)%>
+    <% products_by_category.each do |product|%>
+      <section class="card-columns">
+        <ul class="card">
+            <li><%= image_tag(product.photo) %> <li>
+            <li><%= link_to product.name, product_path(product.id) %></li>
+            <li><%= "$#{product.price/100}" %></li>
+            <li><%= "Rating - No reviews yet" %></li>
+            <li><%= product.description %></li>
+        </ul>
+      </section>
+    <%end%>
+
+</main>

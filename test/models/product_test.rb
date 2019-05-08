@@ -70,4 +70,14 @@ describe Product do
       expect(product.categories).must_include category
     end
   end
+
+  it "browses products by category" do
+    category = categories(:cat1)
+    product = Product.new(category_ids: [category.id])
+
+    browse_result = Product.browse_by_category(category)
+
+    expect(browse_result).must_be_kind_of ActiveRecord::Relation
+    expect(product.category_ids).must_include category.id
+  end
 end
