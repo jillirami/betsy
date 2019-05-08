@@ -1,6 +1,7 @@
     
+<main>
     
-    <h1>Order fulfillment <%= @current_merchant.username %></h1>
+    <h1>Order Fulfillment <small>by <%= @current_merchant.username %></small></h1>
 
     <div class="btn-group">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -22,7 +23,7 @@
 
         <%= render partial: "order", locals: {status: "all"} %>
 
-
+</main>
 
 
 
