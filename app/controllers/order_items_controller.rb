@@ -1,8 +1,4 @@
 class OrderItemsController < ApplicationController
-  # def index
-  #   # @order_items = Orderitems.all.where(ord)
-  # end
-
   def create
     if session[:order_id]
       @order = Order.find(session[:order_id])
@@ -22,6 +18,7 @@ class OrderItemsController < ApplicationController
       is_successful = @order_item.save
 
       new_inventory = (product.inventory - params[:quantity].to_i)
+
       product.update(inventory: new_inventory)
       
       if is_successful
@@ -52,46 +49,64 @@ class OrderItemsController < ApplicationController
       redirect_to order_path(order_id)
     else
       if params[:quantity].to_i < order_item.quantity
+        
+        order_item_decrease = (order_item.quantity - params[:quantity].to_i)
+        increase_inventory = (product.inventory + order_item_decrease)
+        product.update(inventory: increase_inventory)
+
         is_successful = order_item.update(quantity: params[:quantity])
 
-        order_item_decrease = (order_item.quantity - params[:quantity].to_i)
-        new_inventory = (product.inventory + order_item_decrease)
-        product.update(inventory: new_inventory)
+        if is_successful
+          redirect_to order_path(order_id)
+        end
+
       elsif params[:quantity].to_i > order_item.quantity
         order_item_increase = (params[:quantity].to_i - order_item.quantity)
+
         if order_item_increase > product.inventory
           flash[:error] = "Not enough #{product.name} in stock"
           return redirect_to order_path(order_id)
         else
           is_successful = order_item.update(quantity: params[:quantity])
 
-          new_inventory = (product.inventory - order_item_increase)
-          product.update(inventory: new_inventory)
+          decrease_inventory = (product.inventory - order_item_increase)
+          product.update(inventory: decrease_inventory)
+
+          if is_successful
+            redirect_to order_path(order_id)
+          end
         end
       else
         return redirect_to order_path(order_id)
       end
     end
-
-    if is_successful
-      redirect_to order_path(order_id)
-    end
   end
 
   def destroy
+    @order_item = Orderitem.find_by(id: params[:id])
+    @order = Order.find_by(id: @order_item.order_id)
+    product = Product.find_by(id: @order_item.product_id)
+
+
+    if @order_item.nil?
+      flash[:error] = "This order item does not exist"
+    else
+      returned_inventory = (product.inventory + @order_item.quantity)
+      product.update(inventory: returned_inventory)
+
+      @order_item.destroy
+
+      flash[:success] = "Item removed from Cart"
+      redirect_to order_path(@order.id)
+    end
+  end
+
+  def random_create
+    order = Order.find(session[:order_id])
+
+    @order_item = Orderitem.create(quantity: 1, product_id: Product.all.sample.id, order_id: order.id)
+
+    order.orderitems << @order_item
+    return redirect_to order_path(order.id)
   end
 end
-    
-    
-    # # Create(-link to add to cart button)
-    # # Only create an order item when there are inventory for the item being added to card
-    # # Create the order item then in that method create a cart (find the cart first then create one if the cart is nil)
-    # # Destroy
-    # # Edit/Update(item can be removed from the cart or change quantity)
-    # # Index(show a list of order a merchant needs to fulfill)
-    
-    # # Allow merchant to filter orders displayed by status
-    # # Each order item sold by me with a quantity and line-item subtotal
-    # # A link to the item description page
-    # # DateTime the order was placed
-    # # Link to transition the order item to marked as shipped

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   # resources :reviews, only: [:new, :create]
   # end
 
+  post "/order_items/random", to: "order_items#random_create", as: "random"
+
   get "/merchants/current", to: "merchants#current", as: "current_merchant"
   get "/merchants/dashboard/:id", to: "merchants#dashboard", as: "dashboard"
   get "/orders/receipt/:id", to: "orders#receipt", as: "receipt"
