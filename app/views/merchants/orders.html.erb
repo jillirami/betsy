@@ -1,0 +1,35 @@
+    
+    
+    <h1>Order fulfillment <%= @current_merchant.username %></h1>
+
+    <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          Filter Orders by Status <span class="caret"></span>
+          </button>
+            <ul class="dropdown-menu" role="menu">
+              <% status_list = {
+                                "pending" => dashboard_pending_orders_path,
+                                "paid" => dashboard_paid_orders_path,
+                                "completed" => dashboard_completed_orders_path,
+                                "cancelled" => dashboard_cancelled_orders_path}%>
+           
+              <% status_list.each do |option, path| %> 
+                <li><%= link_to option, path %></li>
+              <%end%>
+            </ul>
+        </div>
+
+
+        <%= render partial: "order", locals: {status: "all"} %>
+
+
+
+
+
+
+
+
+
+
+
+
