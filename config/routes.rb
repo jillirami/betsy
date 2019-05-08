@@ -1,17 +1,20 @@
 Rails.application.routes.draw do
-  delete "/logout", to: "merchants#logout", as: "logout"
   root to: "products#index"
-  resources :products
-  resources :merchants
 
   # patch "/orders/:id", to: "orders#update", as: "update_order"
-  resources :orders, only: [:show, :edit, :update]
-  resources :categories
-  resources :order_items
 
-  # resources :merchants do
-  # resources :reviews, only: [:new, :create]
-  # end
+  delete "/logout", to: "merchants#logout", as: "logout"
+  resources :products, except: [:destroy]
+
+  resources :products do
+    resources :reviews, only: [:new, :create]
+  end
+  
+  resources :merchants, only: [:index, :show, :create]
+
+  resources :orders, only: [:show, :edit, :update]
+  resources :categories, only: [:index, :show, :new, :create]
+  resources :order_items, only: [:create, :edit, :update, :destroy]
 
   post "/order_items/random", to: "order_items#random_create", as: "random"
 

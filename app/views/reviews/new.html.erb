@@ -1,23 +1,27 @@
 Rate this Product: <%= Product.find_by(id: params[:product_id]).name %>
 
-
-
 <section>
-  <#%= form_with model: @review do |f| %>
+  <%= form_with model: @review, url: product_reviews_path do |f| %>
+
       <div class="form-group">
-        <#%= f.label :rating %>
-        <#%= f.select :rating, (1..5), class: "form-control" %>
+        <%= f.label :reviewer %>
+        <%= f.text_field :reviewer, class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <#%= f.label :description %>
-        <#%= f.text_field :description, class: "form-control" %>
+        <%= f.label :rating %>
+        <%= f.select :rating, (1..5), class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <#%= f.submit "Submit Review", class: "btn btn-primary" %>
+        <%= f.label :description %>
+        <%= f.text_field :description, class: "form-control" %>
       </div>
-  <#% end %>
+
+      <div class="form-group">
+        <%= f.submit "Submit Review", class: "btn btn-primary" %>
+      </div>
+  <% end %>
 </section>
 
 
