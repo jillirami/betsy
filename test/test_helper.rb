@@ -48,4 +48,23 @@ class ActiveSupport::TestCase
 
     return merchant
   end
+
+  def new_order
+    product = products(:one)
+
+    item_hash = {
+      quantity: 1,
+      product_id: product.id,
+    }
+
+    product = products(:one)
+
+    item_hash = {
+      quantity: 1,
+      product_id: product.id,
+    }
+
+    post order_items_path, params: item_hash
+    return order
+  end
 end

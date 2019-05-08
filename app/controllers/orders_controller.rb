@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
     end
   end
 
-  def destroy
+  def cancel
     @order = Order.find_by(id: session[:order_id])
     @order.status = "cancelled"
     @order.save
@@ -47,6 +47,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    return params.require(:order).permit(:name, :email, :address, :cc_num, :cc_exp, :cc_cvv, :billing_zip, status: "paid")
+    return params.require(:order).permit(:name, :email, :address, :cc_num, :cc_exp, :cc_cvv, :billing_zip, :status)
   end
 end
