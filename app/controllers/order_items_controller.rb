@@ -110,6 +110,9 @@ class OrderItemsController < ApplicationController
 
     @order_item = Orderitem.create(quantity: 1, product_id: Product.all.sample.id, order_id: order.id)
 
+    random_product = Product.find_by(id: @order_item.product_id)
+    random_product.update(inventory: (random_product.inventory - 1))
+
     order.orderitems << @order_item
     return redirect_to order_path(order.id)
   end
