@@ -54,4 +54,16 @@ class MerchantsController < ApplicationController
     flash[:success] = "Successfully logged out, #{merchant.username}!"
     redirect_to root_path
   end
+
+  def pending_orders
+  end
+
+  def paid_orders
+  end
+
+  def completed_orders
+  end
+
+  def cancelled_orders
+  end
 end
