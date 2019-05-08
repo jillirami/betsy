@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
 
   def create
     product = Product.new(product_params)
-
+    #the instance variable @current_merchant is included in the body of the response from Github when a merchant signs in
     product.merchant = @current_merchant
 
     is_successful = product.save
