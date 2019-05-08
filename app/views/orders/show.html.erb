@@ -2,10 +2,21 @@
 
 <% @order.cart.each do |order_item, quantity| %>
 <ul>
-<li>Product: <%= order_item %></li>
-<li>Quantity: <%= quantity %></li>
+  <li>Product: <%= Product.find_by(id: order_item.product_id).name %></li>
+  <li> <%= form_with url: order_item_path(order_item.id), method: :patch do |f| %>
+        <%= f.label :quantity %>
+        <%= f.number_field :quantity, min: 1, value: quantity %>
+        <%= f.submit "Update Quantity", class: "btn btn-primary" %>
+      <% end %>   
+      <%= button_to "Remove", order_item_path(order_item.id), method: :delete %>
+  </li>
 </ul>
 <% end %>
 
-<%= link_to "Complete Order", edit_order_path(@order.id) %>
+<% if @order.orderitems.length > 0 %>
+  <%= link_to "Complete Order", edit_order_path(@order.id) %>
+<% else %>
+  <h5>Empty! Let's fix that: <%= link_to "Add Random", random_path, method: :post %></h5>
+<% end %>
 
+   

@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show, :new, :create]
   resources :order_items, only: [:create, :edit, :update, :destroy]
 
+  post "/order_items/random", to: "order_items#random_create", as: "random"
+
   get "/merchants/current", to: "merchants#current", as: "current_merchant"
   get "/merchants/dashboard/:id", to: "merchants#dashboard", as: "dashboard"
   get "/merchants/dashboard/:id/orders", to: "merchants#orders", as: "dashboard_orders"
