@@ -18,10 +18,13 @@ class OrdersController < ApplicationController
     @order.status = "paid"
     is_successful = @order.update(order_params)
 
+    # binding.pry
+
     if is_successful
       flash[:success] = "Thank you for placing your order!"
       redirect_to receipt_path(@order.id)
     else
+      # elsif @order == nil
       @order.errors.messages.each do |field, messages|
         flash.now[field] = messages
       end

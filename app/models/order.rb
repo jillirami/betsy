@@ -1,6 +1,8 @@
 class Order < ApplicationRecord
   has_many :orderitems
 
+  validates :name, presence: true
+
   def cart
     cart = {}
 

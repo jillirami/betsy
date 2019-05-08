@@ -7,11 +7,14 @@ class OrderItemsController < ApplicationController
     if session[:order_id]
       @order = Order.find(session[:order_id])
     else
-      @order = Order.create
+      @order = Order.create(name: "default")
       session[:order_id] = @order.id
     end
 
-    product = Product.find_by(id: params[:product_id])
+    #make sure to update back to find_by
+    product = Product.find(params[:product_id])
+
+    # binding.pry
 
     if params[:quantity].to_i > product.inventory
       flash[:error] = "Not enough #{Product.find_by(id: params[:product_id]).name} in stock"
