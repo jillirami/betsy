@@ -4,44 +4,10 @@
   <li>Username: <%= @merchant.username %></li>
   <li>Email: <%= @merchant.email %></li> 
 </ul>
-
-
-
 <h3>My Store</h3>
+<%= link_to "My Orders", dashboard_orders_path, class: "btn btn-primary"%>
+<%= link_to "My Products", dashboard_products_path, class: "btn btn-primary"%>
+<h6><%= link_to "Create New Category", new_category_path, class: "btn btn-primary" %></h6>
 
 
-<% @merchant.products.each do |product| %>
-  <% if product.retired == false %>
-  <h5>Active Products: </h5>
-  <ul>
-    <li>Active Products: </li>
-    <li><%= product.name %></li>
-    <li><%= product.price / 100 %></li>
-    <li><%= product.description %></li>
-    <li><%= product.photo %></li>
-    <li><img src="#{product.inventory}" alt="Image of #{product.name}"></li>
-    <li><%= button_to "Retire Product", retired_product_path(product.id), method: :patch %></li>
-    <li><%= button_to "Update Product", edit_product_path(product.id), method: :get %></li>
-  </ul>
-  <% end %>
-<% end %>
 
-<h6><%= link_to "Add Product to Store", new_product_path %></h6>
-<h6><%= link_to "Create New Category", new_category_path %></h6>
-
-
-<% @merchant.products.each do |product| %>
-  <% if product.retired == true %>
-  <h5>Retired Products: </h5>
-  <ul>
-    <li>Active Products: </li>
-    <li><%= product.name %></li>
-    <li><%= product.price / 100 %></li>
-    <li><%= product.description %></li>
-    <li><%= product.photo %></li>
-    <li><img src="#{product.inventory}" alt="Image of #{product.name}"></li>
-    <li><%= button_to "Unretire Product", retired_product_path(product.id), method: :patch %></li>
-    <li><%= button_to "Update Product", edit_product_path(product.id), method: :get %></li>
-  </ul>
-  <% end %>
-<% end %>

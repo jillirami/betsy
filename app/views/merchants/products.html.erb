@@ -1,0 +1,40 @@
+
+<h6><%= link_to "Add Product to Store", new_product_path %></h6>
+
+
+<% products = @current_merchant.products %>
+<h5>Active Products: </h5>
+<% products.each do |product| %>
+  <% if product.retired == false %>
+  
+  <ul>
+ 
+    <li><%= product.name %></li>
+    <li><%= product.price / 100 %></li>
+    <li><%= product.description %></li>
+    <li><%= product.photo %></li>
+    <li><img src="#{product.inventory}" alt="Image of #{product.name}"></li>
+    <li><%= button_to "Retire Product", retired_product_path(product.id), method: :patch %></li>
+    <li><%= button_to "Update Product", edit_product_path(product.id), method: :get %></li>
+  </ul>
+  <% end %>
+<% end %>
+
+
+
+ <h5>Retired Products: </h5>
+<% @current_merchant.products.each do |product| %>
+  <% if product.retired == true %>
+ 
+  <ul>
+    
+    <li><%= product.name %></li>
+    <li><%= product.price / 100 %></li>
+    <li><%= product.description %></li>
+    <li><%= product.photo %></li>
+    <li><img src="#{product.inventory}" alt="Image of #{product.name}"></li>
+    <li><%= button_to "Unretire Product", retired_product_path(product.id), method: :patch %></li>
+    <li><%= button_to "Update Product", edit_product_path(product.id), method: :get %></li>
+  </ul>
+  <% end %>
+<% end %>

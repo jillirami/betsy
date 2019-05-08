@@ -1,0 +1,44 @@
+
+
+<h1><%=status.capitalize%> Orders</h1>
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Oder</th>
+      <th>Date</th>
+      <th>Product</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+      <th>Order status</th>
+      <th>Shippment</th>
+      <th>Edit shipment</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+  <%total_revenue = 0%>
+  
+  <% orders = Merchant.find_order_items(@current_merchant, status)%>
+  <% orders.each do |order_item|%>
+  
+  <% total_revenue += Merchant.calculate_subtotal(order_item) %>
+  
+    <tr>
+      <th><%= link_to order_item.order_id, order_path(order_item.order_id)%></th>
+      <th><%= order_item.created_at.to_date%></th>
+      <th><%= link_to order_item.product.name, product_path(order_item.product.id)%></th>
+      <th>$<%= order_item.product.price/100.00%></th>
+      <th><%= order_item.quantity %></th>
+      <th>$<%= Merchant.calculate_subtotal(order_item)%></th>
+
+      <% order = Order.find_by(id: order_item.order_id) %>
+      <th><%= order.status%>  </th>
+      <th><%= order_item.status.class%></th>
+      <th><%= link_to "Edit shipment", edit_order_item_path(order.id) %></th>
+    </tr>
+  <%end%>
+  <h4>Total Revenue: $<%= total_revenue %></h4>
+  </tbody>
+</table>
+
