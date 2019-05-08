@@ -1,17 +1,12 @@
 Rails.application.routes.draw do
-  delete "/logout", to: "merchants#logout", as: "logout"
   root to: "products#index"
-  resources :products
-  resources :merchants
+  delete "/logout", to: "merchants#logout", as: "logout"
+  resources :products, except: [:destroy]
+  resources :merchants, only: [:index, :show, :create]
 
-  # patch "/orders/:id", to: "orders#update", as: "update_order"
   resources :orders, only: [:show, :edit, :update]
-  resources :categories
-  resources :order_items
-
-  # resources :merchants do
-  # resources :reviews, only: [:new, :create]
-  # end
+  resources :categories, only: [:index, :show, :new, :create]
+  resources :order_items, only: [:create, :edit, :update, :destroy]
 
   get "/merchants/current", to: "merchants#current", as: "current_merchant"
   get "/merchants/dashboard/:id", to: "merchants#dashboard", as: "dashboard"
