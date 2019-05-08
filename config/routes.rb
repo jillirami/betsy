@@ -8,10 +8,7 @@ Rails.application.routes.draw do
   resources :orders
   resources :categories
   resources :order_items
-
-  # resources :merchants do
-  # resources :reviews, only: [:new, :create]
-  # end
+  resources :reviews, only: [:new, :create]
 
   get "/merchants/current", to: "merchants#current", as: "current_merchant"
   get "/merchants/dashboard/:id", to: "merchants#dashboard", as: "dashboard"

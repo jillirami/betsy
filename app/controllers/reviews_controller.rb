@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
   # end
 
   def new
-    @review = Review.new #(description: "Default Review", product_id: params[:product_id])
+    @review = Review.new
 
     if params[:product_id]
       @review.product_id = Product.find_by(id: params[:product_id]).id
@@ -29,4 +29,5 @@ class ReviewsController < ApplicationController
     return params.require(:review).permit(:rating, :description, :product_id)
   end
 end
+
 #
