@@ -29,14 +29,7 @@ describe OrdersController do
 
   describe "update" do
     it "can update an existing order" do
-      product = products(:one)
-
-      item_hash = {
-        quantity: 1,
-        product_id: product.id,
-      }
-
-      expect { post order_items_path, params: item_hash }.must_change "Orderitem.count", 1
+      new_order
 
       order_hash = {
         order: {
@@ -58,58 +51,11 @@ describe OrdersController do
       expect(updated_order.status).must_equal "paid"
       must_redirect_to receipt_path(updated_order.id)
     end
-
-    it "will respond with bad request when order cannot be updated" do
-      product = products(:one)
-
-      item_hash = {
-        quantity: 1,
-        product_id: product.id,
-      }
-
-      expect { post order_items_path, params: item_hash }.must_change "Orderitem.count", 1
-
-      order_hash = {
-        order: {
-          # invalid_field: "test",
-          name: "",
-          email: "myname@gmail.com",
-          address: "address",
-          cc_num: 1235,
-          cc_exp: 1219,
-          cc_cvv: 999,
-          billing_zip: 10000,
-        },
-      }
-
-      expect { patch order_path(order.id), params: order_hash }.wont_change "Order.count"
-
-      updated_order = Order.find_by(email: "myname@gmail.com")
-
-      # expect { patch order_path(-1), params: order_hash }.wont_change "Order.count"
-
-      # puts updated_order.name
-
-      # updated_order = Order.find_by(invalid_field: "test")
-
-      # expect(response).to render_template(:edit)
-
-      # expect(flash[:success]).must_equal "Thank you for placing your order!"
-
-      must_respond_with :bad_request
-    end
   end
 
   describe "cancel" do
     it "can cancel and order and set status to 'cancelled'" do
-      product = products(:one)
-
-      item_hash = {
-        quantity: 1,
-        product_id: product.id,
-      }
-
-      post order_items_path, params: item_hash
+      new_order
 
       patch cancel_order_path(order.id)
 

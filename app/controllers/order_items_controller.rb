@@ -1,20 +1,13 @@
 class OrderItemsController < ApplicationController
-  def index
-    # @order_items = Orderitems.all.where(ord)
-  end
-
   def create
     if session[:order_id]
       @order = Order.find(session[:order_id])
     else
-      @order = Order.create(name: "default")
+      @order = Order.create
       session[:order_id] = @order.id
     end
 
-    #make sure to update back to find_by
-    product = Product.find(params[:product_id])
-
-    # binding.pry
+    product = Product.find_by(id: params[:product_id])
 
     if params[:quantity].to_i > product.inventory
       flash[:error] = "Not enough #{Product.find_by(id: params[:product_id]).name} in stock"
