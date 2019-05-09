@@ -7,11 +7,15 @@ class Order < ApplicationRecord
     quantity = 0
 
     self.orderitems.each do |order_item|
-      quantity += Orderitem.find_by(id: order_item.id).quantity
-
-      cart[Orderitem.find_by(product_id: order_item.product_id)] = quantity
+      cart[order_item] = quantity + order_item.quantity
     end
-    return cart
+
+    final_cart = Hash.new(0)
+    cart.each do | order_item, quantity|
+      final_cart[Orderitem.find_by(product_id: order_item.product_id)] += quantity
+    end
+
+    return final_cart
   end
 
   def cart_total
