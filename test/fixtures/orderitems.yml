@@ -23,3 +23,9 @@ orderitem4:
   quantity: 4
   product: two
   order: two
+
+realorderitem:
+  status: MyString
+  quantity: 4
+  product: three
+  order: two
