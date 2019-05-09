@@ -4,13 +4,23 @@ class Order < ApplicationRecord
   def cart
     cart = {}
 
-    total_quantity = 0
+    quantity = 0
 
     self.orderitems.each do |order_item|
-      total_quantity += order_item.quantity
+      quantity += Orderitem.find_by(id: order_item.id).quantity
 
-      cart[Product.find_by(id: order_item.product_id).name] = total_quantity
+      cart[Orderitem.find_by(product_id: order_item.product_id)] = quantity
     end
     return cart
+  end
+
+  def cart_total
+    cart_total = 0
+
+    self.orderitems.each do |order_item|
+      cart_total += order_item.subtotal
+    end
+
+    return cart_total
   end
 end
