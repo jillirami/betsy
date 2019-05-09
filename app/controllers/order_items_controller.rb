@@ -1,32 +1,37 @@
 class OrderItemsController < ApplicationController
   def create
-    if session[:order_id]
-      @order = Order.find(session[:order_id])
+    if session[:merchant_id]
+      flash[:error] = "Log out of your merchant account to shop!"
+      redirect_to products_path
     else
-      @order = Order.create
-      session[:order_id] = @order.id
-    end
-
-    product = Product.find_by(id: params[:product_id])
-
-    if params[:quantity].to_i > product.inventory
-      flash[:error] = "Not enough #{product.name} in stock"
-      return redirect_to product_path(product.id)
-    else
-      @order_item = Orderitem.new(quantity: params[:quantity], product_id: params[:product_id], order_id: @order.id)
-
-      is_successful = @order_item.save
-
-      new_inventory = (product.inventory - params[:quantity].to_i)
-
-      product.update(inventory: new_inventory)
-
-      if is_successful
-        flash[:success] = "Item added to Cart"
-        return redirect_to products_path
+      if session[:order_id]
+        @order = Order.find(session[:order_id])
       else
-        flash[:error] = "Could not add item to Cart"
-        return redirect_to root_path
+        @order = Order.create
+        session[:order_id] = @order.id
+      end
+
+      product = Product.find_by(id: params[:product_id])
+
+      if params[:quantity].to_i > product.inventory
+        flash[:error] = "Not enough #{product.name} in stock"
+        return redirect_to product_path(product.id)
+      else
+        @order_item = Orderitem.new(quantity: params[:quantity], product_id: params[:product_id], order_id: @order.id)
+
+        is_successful = @order_item.save
+
+        new_inventory = (product.inventory - params[:quantity].to_i)
+
+        product.update(inventory: new_inventory)
+
+        if is_successful
+          flash[:success] = "Item added to Cart"
+          return redirect_to products_path
+        else
+          flash[:error] = "Could not add item to Cart"
+          return redirect_to root_path
+        end
       end
     end
   end
