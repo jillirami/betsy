@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :products do
     resources :reviews, only: [:new, :create]
   end
-  
+
   resources :merchants, only: [:index, :show, :create]
 
   resources :orders, only: [:show, :edit, :update]
@@ -33,4 +33,6 @@ Rails.application.routes.draw do
 
   patch "/products/:id/retired", to: "products#retired", as: "retired_product"
   patch "/orders/:id/cancel", to: "orders#cancel", as: "cancel_order"
+
+  patch "/orderitem/:id/shipment", to: "order_items#shipment", as: "shipment"
 end
