@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
 
   def create
     product = Product.new(product_params)
-
+    #the instance variable @current_merchant is included in the body of the response from Github when a merchant signs in
     product.merchant = @current_merchant
 
     is_successful = product.save
@@ -62,12 +62,12 @@ class ProductsController < ApplicationController
 
   def retired
     if @product.nil?
-      flash[:error] = "That Product does not exist"
+      flash[:error] = "Product does not exist"
     else
       @product.toggle(:retired)
       @product.save
     end
-    #is there another page we would want to fallback to? check test if we change.
+
     redirect_back(fallback_location: products_path)
   end
 

@@ -5,7 +5,7 @@ one:
   price: 1
   description: MyString
   photo:
-  inventory: 1
+  inventory: 5
   merchant: jewelry
   retired: false
 
@@ -14,6 +14,6 @@ two:
   price: 1
   description: MyString
   photo:
-  inventory: 1
+  inventory: 5
   merchant: jewelry
   retired: false
