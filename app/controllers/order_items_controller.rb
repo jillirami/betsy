@@ -54,7 +54,6 @@ class OrderItemsController < ApplicationController
       redirect_to order_path(order_id)
     else
       if params[:quantity].to_i < order_item.quantity
-        
         order_item_decrease = (order_item.quantity - params[:quantity].to_i)
         increase_inventory = (product.inventory + order_item_decrease)
         product.update(inventory: increase_inventory)
@@ -64,7 +63,6 @@ class OrderItemsController < ApplicationController
         if is_successful
           redirect_to order_path(order_id)
         end
-
       elsif params[:quantity].to_i > order_item.quantity
         order_item_increase = (params[:quantity].to_i - order_item.quantity)
 
@@ -91,7 +89,6 @@ class OrderItemsController < ApplicationController
     @order_item = Orderitem.find_by(id: params[:id])
     @order = Order.find_by(id: @order_item.order_id)
     product = Product.find_by(id: @order_item.product_id)
-
 
     if @order_item.nil?
       flash[:error] = "This order item does not exist"
@@ -120,5 +117,11 @@ class OrderItemsController < ApplicationController
 
     order.orderitems << @order_item
     return redirect_to order_path(order.id)
+  end
+
+  def shipping_status
+    @order_item.toogle(:true)
+    @order_item.save
+    # redirect_back(fallback_location: products_path)
   end
 end
