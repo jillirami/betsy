@@ -1,8 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-sus_review:
+review:
   reviewer: Susan
   rating: 5
   description: OMG! This is the best!
-  product_id: one
+  product_id: 298486374
 
+#the product_id is of the id of the second product fixture

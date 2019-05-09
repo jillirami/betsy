@@ -1,11 +1,10 @@
 require "test_helper"
 
 describe Review do
-  let (:product) { products(:one) }
-  let (:review) { reviews(:sus_review) }
+  let (:product) { products(:two) }
+  let (:review) { reviews(:review) }
 
   it "must be valid" do
-  p review
     valid_review = review.valid?
 
     expect(valid_review).must_equal true
@@ -30,9 +29,8 @@ describe Review do
 
   describe "relationships" do
     it "belongs to a product" do
-      product.reviews[0] = review
-
-      expect(product.reviews[0].rating).must_equal review.rating
+      #product fixture :two has been assigned a review in the review fixture file
+      expect(product.reviews.first.rating).must_equal review.rating
     end
 
     it "can set the product through the product_id" do
@@ -41,10 +39,10 @@ describe Review do
       expect(product.reviews).must_include review
     end
 
-    it "can have 0 category" do
-      reviews = product.reviews
+    it "can have 0 review" do
+      another_product = products(:one)
 
-      expect(reviews.length).must_equal 0
+      expect(another_product.reviews.length).must_equal 0
     end
 
     it "can have 1 or more review by shoveling a review into product.reviews" do
@@ -53,5 +51,4 @@ describe Review do
       expect(product.reviews).must_include review
     end
   end
-
 end
