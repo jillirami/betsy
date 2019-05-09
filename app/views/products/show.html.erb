@@ -10,6 +10,8 @@
     <%= category.name%>
     <% end %>
     </li>
+    <li>Rating: <%= Review.average_rating(@product)%></li> 
+    
     <%= form_with url: order_items_path, method: :post do |f| %>
     <%= f.label :quantity %>
     <%= f.number_field :quantity, min: 0 %>
