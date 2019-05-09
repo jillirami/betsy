@@ -1,7 +1,9 @@
 
-
-<h1><%=status.capitalize%> Orders</h1>
-    <table class="table table-hover">
+<% if status != "all"%>
+  <h1><%=status.capitalize%> Orders</h1>
+  <%= link_to "Back to My Orders", dashboard_orders_path, class: "btn btn-primary"%>
+<%end%>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Oder</th>
@@ -10,9 +12,9 @@
       <th>Price</th>
       <th>Quantity</th>
       <th>Subtotal</th>
-      <th>Order status</th>
-      <th>Shippment</th>
-      <th>Edit shipment</th>
+      <th>Order Status</th>
+      <th>Shipped?</th>
+      <th>Edit Shipment</th>
     </tr>
   </thead>
   <tbody>
@@ -34,8 +36,8 @@
 
       <% order = Order.find_by(id: order_item.order_id) %>
       <th><%= order.status%>  </th>
-      <th><%= order_item.status.class%></th>
-      <th><%= link_to "Edit shipment", edit_order_item_path(order.id) %></th>
+      <th><%= Orderitem.display_shipment(order_item)%></th>
+      <th><%= link_to "Change", shipment_path(order_item.id), method: :patch , class: "btn btn-primary" %></th>
     </tr>
   <%end%>
   <h4>Total Revenue: $<%= total_revenue %></h4>
