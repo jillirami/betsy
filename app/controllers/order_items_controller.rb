@@ -119,9 +119,13 @@ class OrderItemsController < ApplicationController
     return redirect_to order_path(order.id)
   end
 
-  def shipping_status
-    @order_item.toogle(:true)
-    @order_item.save
-    # redirect_back(fallback_location: products_path)
+  def shipment
+    @order_item = Orderitem.find_by(id: params[:id])
+    if @order_item.nil?
+      flash[:error] = "Order item does not exist"
+    else
+      @order_item.toggle!(:status)
+    end
+    redirect_back(fallback_location: dashboard_orders_path)
   end
 end
