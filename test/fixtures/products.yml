@@ -26,3 +26,21 @@ three:
   inventory: 5
   merchant: jewelry
   retired: false
+
+fourjr:  
+  name: Productjr
+  price: 5000
+  description: jr
+  photo:
+  inventory: 5
+  merchant: jewelry
+  retired: false
+
+fivejr:  
+  name: Productjr
+  price: 5000
+  description: jr
+  photo:
+  inventory: 5
+  merchant: jewelry
+  retired: false

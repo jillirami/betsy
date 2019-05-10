@@ -33,4 +33,4 @@ tmp/cache/bootsnap-load-path-cache
 log/development.log
 
 #To ignore coverage results
-echo "coverage" >> .gitignore
+coverage

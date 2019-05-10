@@ -1,13 +1,20 @@
-<h3>My Profile</h3>
-<ul>
-  <li>Name: <%= @merchant.name %></li>
-  <li>Username: <%= @merchant.username %></li>
-  <li>Email: <%= @merchant.email %></li> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1><small>Welcome,</small> <%= @merchant.username %></h1>
+
+
+<ul class= "features text-center newest" >
+  <div class= "text-center card">
+  <li><%= link_to "My Orders", dashboard_orders_path, class: "btn btn-primary"%></li>
+  <li><%= link_to "My Products", dashboard_products_path, class: "btn btn-primary"%></li>
+  <li><%= link_to "Create New Category", new_category_path, class: "btn btn-primary" %></li>
+  </div>
 </ul>
-<h3>My Store</h3>
-<%= link_to "My Orders", dashboard_orders_path, class: "btn btn-primary"%>
-<%= link_to "My Products", dashboard_products_path, class: "btn btn-primary"%>
-<h6><%= link_to "Create New Category", new_category_path, class: "btn btn-primary" %></h6>
-
-
 
