@@ -6,4 +6,10 @@ review:
   description: OMG! This is the best!
   product_id: 298486374
 
+review2:
+  reviewer: Mike
+  rating: 1
+  description: Meh!
+  product_id: 298486374
+
 #the product_id is of the id of the second product fixture
