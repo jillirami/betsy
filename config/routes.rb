@@ -27,8 +27,8 @@ Rails.application.routes.draw do
   get "/merchants/dashboard/:id/orders/cancelled", to: "merchants#cancelled_orders", as: "dashboard_cancelled_orders"
 
   get "/merchants/dashboard/:id/products", to: "merchants#products", as: "dashboard_products"
-  get "/merchants/dashboard/:id/products/retired", to: "mechants#retired_products", as: "dashboard_retired_products"
-  get "/merchants/dashboard/:id/products/active", to: "mechants#active_products", as: "dashboard_active_products"
+  get "/merchants/dashboard/:id/products/retired", to: "merchants#retired_products", as: "dashboard_retired_products"
+  get "/merchants/dashboard/:id/products/active", to: "merchants#active_products", as: "dashboard_active_products"
 
   get "/orders/receipt/:id", to: "orders#receipt", as: "receipt"
   get "/auth/github", as: "github_login"

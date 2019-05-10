@@ -19,7 +19,6 @@
                     <td><img src="#{product.inventory}" alt="Image of #{product.name}"></td>
                     <td><%= button_to "Retire Product", retired_product_path(product.id), method: :patch %></td>
                     <td><%= button_to "Update Product", edit_product_path(product.id), method: :get %></td>
-                
                 <% end %>
         </tr>
             <% end %>
