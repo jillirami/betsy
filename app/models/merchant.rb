@@ -16,19 +16,30 @@ class Merchant < ApplicationRecord
 
   def self.find_order_items(merchant, status)
     orders = []
+
     if merchant.class == Merchant
       products = merchant.products
       products.each do |product|
         order_items = Orderitem.find_order_items_by_product(product)
-        order_items.each do |order_item|
-          if status == "all"
-            orders << order_item
-          elsif order = find_order_by_status(order_item, status)
-            orders << order_item
+        if status == "all"
+          statuses = ["completed", "paid", "cancelled"]
+          statuses.each do |s|
+            order_items.each do |order_item|
+              if order = find_order_by_status(order_item, s)
+                orders << order_item
+              end
+            end
+          end
+        else
+          order_items.each do |order_item|
+            if order = find_order_by_status(order_item, status)
+              orders << order_item
+            end
           end
         end
       end
     end
+
     return orders.sort!
   end
 
