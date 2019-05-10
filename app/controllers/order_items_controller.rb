@@ -36,14 +36,6 @@ class OrderItemsController < ApplicationController
     end
   end
 
-  def edit
-    @order_item = Orderitem.find_by(id: params[:id])
-
-    if @order_item.nil?
-      redirect_to order_path
-    end
-  end
-
   def update
     order_item = Orderitem.find_by(id: params[:id])
     order_id = order_item.order_id
