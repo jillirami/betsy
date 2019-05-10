@@ -1,3 +1,57 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+div {
+    display: block;
+}
+
+.jumbotron-fluid h1 {
+    color: white;
+    text-shadow: 2px 2px #2d3142;
+    font-size: 5rem;
+    font-weight: bold;
+    padding-top: 1rem;
+    display: inline-block;
+    width: 100%;
+}
+.display-4 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+h1 {
+    font-family: 'Roboto', Sans-Serif;
+    font-weight: bold;
+    font-size: 5rem;
+    color: #2d3142;
+    text-align: center;
+    padding-bottom: 5rem;
+}
+
+.jumbotron-fluid {
+    margin-top: 1rem;
+    background-image: url(https://live.staticflickr.com/5592/14882087562_3feb759208_c.jpg://live.staticflickr.com/5173/5451575773_160aff7cd4.jpg);
+    background-size: cover;
+}
+.product-details-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 2rem;
+    margin-top: 7rem;
+    margin-right: 7rem;
+    margin-left: 5rem;
+}
+
+.add-review-container {
+    display: flex;
+    flex-direction: column;
+    margin: 7rem;
+    justify-content: center;
+    border-top: 2px solid lightgray;
+    padding-top: 1rem;
+}
+
+.product-review-container ul{
+    list-style-type: none;
+}
