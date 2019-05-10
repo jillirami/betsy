@@ -1,9 +1,8 @@
-
 <main>
 
-    <h1>Order Fulfillment <small>by <%= @current_merchant.username %></small></h1>
+<h1>Active Products: </h1>
 
-    <div class="btn-group">
+<div class="btn-group">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
           View Orders by Status <span class="caret"></span>
           </button>
@@ -19,11 +18,8 @@
             </ul>
     </div>
 
-
-        <%= render partial: "merchtable", locals: {
-action_name: Merchant.show_all_products(@current_merchant) } %>
-
-<%= link_to "Add Product to Store", new_product_path, class:"btn btn-secondary" %>
-
+<%= render partial: "merchtable", locals: {
+action_name: nil, product_status: false,
+}%>
 
 </main>

@@ -128,18 +128,19 @@ class OrderItemsController < ApplicationController
 
       unshipped_order = 0
 
-      Order.find_by(id: @order_item.order_id).orderitems.each do |order_item|
+      current_order = Order.find_by(id: @order_item.order_id)
+      order_count = current_order.orderitems.length
+
+      current_order.orderitems.each do |order_item|
         if order_item.status == false
           unshipped_order += 1
         end
       end
 
       if unshipped_order == 0
-        Order.find_by(id: @order_item.order_id).update(status: "complete")
-      elsif unshipped_order < Order.find_by(id: @order_item.order_id).orderitems.length
-        Order.find_by(id: @order_item.order_id).update(status: "pending")
-      elsif unshipped_order == Order.find_by(id: @order_item.order_id).orderitems.length
-        Order.find_by(id: @order_item.order_id).update(status: "paid")
+        current_order.update(status: "complete")
+      elsif unshipped_order <= order_count
+        current_order.update(status: "paid")
       end
     end
     redirect_back(fallback_location: dashboard_orders_path)

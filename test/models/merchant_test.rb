@@ -73,4 +73,12 @@ describe Merchant do
       expect(subtotal).must_equal false
     end
   end
+
+  describe "self.show_all_products" do
+    it "will show all products for a specified merchant" do
+      merchant = merchants(:jewelry)
+
+      expect(merchant.products.length).must_equal 3
+    end
+  end
 end

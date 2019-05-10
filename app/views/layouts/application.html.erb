@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Precious Boutique</title>
+    <title>TipsyTime</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,16 +13,16 @@
   <body>
       
     <header class="app-header__header">
+      
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-custom">
+      <%= link_to "TipsyTime", class: "navbar-brand"%>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-      <h1>
-        <%= link_to "My Precious Boutique", root_path %>
-          <small>The Nation's Leading Purveyor of The Finer Things</small>
-      </h1>
-
-      <nav class="app-header__nav">
-
-        <ul class="nav app-header__site-nav-container" >
-          <li class="nav-item app-header__nav_item" >
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" >
+          <li class="nav-item" >
             <%= link_to "View all products", products_path, class: "nav-link"%>
           </li>
         
@@ -49,6 +49,11 @@
               <%end%>
             </ul>
         </div>
+        </div>
+
+
+
+
 
         <ul class="nav app-header__user-nav-container">
           <% if session[:merchant_id] %>
@@ -71,8 +76,10 @@
         </ul>
       
       </nav>
-    </header>
+      
 
+    </header>
+    
   <% if flash.count > 0%>
           <% flash.each do |name, message| %>
             <% if message.class == Array %>
@@ -103,7 +110,29 @@
             </ul>
           <% end %>
   <% end %>
+  
+  <hr>
+  <br>
+  
+    <section id="homepage-carousel">
+      <div class="app-carousel-container">
+        <div class="app-slider" class="carousel slide" data-ride="carousel">
+          <ol class= "carousel-indicators">
+            <li data-target="#app-slider" data-slide-to="0"></li>
+          </ol>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= image_tag( "https://image.freepik.com/free-photo/blood-orange-gin-tonic-cocktail-served-with-slices-orange-glass_8353-6099.jpg", class:"d-block w-100") %>
+          </div>
+          <div class="carousel-caption d-none d-md-block">
+            <h1 class="carousel-text">Let the games beggin</h1>
+          </div>
+          
 
+        </div>
+      </div>
+    </section>
   <main>
     <%= yield %>
   </main>

@@ -64,3 +64,75 @@ header {
 body {
   background-color: #FFF9D0;
 }
+
+.navbar-custom {
+  background: white;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+.navbar-expand-lg {
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+}
+
+.navbar {
+  // position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+.navbar a {
+  color: #4f5d75 ;
+  font-family: 'Roboto', Sans-Serif !important;
+}
+.navbar-brand {
+  color: #310A31 !important;
+  display: inline-block;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+  font-size: 25rem;
+  line-height: inherit;
+  white-space: nowrap;
+}
+
+.app-carousel-container {
+  width: 100%;
+  display: inline-block;
+}
+.w-100 {
+  width: 100% !important;
+}
+
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+
+.carousel-text {
+  color: white;
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+  font-size: 6rem;
+  text-shadow: 2px 2px #2d3142;
+  padding-bottom: 12rem;
+}
+
+h1 {
+  font-family: 'Roboto', Sans-Serif;
+  font-weight: bold;
+  font-size: 5rem;
+  color: #2d3142;
+  text-align: center;
+  padding-bottom: 5rem;
+}

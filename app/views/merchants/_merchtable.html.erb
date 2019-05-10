@@ -1,0 +1,26 @@
+<table class="table all-merch-products">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Description</th>
+            <th scope="col">Photo</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <% products = @current_merchant.products %>
+            <% products.each do |product| %>
+                <% if action_name || (product.retired == product_status) %>
+                    <th scope="row"><%= product.name %></th>
+                    <td><%= product.price / 100 %></td>
+                    <td><%= product.description %></td>
+                    <td><img src="#{product.inventory}" alt="Image of #{product.name}"></td>
+                    <td><%= button_to "Retire Product", retired_product_path(product.id), method: :patch %></td>
+                    <td><%= button_to "Update Product", edit_product_path(product.id), method: :get %></td>
+                <% end %>
+        </tr>
+            <% end %>
+    </tbody>
+</table>    
