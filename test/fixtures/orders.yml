@@ -19,3 +19,13 @@ two:
   cc_exp: MyString
   cc_cvv: 1
   billing_zip: 1
+
+three: 
+  status: MyString
+  name: MyString
+  email: MyString
+  address: MyString
+  cc_num: 1
+  cc_exp: MyString
+  cc_cvv: 1
+  billing_zip: 1
