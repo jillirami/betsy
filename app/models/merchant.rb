@@ -45,4 +45,8 @@ class Merchant < ApplicationRecord
     subtotal = subtotal_cents / 100.00
     return subtotal
   end
+
+  def self.show_all_products(merchant)
+    return products = merchant.products
+  end
 end
