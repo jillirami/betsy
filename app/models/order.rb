@@ -27,4 +27,16 @@ class Order < ApplicationRecord
 
     return cart_total
   end
+
+  def items_pending
+    if self.status == "paid"
+      shipped_orders = 0
+      self.orderitems.each do |order_item|
+        if order_item.status == true
+          shipped_orders += 1
+        end
+      end
+      return "#{shipped_orders}/#{self.orderitems.length} items have shipped!"
+    end
+  end
 end
