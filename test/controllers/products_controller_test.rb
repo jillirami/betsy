@@ -165,11 +165,8 @@ describe ProductsController do
 
       expect(product.retired).must_equal true
     end
-<<<<<<< HEAD
     it "renders flash error message for a bogus product ID" do
       bogus_id = -1
-=======
->>>>>>> e7410946f4898efb90e37637cacfef9c0455977d
 
     it "renders flash error message for an invalid product ID" do
       patch retired_product_path(-1)
