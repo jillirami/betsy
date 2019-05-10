@@ -36,11 +36,9 @@
 
 .dropdown-menu {
   text-align: center;
-  
   color: black;
   background-color: #ffffff;
   border-color: #ffffff;
-
 }
 
 
@@ -53,6 +51,7 @@
 .nav-link {
   color: #ffffff;
 }
+
 .navbar-nav .nav-link {
   padding-right: 0;
   padding-left: 0;
@@ -97,7 +96,6 @@ body {
 }
 
 .navbar {
-  // position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -105,7 +103,7 @@ body {
   padding: 0.5rem 1rem;
 }
 .navbar a {
-  color: #4f5d75 ;
+  color: #4f5d75;
   font-family: 'Roboto', Sans-Serif !important;
 }
 .navbar-brand {
@@ -126,10 +124,10 @@ body {
 .w-100 {
   width: 100% !important;
 }
+
 ul{
   list-style: none;
 }
-
 
 img {
   vertical-align: middle;
@@ -186,9 +184,11 @@ h1 {
   margin: 0;
 }
 
-#merch-prod-deck .card{
+#merch-prod-deck .card {
   flex-basis: 18rem;
   margin-top: 1rem;
+}
+
 .footer-copyright {
   color: #fff;
   font-family: 'Lora', Sans-Serif;
