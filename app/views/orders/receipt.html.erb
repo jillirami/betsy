@@ -27,6 +27,6 @@
 <h5>Order Status: <%= @order.status.capitalize %></h5>
 
 <% if @order.status == "paid" %>
-<h6><%= @order.items_pending %>/<%= @order.orderitems.length %> Items Shipped</h6>
+<h6><%= @order.shipped_items %>/<%= @order.orderitems.length %> Items Shipped</h6>
 <% end %>
 
