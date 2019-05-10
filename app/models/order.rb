@@ -36,7 +36,7 @@ class Order < ApplicationRecord
           shipped_orders += 1
         end
       end
-      return "#{shipped_orders}/#{self.orderitems.length} items have shipped!"
+      return shipped_orders
     end
   end
 end
