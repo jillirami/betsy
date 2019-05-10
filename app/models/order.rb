@@ -29,7 +29,7 @@ class Order < ApplicationRecord
   end
 
   def shipped_items
-    if self.status == "paid"
+    if self.status != "complete"
       shipped_items = 0
       self.orderitems.each do |order_item|
         if order_item.status == true
