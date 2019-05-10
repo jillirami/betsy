@@ -1,5 +1,25 @@
+<main>
+
 <h1>Active Products: </h1>
 
+<div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          View Orders by Status <span class="caret"></span>
+          </button>
+            <ul class="dropdown-menu" role="menu">
+              <% status_list = {
+                                "All" => dashboard_products_path,
+                                "Active" => dashboard_active_products_path,
+                                "Retired" => dashboard_retired_products_path}%>
+           
+              <% status_list.each do |option, path| %> 
+                <li><%= link_to option, path %></li>
+              <%end%>
+            </ul>
+    </div>
+
 <%= render partial: "merchtable", locals: {
-product_status: false,
+action_name: nil, product_status: false,
 }%>
+
+</main>
