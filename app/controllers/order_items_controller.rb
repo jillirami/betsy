@@ -139,10 +139,8 @@ class OrderItemsController < ApplicationController
 
       if unshipped_order == 0
         current_order.update(status: "complete")
-      elsif unshipped_order == order_count
+      elsif unshipped_order <= order_count
         current_order.update(status: "paid")
-      elsif unshipped_order < order_count
-        current_order.update(status: "pending")
       end
     end
     redirect_back(fallback_location: dashboard_orders_path)
