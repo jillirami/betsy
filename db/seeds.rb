@@ -67,9 +67,9 @@ reviews = [
   {reviewer: Faker::Name.name, rating: 5, description: "Whoever invented this drink is a genius. It hits me so hard that I became a dance machine despite being an introvert :)", product_id: Product.find_by(name: "Canabis Absinthe").id},
   {reviewer: Faker::Name.name, rating: 2, description: "Tastes ok! but the price does not justify the quality", product_id: Product.find_by(name: "Rosemary Crackers").id},
   {reviewer: "Unlucky Luke", rating: 1, description: "This arrived broken!", product_id: Product.find_by(name: "Seattle Glass").id},
-  {reviewer: "Unlucky Luke", rating: 5, description: "This is an updated review, seller reached out and shipped me new Glass. Great Customer Service!!! I will come back to buy more stuffs", product_id: Product.find_by(name: "Seattle Glass").id}
+  {reviewer: "Unlucky Luke", rating: 5, description: "This is an updated review, seller reached out and shipped me new Glass. Great Customer Service!!! I will come back to buy more stuffs", product_id: Product.find_by(name: "Seattle Glass").id},
 ]
 
 reviews.each do |review|
- Review.create!(review)
+  Review.create!(review)
 end
