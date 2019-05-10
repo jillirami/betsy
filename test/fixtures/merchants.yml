@@ -15,6 +15,13 @@ spices:
   uid: 123
   provider: github
 
+bottles:
+  username: bottles
+  email: merchant@bottles.com
+  name: bottles
+  uid: 567
+  provider: github
+
 
 
 
