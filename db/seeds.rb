@@ -14,8 +14,8 @@ end
 merchants = Merchant.all
 
 categories = [
-  { name: "libations" },
-  { name: "accoutrements" },
+  {name: "libations"},
+  {name: "accoutrements"},
 ]
 
 categories.each do |category|
@@ -59,6 +59,17 @@ products_beverages.each do |product_hash|
   new_product.categories << Category.find_by(name: "libations")
 end
 
-# 10.times do |index|
-#   Review.create!(rating: Faker::Number.between(1, 5), description: Faker::Lorem.sentence, product_id: Faker::Number.between(1, 5))
-# end
+reviews = [
+  {reviewer: Faker::Name.name, rating: 5, description: "If you can't afford ticket to party in Russia, this Vodka would have given you the same experience!!! 5 stars!", product_id: Product.find_by(name: "Vodka, Copperworks Distilling").id},
+  {reviewer: Faker::Name.name, rating: 2, description: "I am not getting the previous hype, Costco Vodka tastes better than this", product_id: Product.find_by(name: "Vodka, Copperworks Distilling").id},
+  {reviewer: Faker::Name.name, rating: 5, description: "Highly recommend with sushi! One of the best Sakes I have ever had", product_id: Product.find_by(name: "Joy Sake, Sake One").id},
+  {reviewer: Faker::Name.name, rating: 5, description: "OMG, Canabis Absinthe gets you high and drunk at the same time. It goes really well with cheese (just like a fine bottle of wine) you will be surprised!!!!", product_id: Product.find_by(name: "Canabis Absinthe").id},
+  {reviewer: Faker::Name.name, rating: 5, description: "Whoever invented this drink is a genius. It hits me so hard that I became a dance machine despite being an introvert :)", product_id: Product.find_by(name: "Canabis Absinthe").id},
+  {reviewer: Faker::Name.name, rating: 2, description: "Tastes ok! but the price does not justify the quality", product_id: Product.find_by(name: "Rosemary Crackers").id},
+  {reviewer: "Unlucky Luke", rating: 1, description: "This arrived broken!", product_id: Product.find_by(name: "Seattle Glass").id},
+  {reviewer: "Unlucky Luke", rating: 5, description: "This is an updated review, seller reached out and shipped me new Glass. Great Customer Service!!! I will come back to buy more stuffs", product_id: Product.find_by(name: "Seattle Glass").id},
+]
+
+reviews.each do |review|
+  Review.create!(review)
+end
