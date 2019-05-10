@@ -72,15 +72,11 @@
           <% end %>
         </ul>
       
-      </nav>
-      
-
-    </header>
-    
-  <% if flash.count > 0%>
+     
+      <section class="alert__container">
+      <% if flash.count > 0%>
           <% flash.each do |name, message| %>
             <% if message.class == Array %>
-              <ul>
               <% message.each do |msg| %>
                 <li><%= name %>: <%= msg %> </li>
                 <section class="flash">
@@ -107,7 +103,13 @@
             </ul>
           <% end %>
   <% end %>
+  </section>
 
+    
+     </nav>
+    </header>
+    
+  
   <hr>
   <br>
   
