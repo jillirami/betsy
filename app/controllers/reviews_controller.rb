@@ -36,6 +36,10 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    return params.require(:review).permit(:reviewer, :rating, :description, :product_id)
+    if !@current_merchant.nil?
+      return params.permit(:reviewer, :rating, :description, :product_id)
+    else
+      return params.require(:review).permit(:reviewer, :rating, :description, :product_id)
+    end
   end
 end
