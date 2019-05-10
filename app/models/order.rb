@@ -2,16 +2,20 @@ class Order < ApplicationRecord
   has_many :orderitems
 
   def cart
-    cart = {}
-
+    itemized_cart = {}
     quantity = 0
 
     self.orderitems.each do |order_item|
-      quantity += Orderitem.find_by(id: order_item.id).quantity
-
-      cart[Orderitem.find_by(product_id: order_item.product_id)] = quantity
+      itemized_cart[order_item] = quantity + order_item.quantity
     end
-    return cart
+
+    final_cart = Hash.new(0)
+
+    itemized_cart.each do |order_item, quantity|
+      final_cart[Orderitem.find_by(product_id: order_item.product_id)] += quantity
+    end
+
+    return final_cart
   end
 
   def cart_total
@@ -22,5 +26,17 @@ class Order < ApplicationRecord
     end
 
     return cart_total
+  end
+
+  def shipped_items
+    if self.status != "complete"
+      shipped_items = 0
+      self.orderitems.each do |order_item|
+        if order_item.status == true
+          shipped_items += 1
+        end
+      end
+      return shipped_items
+    end
   end
 end

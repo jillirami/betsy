@@ -17,3 +17,12 @@ two:
   inventory: 5
   merchant: jewelry
   retired: false
+
+three:
+  name: Product!
+  price: 5000
+  description: jr
+  photo:
+  inventory: 5
+  merchant: jewelry
+  retired: false
