@@ -29,3 +29,23 @@ three:
   cc_exp: MyString
   cc_cvv: 1
   billing_zip: 1
+
+neworder:
+  status: MyString
+  name: MyString
+  email: MyString
+  address: MyString
+  cc_num: 1
+  cc_exp: MyString
+  cc_cvv: 1
+  billing_zip: 1
+
+modelorder:
+  status: MyString
+  name: MyString
+  email: MyString
+  address: MyString
+  cc_num: 1
+  cc_exp: MyString
+  cc_cvv: 1
+  billing_zip: 1
