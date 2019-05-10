@@ -46,7 +46,7 @@ products_beverages = [
   { name: "Gin, Oola Distilling", price: 3000, description: "Oola la! G&T's tonight!", photo: "http://i64.tinypic.com/wu458w.jpg", inventory: 12, merchant_id: merchants.sample.id },
   { name: "Pear Brandy, Clear Creek Distilling", price: 5000, description: "Yep, that's a whole pear in the bottle!", photo: "http://i65.tinypic.com/2jagaph.jpg", inventory: 5, merchant_id: merchants.sample.id },
   { name: "Coffee Liqueur, Seattle Distilling", price: 2800, description: "Coffee + booze = yum", photo: "http://i66.tinypic.com/53s27n.jpg", inventory: 8, merchant_id: merchants.sample.id },
-  { name: "Canabis Absinthe", price: 5400, description: "If you thought boozy coffee was a good idea, wait until you try this!", photo: "http://i68.tinypic.com/20uze6b.jpg", inventory: 8, merchant_id: merchants.sample.id },
+  { name: "Cannabis Absinthe", price: 5400, description: "If you thought boozy coffee was a good idea, wait until you try this!", photo: "http://i68.tinypic.com/20uze6b.jpg", inventory: 8, merchant_id: merchants.sample.id },
 ]
 
 products_non_beverages.each do |product_hash|
