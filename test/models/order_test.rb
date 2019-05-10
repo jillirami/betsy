@@ -18,27 +18,27 @@ describe Order do
 
   describe "custom methods" do
     it "can synthesize duplicate orderitems in a cart" do
-      orders(:two).orderitems << orderitems(:orderitem3)
+      orders(:modelorder).orderitems << orderitems(:modelorderitem)
 
-      orders(:two).orderitems << orderitems(:orderitem4)
+      orders(:modelorder).orderitems << orderitems(:modelorderitem2)
 
-      expect(orders(:two).cart.length).must_equal 1
+      expect(orders(:modelorder).cart.length).must_equal 1
     end
 
     it "determines the total cost of the cart" do
-      expect(orders(:two).cart_total).must_be_kind_of Integer
-      expect(orders(:two).cart_total).must_equal 0
+      expect(orders(:modelorder).cart_total).must_be_kind_of Integer
+      expect(orders(:modelorder).cart_total).must_equal 0
     end
 
     it "returns how many items have shipped" do
-      orders(:two).orderitems << orderitems(:orderitem3)
+      orders(:modelorder).orderitems << orderitems(:modelorderitem)
 
-      orders(:two).orderitems << orderitems(:orderitem4)
+      orders(:modelorder).orderitems << orderitems(:modelorderitem2)
 
-      orderitems(:orderitem3).update(status: false)
-      orderitems(:orderitem4).update(status: true)
+      orderitems(:modelorderitem).update(status: false)
+      orderitems(:modelorderitem2).update(status: true)
 
-      expect(orders(:two).shipped_items).must_equal 1
+      expect(orders(:modelorder).shipped_items).must_equal 1
     end
   end
 end
