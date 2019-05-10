@@ -17,6 +17,7 @@ class Review < ApplicationRecord
 
       average_rating = rating_sum / rating_count
     end
-    return average_rating.to_f
+    return average_rating
   end
+
 end
