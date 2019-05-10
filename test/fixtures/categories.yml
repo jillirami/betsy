@@ -1,10 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 cat1:
-  name: jewerly
+  name: jewerly 
 
 cat2:
   name: oneofakind
 
 cat3:
   name: spice
+
