@@ -126,21 +126,32 @@ class OrderItemsController < ApplicationController
     else
       @order_item.toggle!(:status)
 
-      unshipped_order = 0
+      unshipped_order = Orderitem.count_unshipped_orders(@order_item)
+      Orderitem.update_order_status(@order_item, unshipped_order)
+      # unshipped_order = 0
 
-      Order.find_by(id: @order_item.order_id).orderitems.each do |order_item|
-        if order_item.status == false
-          unshipped_order += 1
-        end
-      end
+      # Order.find_by(id: @order_item.order_id).orderitems.each do |order_item|
+      #   if order_item.status == false
+      #     unshipped_order += 1
+      #   end
+      # end
 
-      if unshipped_order == 0
-        Order.find_by(id: @order_item.order_id).update(status: "complete")
-      elsif unshipped_order < Order.find_by(id: @order_item.order_id).orderitems.length
-        Order.find_by(id: @order_item.order_id).update(status: "pending")
-      elsif unshipped_order == Order.find_by(id: @order_item.order_id).orderitems.length
-        Order.find_by(id: @order_item.order_id).update(status: "paid")
-      end
+      # current_order = Order.find_by(id: @order_item.order_id)
+
+      # if unshipped_order == 0
+      #   current_order.update(status: "complete")
+      # elsif current_order.name
+      #   Order.find_by(id: @order_item.order_id).update(status: "paid")
+      # elsif !current_order.name
+      #   Order.find_by(id: @order_item.order_id).update(status: "pending")
+      # end
+      # if unshipped_order == 0
+      #   Order.find_by(id: @order_item.order_id).update(status: "complete")
+      # elsif unshipped_order < Order.find_by(id: @order_item.order_id).orderitems.length
+      #   Order.find_by(id: @order_item.order_id).update(status: "pending")
+      # elsif unshipped_order == Order.find_by(id: @order_item.order_id).orderitems.length
+      #   Order.find_by(id: @order_item.order_id).update(status: "paid")
+      # end
     end
     redirect_back(fallback_location: dashboard_orders_path)
   end
