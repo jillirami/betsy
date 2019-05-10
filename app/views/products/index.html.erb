@@ -1,11 +1,21 @@
-<h2>All Products</h2>
+<h1>All Products</h1>
 
-<ul>
-  <% @products.each do |product|%>
+
+<div class="card-deck container" id="prod-deck">
+
+<% @products.each do |product|%>
     <% if product.retired == false %>
-    <li>
-      <%= link_to product.name, product_path(product.id) %>
-    </li>
-    <%end%>
-  <%end %>
-</ul>
+        <div class="card">
+          <img class="card-img-top" src="<%= product.photo %>" alt="Image of <%= product.name %>" width="100px">
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to product.name, product_path(product.id) %></h5>
+              <p class="card-text"><%= product.description %></p>
+              <p class="card-price">$<%= product.price / 100%></p>
+          </div>
+          <div class="card-footer">
+              <small class="text-muted">Sold by <%= product.merchant.name %></small>
+          </div>
+      </div>
+        <% end %>
+      <% end %>
+</div>

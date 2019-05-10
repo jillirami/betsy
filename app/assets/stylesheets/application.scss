@@ -136,3 +136,39 @@ h1 {
   text-align: center;
   padding-bottom: 5rem;
 }
+
+#prod-deck {
+  justify-content: right; 
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+#prod-deck .card {
+  flex-basis: 18rem;
+  margin-top: 1rem;
+}
+
+#cat-prod-deck {
+  justify-content: right; 
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+#cat-prod-deck .card{
+  flex-basis: 18rem;
+  margin-top: 1rem;
+}
+
+#merch-prod-deck {
+  justify-content: right; 
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+#merch-prod-deck .card{
+  flex-basis: 18rem;
+  margin-top: 1rem;
+}

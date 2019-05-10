@@ -14,8 +14,8 @@ end
 merchants = Merchant.all
 
 categories = [
-  {name: "libations"},
-  {name: "accoutrements"},
+  { name: "libations" },
+  { name: "accoutrements" },
 ]
 
 categories.each do |category|
@@ -23,7 +23,7 @@ categories.each do |category|
 end
 
 products_non_beverages = [
-  { name: "Rosemary Crackers", price: 700, description: "What isn't made better with some rosemary crackers?", photo: "http://i63.tinypic.com/r8838w.jpg", inventory: 20, merchant_id: merchants.sample.id },
+  { name: "Rosemary Crackers", price: 700, description: "What isn't made better with some rosemary crackers?", photo: "http://i64.tinypic.com/11llwfb.jpg", inventory: 20, merchant_id: merchants.sample.id },
   { name: "Moscow Mule Set", price: 1500, description: "So you can make them at home!", photo: "http://i63.tinypic.com/2954t1c.jpg", inventory: 10, merchant_id: merchants.sample.id },
   { name: "Castelvetrano Olives", price: 1500, description: "Olives should come with every cocktail.", photo: "http://i68.tinypic.com/adc0ow.jpg", inventory: 7, merchant_id: merchants.sample.id },
   { name: "Black Olive Tapenade", price: 1200, description: "Those rosemary crackers would be even better with this tapenade!", photo: "http://i66.tinypic.com/xfdips.jpg", inventory: 5, merchant_id: merchants.sample.id },
@@ -60,14 +60,14 @@ products_beverages.each do |product_hash|
 end
 
 reviews = [
-  {reviewer: Faker::Name.name, rating: 5, description: "If you can't afford ticket to party in Russia, this Vodka would have given you the same experience!!! 5 stars!", product_id: Product.find_by(name: "Vodka, Copperworks Distilling").id},
-  {reviewer: Faker::Name.name, rating: 2, description: "I am not getting the previous hype, Costco Vodka tastes better than this", product_id: Product.find_by(name: "Vodka, Copperworks Distilling").id},
-  {reviewer: Faker::Name.name, rating: 5, description: "Highly recommend with sushi! One of the best Sakes I have ever had", product_id: Product.find_by(name: "Joy Sake, Sake One").id},
-  {reviewer: Faker::Name.name, rating: 5, description: "OMG, Canabis Absinthe gets you high and drunk at the same time. It goes really well with cheese (just like a fine bottle of wine) you will be surprised!!!!", product_id: Product.find_by(name: "Canabis Absinthe").id},
-  {reviewer: Faker::Name.name, rating: 5, description: "Whoever invented this drink is a genius. It hits me so hard that I became a dance machine despite being an introvert :)", product_id: Product.find_by(name: "Canabis Absinthe").id},
-  {reviewer: Faker::Name.name, rating: 2, description: "Tastes ok! but the price does not justify the quality", product_id: Product.find_by(name: "Rosemary Crackers").id},
-  {reviewer: "Unlucky Luke", rating: 1, description: "This arrived broken!", product_id: Product.find_by(name: "Seattle Glass").id},
-  {reviewer: "Unlucky Luke", rating: 5, description: "This is an updated review, seller reached out and shipped me new Glass. Great Customer Service!!! I will come back to buy more stuffs", product_id: Product.find_by(name: "Seattle Glass").id},
+  { reviewer: Faker::Name.name, rating: 5, description: "If you can't afford ticket to party in Russia, this Vodka would have given you the same experience!!! 5 stars!", product_id: Product.find_by(name: "Vodka, Copperworks Distilling").id },
+  { reviewer: Faker::Name.name, rating: 2, description: "I am not getting the previous hype, Costco Vodka tastes better than this", product_id: Product.find_by(name: "Vodka, Copperworks Distilling").id },
+  { reviewer: Faker::Name.name, rating: 5, description: "Highly recommend with sushi! One of the best Sakes I have ever had", product_id: Product.find_by(name: "Joy Sake, Sake One").id },
+  { reviewer: Faker::Name.name, rating: 5, description: "OMG, Canabis Absinthe gets you high and drunk at the same time. It goes really well with cheese (just like a fine bottle of wine) you will be surprised!!!!", product_id: Product.find_by(name: "Canabis Absinthe").id },
+  { reviewer: Faker::Name.name, rating: 5, description: "Whoever invented this drink is a genius. It hits me so hard that I became a dance machine despite being an introvert :)", product_id: Product.find_by(name: "Canabis Absinthe").id },
+  { reviewer: Faker::Name.name, rating: 2, description: "Tastes ok! but the price does not justify the quality", product_id: Product.find_by(name: "Rosemary Crackers").id },
+  { reviewer: "Unlucky Luke", rating: 1, description: "This arrived broken!", product_id: Product.find_by(name: "Seattle Glass").id },
+  { reviewer: "Unlucky Luke", rating: 5, description: "This is an updated review, seller reached out and shipped me new Glass. Great Customer Service!!! I will come back to buy more stuffs", product_id: Product.find_by(name: "Seattle Glass").id },
 ]
 
 reviews.each do |review|

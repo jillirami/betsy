@@ -1,11 +1,20 @@
-<h3>Merchant Name: <%= @merchant.name %></h3>
-<h3>Merchant Email: <%= @merchant.email %></h3>
+<h1>Merchant Name: <%= @merchant.name %></h1>
 
-<% @merchant.products.each do |product| %>
-<ul>
-  <li><%= link_to product.name, product_path(product.id) %></li>
-  <li><%= product.price / 100 %></li>
-  <li><%= product.description %></li>
-  <li><img src="#{product.inventory}" alt="Image of #{product.name}"></li>
-</ul>
-<% end %>
+<h2>Email: <%= @merchant.email %></h2>
+
+<div class="card-deck container" id="merch-prod-deck">
+    <% @merchant.products.each do |product| %>
+    <div class="card">
+      <img class="card-img-top" src="<%= product.photo %>" alt="Image of <%= product.name %>" width="100px">
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to product.name, product_path(product.id) %></h5>
+          <p class="card-text"><%= product.description %></p>
+          <p class="card-price">$<%= product.price / 100%></p>
+          <p class="card-rating"><%= Review.average_rating(product) %></p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Sold by <%= product.merchant.name %></small>
+        </div>
+      </div>
+      <% end %>
+</div>
