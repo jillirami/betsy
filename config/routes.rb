@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "products#index"
+  root to: "home_page#index", as: "home_page"
 
   # patch "/orders/:id", to: "orders#update", as: "update_order"
 
