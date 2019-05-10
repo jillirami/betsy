@@ -1,9 +1,12 @@
 class ReviewsController < ApplicationController
   def new
     current_product_id = params[:product_id].to_i
-    if @current_merchant.product_ids.include? current_product_id
-      flash[:error] = "You can't review your own product"
-      redirect_to product_path(params[:product_id])
+    #if the merchant is locked in, check if any of the products belong to the merchant is the one getting reviewed
+    if !@current_merchant.nil?
+      if @current_merchant.product_ids.include? current_product_id
+        flash[:error] = "You can't review your own product"
+        redirect_to product_path(params[:product_id])
+      end
     else
       @review = Review.new
     end
@@ -11,7 +14,8 @@ class ReviewsController < ApplicationController
 
   def create
     review = Review.new(review_params)
-    if review.reviewer.nil?
+    #If the reviewer does not enter their name then assign their name to anonymous
+    if review.reviewer == ""
       review.reviewer = "Anonymous"
     end
 
@@ -32,6 +36,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    return params.require(:review).permit(:name, :rating, :description, :product_id)
+    return params.require(:review).permit(:reviewer, :rating, :description, :product_id)
   end
 end
