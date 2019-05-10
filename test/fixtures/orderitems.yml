@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 orderitem1:
-  status: MyString
+  status: paid
   quantity: 1
   product: one
   order: order1
