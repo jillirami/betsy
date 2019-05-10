@@ -275,9 +275,9 @@
         <td class="red strong">66.67 %</td>
         <td>22</td>
         <td>12</td>
-        <td>8</td>
-        <td>4</td>
-        <td>0.9</td>
+        <td>9</td>
+        <td>3</td>
+        <td>1.5</td>
       </tr>
       
       <tr>
@@ -557,9 +557,9 @@
         <td class="red strong">66.67 %</td>
         <td>22</td>
         <td>12</td>
-        <td>8</td>
-        <td>4</td>
-        <td>0.9</td>
+        <td>9</td>
+        <td>3</td>
+        <td>1.5</td>
       </tr>
       
       <tr>
@@ -4120,44 +4120,44 @@
           <code class="ruby">  def self.build_from_github(auth_hash)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="8">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="8">
+          <span class="hits">3</span>
           
           <code class="ruby">    merchant = Merchant.new</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="9">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="9">
+          <span class="hits">3</span>
           
           <code class="ruby">    merchant.uid = auth_hash[:uid]</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="10">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="10">
+          <span class="hits">3</span>
           
           <code class="ruby">    merchant.provider = &quot;github&quot;</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="11">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="11">
+          <span class="hits">3</span>
           
           <code class="ruby">    merchant.name = auth_hash[&quot;info&quot;][&quot;name&quot;]</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="12">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="12">
+          <span class="hits">3</span>
           
           <code class="ruby">    merchant.username = auth_hash[&quot;info&quot;][&quot;nickname&quot;]</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="13">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="13">
+          <span class="hits">3</span>
           
           <code class="ruby">    merchant.email = auth_hash[&quot;info&quot;][&quot;email&quot;]</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="14">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="14">
+          <span class="hits">3</span>
           
           <code class="ruby">    return merchant</code>
         </li>
@@ -4180,55 +4180,67 @@
           <code class="ruby">  def self.find_order_items(merchant, status)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="18">
-          
+        <li class="covered" data-hits="2" data-linenumber="18">
+          <span class="hits">2</span>
           
           <code class="ruby">    orders = []</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="19">
-          
+        <li class="covered" data-hits="2" data-linenumber="19">
+          <span class="hits">2</span>
           
           <code class="ruby">    if merchant.class == Merchant</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="20">
-          
+        <li class="covered" data-hits="2" data-linenumber="20">
+          <span class="hits">2</span>
           
           <code class="ruby">      products = merchant.products</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="21">
-          
+        <li class="covered" data-hits="2" data-linenumber="21">
+          <span class="hits">2</span>
           
           <code class="ruby">      products.each do |product|</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="22">
-          
+        <li class="covered" data-hits="3" data-linenumber="22">
+          <span class="hits">3</span>
           
           <code class="ruby">        order_items = Orderitem.find_order_items_by_product(product)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="23">
-          
+        <li class="covered" data-hits="3" data-linenumber="23">
+          <span class="hits">3</span>
           
           <code class="ruby">        order_items.each do |order_item|</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="24">
+        <li class="covered" data-hits="5" data-linenumber="24">
+          <span class="hits">5</span>
           
-          
-          <code class="ruby">          if status == &quot;all&quot;</code>
+          <code class="ruby">        order_items.each do |order_item|</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="25">
           
           
+          <code class="ruby">          if status == &quot;all&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="26">
+          <span class="hits">5</span>
+          
+          <code class="ruby">          elsif order = find_order_by_status(order_item, status)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="27">
+          <span class="hits">2</span>
+          
           <code class="ruby">            orders &lt;&lt; order_item</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="26">
+        <li class="never" data-hits="" data-linenumber="28">
           
           
           <code class="ruby">          elsif order = find_order_by_status(order_item, status)</code>
@@ -4240,13 +4252,13 @@
           <code class="ruby">            orders &lt;&lt; order_item</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="28">
+        <li class="never" data-hits="" data-linenumber="30">
           
           
           <code class="ruby">          end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="29">
+        <li class="never" data-hits="" data-linenumber="31">
           
           
           <code class="ruby">        end</code>
@@ -4350,12 +4362,22 @@
       
         <li class="missed" data-hits="0" data-linenumber="46">
           
+          <code class="ruby">      subtotal_cents = 0</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="47">
+          <span class="hits">1</span>
           
           <code class="ruby">      subtotal_cents = 0</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="47">
           
+          <code class="ruby">      subtotal = subtotal_cents / 100.00</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="49">
+          <span class="hits">1</span>
           
           <code class="ruby">      subtotal_cents += order_item.quantity * order_item.product.price</code>
         </li>
@@ -4368,6 +4390,11 @@
       
         <li class="missed" data-hits="0" data-linenumber="49">
           
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="51">
+          <span class="hits">1</span>
           
           <code class="ruby">      return subtotal</code>
         </li>
@@ -4517,8 +4544,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="14">
-          <span class="hits">2</span>
+        <li class="never" data-hits="" data-linenumber="17">
+          
           
           <code class="ruby">    itemized_cart.each do |order_item, quantity|</code>
         </li>
@@ -4699,11 +4726,11 @@
         <div class="source_table" id="543e39d45e857d75fa8f244de4cc0452f3d52127">
   <div class="header">
     <h3>app/models/orderitem.rb</h3>
-    <h4><span class="red">66.67 %</span> covered</h4>
+    <h4><span class="red">75.0 %</span> covered</h4>
     <div>
       <b>12</b> relevant lines. 
-      <span class="green"><b>8</b> lines covered</span> and
-      <span class="red"><b>4</b> lines missed.</span>
+      <span class="green"><b>9</b> lines covered</span> and
+      <span class="red"><b>3</b> lines missed.</span>
     </div>
   </div>
   
@@ -4752,8 +4779,8 @@
           <code class="ruby">  def subtotal</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="8">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="8" data-linenumber="8">
+          <span class="hits">8</span>
           
           <code class="ruby">    return self.quantity * (Product.find_by(id: self.product_id).price / 100)</code>
         </li>
@@ -4776,8 +4803,8 @@
           <code class="ruby">  def self.find_order_items_by_product(product)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="12">
-          
+        <li class="covered" data-hits="3" data-linenumber="12">
+          <span class="hits">3</span>
           
           <code class="ruby">    where(product_id: product.id)</code>
         </li>
