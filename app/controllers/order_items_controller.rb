@@ -138,7 +138,7 @@ class OrderItemsController < ApplicationController
       end
 
       if unshipped_order == 0
-        current_order.update(status: "complete")
+        current_order.update(status: "completed")
       elsif unshipped_order <= order_count
         current_order.update(status: "paid")
       end
