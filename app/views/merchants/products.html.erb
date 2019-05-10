@@ -31,7 +31,7 @@ action_name: Merchant.show_all_products(@current_merchant) } %>
 <h4>Active Products: </h4>
 
 <%= render partial: "merchtable", locals: {
-product_status: false,
+action_name: nil, product_status: false,
 }%>
 
 
