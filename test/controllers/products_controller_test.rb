@@ -119,7 +119,7 @@ describe ProductsController do
     end
 
     it "succeeds for valid data and an extant product ID" do
-      updates = { product: { name: "Medium Ring" } }
+      updates = {product: {name: "Medium Ring"}}
 
       expect {
         patch product_path(existing_product), params: updates
@@ -133,7 +133,7 @@ describe ProductsController do
     end
 
     it "renders bad_request for bogus data" do
-      updates = { "product": { name: "" } }
+      updates = {"product": {name: ""}}
 
       expect {
         patch product_path(existing_product), params: updates
@@ -147,7 +147,7 @@ describe ProductsController do
     it "renders 404 not_found for a bogus product ID" do
       bogus_id = -1
 
-      patch product_path(bogus_id), params: { product: { name: "Test Name" } }
+      patch product_path(bogus_id), params: {product: {name: "Test Name"}}
       must_respond_with :not_found
     end
   end
@@ -165,8 +165,6 @@ describe ProductsController do
 
       expect(product.retired).must_equal true
     end
-    it "renders flash error message for a bogus product ID" do
-      bogus_id = -1
 
     it "renders flash error message for an invalid product ID" do
       patch retired_product_path(-1)
