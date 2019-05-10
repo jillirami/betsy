@@ -125,6 +125,22 @@ class OrderItemsController < ApplicationController
       flash[:error] = "Order item does not exist"
     else
       @order_item.toggle!(:status)
+
+      if @order_item.status == false
+        Order.find_by(id: @order_item.order_id).update(status: "paid")
+      else
+        unshipped_order = 0
+
+        Order.find_by(id: @order_item.order_id).orderitems.each do |order_item|
+          if order_item.status == false
+            unshipped_order += 1
+          end
+        end
+
+        if unshipped_order == 0
+          Order.find_by(id: @order_item.order_id).update(status: "complete")
+        end
+      end
     end
     redirect_back(fallback_location: dashboard_orders_path)
   end
