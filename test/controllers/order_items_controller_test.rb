@@ -43,15 +43,19 @@ describe OrderItemsController do
     end
   end
 
-  # describe "update" do
-  #   orderitem = {
-  #           quantity: 2,
-  #         }
+  describe "update" do
+    it "updates an order" do
+      # orderitem = {
+      #         quantity: 2,
+      #       }
 
-  #   expect {
-  #     patch order_item_path(orderitems(:orderitem4).id), params: orderitem
-  #   }.wont_change "Orderitems.count"
-  # end
+      # order = orderitems(:updateitem)
+
+      # expect {
+      #   patch order_item_path(order.id), params: orderitem
+      # }.wont_change "Orderitems.count"
+    end
+  end
 
   describe "destroy" do
     it "destroys an order item from the cart" do
