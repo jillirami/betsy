@@ -27,17 +27,18 @@ describe Order do
 
     it "determines the total cost of the cart" do
       expect(orders(:two).cart_total).must_be_kind_of Integer
+      expect(orders(:two).cart_total).must_equal 0
     end
 
-    # it "returns how many items have shipped" do
-      # orders(:two).orderitems << orderitems(:orderitem3)
+    it "returns how many items have shipped" do
+      orders(:two).orderitems << orderitems(:orderitem3)
 
-      # orders(:two).orderitems << orderitems(:orderitem4)
+      orders(:two).orderitems << orderitems(:orderitem4)
 
-      # orderitems(:orderitem3).update(status: false)
-      # orderitems(:orderitem4).update(status: true)
+      orderitems(:orderitem3).update(status: false)
+      orderitems(:orderitem4).update(status: true)
 
-      # expect(orders(:two).shipped_items).must_equal 1
-    # end
+      expect(orders(:two).shipped_items).must_equal 1
+    end
   end
 end
