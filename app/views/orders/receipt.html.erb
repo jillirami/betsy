@@ -24,4 +24,7 @@
 <h5>Your total: $<%= @order.cart_total %></h5>
 <h5>Order placed at: <%= @order.updated_at.strftime("%m-%d-%Y %I:%M %p") %></h5>
 
+<h5>Order Status: <%= @order.status.capitalize %></h5>
+<h6><%= @order.items_pending %></h6>
+
 
