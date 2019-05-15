@@ -14,23 +14,29 @@ describe OrderItemsController do
       must_redirect_to products_path
     end
 
-    it "will create an instance of an order if none already present" do
-      new_order = {
-        quantity: 225,
-        product_id: products(:three).id,
-      }
+    # it "will create an instance of an order if none already present" do
+    #   new_order = {
+    #     quantity: 225,
+    #     product_id: products(:three).id,
+    #   }
 
-      expect { post order_items_path, params: new_order }.must_change "Order.count", 1
-    end
+    #   expect { post order_items_path, params: new_order }.must_change "Order.count", 1
+
+    #   # order_item = Orderitem.find_by(quantity: 225)
+
+    #   # expect(order_item).wont_be_nil
+
+    #   # expect(flash[:success]).must_equal "Item added to Cart"
+    # end
 
     it "will not create an order item if not enough inventory present" do
+      product = products(:three)
+      
       orderitem = {
         quantity: 50000,
-        product_id: products(:three).id,
+        product_id: product.id,
         order_id: orders(:neworder).id,
       }
-
-      product = products(:three)
 
       expect {
         post order_items_path, params: orderitem
@@ -43,15 +49,46 @@ describe OrderItemsController do
     end
   end
 
-  # describe "update" do
-  #   orderitem = {
-  #           quantity: 2,
-  #         }
+  describe "update" do
+    it "will redirect if order_item not found" do
+      orderitem_quan = {
+        quantity: 2,
+      }
 
-  #   expect {
-  #     patch order_item_path(orderitems(:orderitem4).id), params: orderitem
-  #   }.wont_change "Orderitems.count"
-  # end
+      patch order_item_path(-1), params: orderitem_quan
+      
+      expect(flash[:error]).must_equal "Order item not found"
+      must_respond_with :redirect
+      must_redirect_to products_path
+    end
+
+    it "will flash error if order can not be updated with requested quantity" do
+      order_item = orderitems(:realorderitem2)
+
+      orderitem_quan = {
+        quantity: 10000000,
+      }
+
+      patch order_item_path(order_item), params: orderitem_quan
+      
+      expect(flash[:error]).must_equal "Not enough #{order_item.product.name} in stock"
+      must_respond_with :redirect
+      must_redirect_to order_path(order_item.order)
+    end
+
+    # it "will update an order item quantity" do
+    #   order_item = orderitems(:realorderitem2)
+    #   previous_quan = order_item.quantity
+
+    #   orderitem_quan = {
+    #     quantity: 1,
+    #   }
+
+    #   patch order_item_path(order_item), params: orderitem_quan
+
+    #   expect(previous_quan - order_item.quantity).must_equal 3
+    # end
+  end
 
   describe "destroy" do
     it "destroys an order item from the cart" do

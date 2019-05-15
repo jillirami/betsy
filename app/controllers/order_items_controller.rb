@@ -33,7 +33,8 @@ class OrderItemsController < ApplicationController
     order_item = Orderitem.find_by(id: params[:id])
 
     if order_item.nil?
-      return redirect_to order_path(order_id)
+      flash[:error] = "Order item not found"
+      return redirect_to products_path
     end
     
     order = order_item.order
@@ -41,7 +42,7 @@ class OrderItemsController < ApplicationController
     adjusted_quantity = order_item.adjust_quantity_by!(requested_quantity)
 
     if requested_quantity != adjusted_quantity
-      flash[:error] = "Not enough #{order_item.product.name} in stock"       
+      flash[:error] = "Not enough #{order_item.product.name} in stock"
     end
 
     redirect_to order_path(order)
