@@ -30,6 +30,16 @@ describe Order do
       expect(orders(:modelorder).cart_total).must_equal 0
     end
 
+    it "will add a product to a cart" do
+      product = products(:modelproduct)
+
+      previous_count = order.orderitems.count
+
+      order.add_product_to_cart!(product, 2)
+
+      expect(order.orderitems.count - previous_count).must_equal 1
+    end
+
     it "returns how many items have shipped" do
       orders(:modelorder).orderitems << orderitems(:modelorderitem)
 

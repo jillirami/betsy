@@ -3,7 +3,7 @@
 orderitem1:
   status: paid
   quantity: 1
-  product: one
+  product: modelproduct
   order: order1
 
 orderitem2:
@@ -58,4 +58,10 @@ modelorderitem2:
   status: false
   quantity: 4
   product: two
+  order: two
+
+modelorderitem3:
+  status: false
+  quantity: 4
+  product: modelproduct
   order: two

@@ -10,4 +10,25 @@ class Product < ApplicationRecord
   def self.browse_by_category(category)
     joins(:categories).where(categories: {id: category.id}).distinct
   end
+
+  def available_inventory?(quantity)
+    return self.inventory >= quantity
+  end
+
+  def reduce_inventory_by!(quantity)
+    new_inventory = (self.inventory - quantity)
+      
+    self.update(inventory: new_inventory)
+  end
+
+  def adjust_inventory_by!(prev_quantity, requested_quantity)
+    available_quantity = self.inventory + prev_quantity
+
+    if requested_quantity > available_quantity
+      return prev_quantity
+    else
+      self.update(inventory: available_quantity - requested_quantity)
+      return requested_quantity
+    end
+  end
 end

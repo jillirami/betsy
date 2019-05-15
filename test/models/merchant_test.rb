@@ -78,7 +78,7 @@ describe Merchant do
     it "will show all products for a specified merchant" do
       merchant = merchants(:jewelry)
 
-      expect(merchant.products.length).must_equal 5
+      expect(merchant.products.length).must_equal 6
     end
   end
 end

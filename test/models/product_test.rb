@@ -80,4 +80,22 @@ describe Product do
     expect(browse_result).must_be_kind_of ActiveRecord::Relation
     expect(product.category_ids).must_include category.id
   end
+  
+  it "returns boolean if enough inventory for a requested quantity" do
+    expect(product.available_inventory?(4000)).must_equal false
+    expect(product.available_inventory?(1)).must_equal true
+  end
+
+  it "will reduce the inventory for a given quantity" do
+    product.reduce_inventory_by!(1)
+    expect(product.inventory).must_equal 4
+  end
+
+  it "will adjust inventory dependent on input values and conditions" do
+    product = products(:modelproduct)
+    product.adjust_inventory_by!(1, 2)
+    expect(product.inventory).must_equal 4
+
+    expect(product.adjust_inventory_by!(2, 12)).must_equal 2
+  end
 end

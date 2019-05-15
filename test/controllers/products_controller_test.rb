@@ -156,6 +156,7 @@ describe ProductsController do
     before do
       perform_login(merchants(:jewelry))
     end
+    
     it "can mark a product as retired, but changing the retired field from false to true" do
       product = products(:one)
 

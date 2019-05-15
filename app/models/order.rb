@@ -28,6 +28,17 @@ class Order < ApplicationRecord
     return cart_total
   end
 
+  def add_product_to_cart!(product, quantity) 
+    order_item = self.orderitems.create(quantity: quantity, product: product)
+
+    if !order_item.id.nil?
+      product.reduce_inventory_by!(quantity)
+      return order_item
+    end
+
+    return nil
+  end
+
   def shipped_items
     if self.status != "complete"
       shipped_items = 0

@@ -24,5 +24,14 @@ describe Orderitem do
       expect(orderitems(:realorderitem).subtotal).must_equal 200
       expect(orderitems(:realorderitem).subtotal).must_be_kind_of Integer
     end
+
+    it "adjusts quantity of product by the requested quantity" do
+      order_item = orderitems(:modelorderitem3)
+      previous_quantity = order_item.quantity
+      
+      order_item.adjust_quantity_by!(3)
+
+      expect(previous_quantity - order_item.quantity).must_equal 1
+    end
   end
 end
