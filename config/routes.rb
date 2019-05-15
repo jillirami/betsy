@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:show, :edit, :update]
   resources :categories, only: [:index, :show, :new, :create]
-  resources :order_items, only: [:create, :edit, :update, :destroy]
+  resources :order_items, only: [:create, :update, :destroy]
 
   post "/order_items/random", to: "order_items#random_create", as: "random"
 

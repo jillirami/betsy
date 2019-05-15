@@ -76,18 +76,18 @@ describe OrderItemsController do
       must_redirect_to order_path(order_item.order)
     end
 
-    # it "will update an order item quantity" do
-    #   order_item = orderitems(:realorderitem2)
-    #   previous_quan = order_item.quantity
+    it "will update an order item quantity" do
+      order_item = orderitems(:updateorderitem)
+      previous_quan = order_item.quantity
 
-    #   orderitem_quan = {
-    #     quantity: 1,
-    #   }
+      orderitem_quan = {
+        quantity: 1,
+      }
 
-    #   patch order_item_path(order_item), params: orderitem_quan
+      expect{patch order_item_path(order_item.id), params: orderitem_quan}.wont_change "Orderitem.count"
 
-    #   expect(previous_quan - order_item.quantity).must_equal 3
-    # end
+      must_redirect_to order_path(order_item.order)
+    end
   end
 
   describe "destroy" do
@@ -119,13 +119,11 @@ describe OrderItemsController do
 
   # describe "random_create" do
   #   it "produced a random order item" do
-  #     orders(:neworder).orderitems << orderitems(:deleteme2)
-
-  #     delete_orderitem = orderitems(:deleteme2)
+  #     order = orders(:neworder)
 
   #     expect {
-  #             delete order_item_path(delete_orderitem.id)
-  #           }.must_change "Orderitem.count", -1
+  #             post random_path, params: order
+  #           }.must_change "Orderitem.count", 1
   #   end
   # end
 

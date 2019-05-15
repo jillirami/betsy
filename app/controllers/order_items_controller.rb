@@ -37,7 +37,7 @@ class OrderItemsController < ApplicationController
       return redirect_to products_path
     end
     
-    order = order_item.order
+
     requested_quantity = params[:quantity].to_i
     adjusted_quantity = order_item.adjust_quantity_by!(requested_quantity)
 
@@ -45,7 +45,7 @@ class OrderItemsController < ApplicationController
       flash[:error] = "Not enough #{order_item.product.name} in stock"
     end
 
-    redirect_to order_path(order)
+    redirect_to order_path(order_item.order)
   end
 
   def destroy

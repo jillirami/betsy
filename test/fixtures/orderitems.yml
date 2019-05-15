@@ -65,3 +65,9 @@ modelorderitem3:
   quantity: 4
   product: modelproduct
   order: two
+
+updateorderitem:
+  status: false
+  quantity: 2
+  product: updateorderitemproduct
+  order: two

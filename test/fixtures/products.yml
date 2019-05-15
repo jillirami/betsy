@@ -53,3 +53,12 @@ modelproduct:
   inventory: 5
   merchant: jewelry
   retired: false
+
+updateorderitemproduct:
+  name: Pretty Ring
+  price: 1
+  description: MyString
+  photo:
+  inventory: 5
+  merchant: bottles
+  retired: false
