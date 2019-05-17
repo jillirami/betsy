@@ -14,20 +14,14 @@ describe OrderItemsController do
       must_redirect_to products_path
     end
 
-    # it "will create an instance of an order if none already present" do
-    #   new_order = {
-    #     quantity: 225,
-    #     product_id: products(:three).id,
-    #   }
+    it "will create an instance of an order if none already present" do
+      new_order = {
+        quantity: 225,
+        product_id: products(:fourjr).id,
+      }
 
-    #   expect { post order_items_path, params: new_order }.must_change "Order.count", 1
-
-    #   # order_item = Orderitem.find_by(quantity: 225)
-
-    #   # expect(order_item).wont_be_nil
-
-    #   # expect(flash[:success]).must_equal "Item added to Cart"
-    # end
+      expect { post order_items_path, params: new_order }.must_change "Order.count", 1
+    end
 
     it "will not create an order item if not enough inventory present" do
       product = products(:three)
