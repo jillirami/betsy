@@ -111,51 +111,14 @@ describe OrderItemsController do
     end
   end
 
-  # describe "random_create" do
-  #   it "produced a random order item" do
-  #     order = orders(:neworder)
+  describe "shipment" do
+    it "adjusted order item status" do
+      orderitem = orderitems(:modelorderitem2)
 
-  #     expect {
-  #             post random_path, params: order
-  #           }.must_change "Orderitem.count", 1
-  #   end
-  # end
+      patch shipment_path(orderitem.id)
 
-  # describe "shipment" do
-  #   it "adjusted order item status" do
-  #     orderitem = orderitems(:modelorderitem2)
-
-  #     patch shipment_path(orderitem.id)
-  #     expect(orderitem.status).must_equal true
-  #   end
-  # end
+      expect(orderitem.status).must_equal false
+    end
+  end
 end
 
-
-
-
-
-
-    # it "will not create an instance of an order if already present" do
-    #   no_new_order = {
-    #     quantity: 50,
-    #     product_id: products(:three).id,
-    #     order_id: orders(:neworder).id,
-    #   }
-
-    #   expect{ post order_items_path, params: no_new_order }.wont_change "Orderitem.count"
-    # end
-
-    # it "can create an order item" do
-    #   newer_order = {
-    #     quantity: 50,
-    #     product_id: products(:fourjr).id,
-    #     order_id: orders(:neworder).id,
-    #   }
-
-    #   expect { post order_items_path, params: newer_order }.must_change "Orderitem.count", 1
-    # end
-  
-
-  # #   it "reduced inventory of product when order created" do
-  # #   end
